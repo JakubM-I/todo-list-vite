@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <p>ToDo list - soon</p>
+      <p>ToDo list - Will be here soon</p>
     </>
   )
 }
