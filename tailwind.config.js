@@ -28,6 +28,9 @@ export default {
       },
       height: {
         buttons: "min(max(6.412vw,30px),35px)"
+      },
+      size: {
+        buttons: "min(max(6.412vw,30px),35px)"
       }
     },
   },
