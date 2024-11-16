@@ -1,5 +1,6 @@
 import PageHeader from "../../common/Header";
 import PageSection from "../../common/PageSection";
+import AddMenu from "./AddMenu";
 
 const TasksApp = () => {
 
@@ -12,6 +13,7 @@ const TasksApp = () => {
        />
         <PageSection 
             title="Lista zadań"
+            menu={<AddMenu />}
             body={<p>ToDo list - Will be here soon</p>}
        />
         
