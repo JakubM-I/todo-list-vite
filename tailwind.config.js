@@ -22,7 +22,14 @@ export default {
       removeButton: "#EF4444",
     },
 
-    extend: {},
+    extend: {
+      width: {
+        buttons: "min(max(6.412vw,30px),35px)"
+      },
+      height: {
+        buttons: "min(max(6.412vw,30px),35px)"
+      }
+    },
   },
   plugins: [],
 }
