@@ -1,9 +1,11 @@
-const PageSection = ({title, body}) => (
+const PageSection = ({title, body, menu}) => (
     <div className="border border-solid border-borderGray">
-        <div className="border-b border-solid border-b-borderGray p-3 bg-primaryGreyColor flex">
-        <h2 className="text-lg/[1] font-bold grow">{title}</h2>
-        </div>
-       
+        {title ? (
+            <div className="border-b border-solid border-b-borderGray p-3 bg-primaryGreyColor flex">
+                <h2 className="text-lg/[1] font-bold grow">{title}</h2>
+                {menu}
+            </div>
+        ) : ""}
         <div className="p-3">
             {body}
         </div>

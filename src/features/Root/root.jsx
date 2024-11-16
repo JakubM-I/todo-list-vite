@@ -3,7 +3,7 @@ import MainElement from "../../common/Main";
 
 const RootElement = () =>  {
     return (
-        <div className="w-[min(1000px,calc(100%-20px))] mx-auto border border-solid border-borderGray">
+        <div className="w-[min(1000px,calc(100%-20px))] mx-auto">
             <MainElement>
                 <Outlet />
             </MainElement>
