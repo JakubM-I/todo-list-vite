@@ -1,9 +1,12 @@
-import PageHeader from "../../common/Header";
+import { useSelector } from "react-redux";
 import PageSection from "../../common/PageSection";
 import AddMenu from "./AddMenu";
 import TasksList from "./TaskList";
+import AddTaskForm from "./AddForm";
+import { addFormState } from "./taskSlice";
 
 const TasksApp = () => {
+    const openAddForm = useSelector(addFormState);
 
     return (
     <>
@@ -17,6 +20,7 @@ const TasksApp = () => {
             menu={<AddMenu />}
             body={<TasksList />}
        />
+       {openAddForm ? (<AddTaskForm />) : ""}
         
     </>
     )
