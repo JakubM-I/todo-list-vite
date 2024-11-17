@@ -8,7 +8,7 @@ import { taskSelector, toggleTaskDone } from "../taskSlice";
 
 const TasksList = () => {
     const {tasks} = useSelector(taskSelector);
-   
+    const dispatch = useDispatch();
 
     const toggleTaskPriority = (taskPriority) => {
         if(taskPriority === 0 || taskPriority === 1 ){
@@ -28,6 +28,7 @@ const TasksList = () => {
                 tasks.map(task => (
                     <li key={task.id} className="flex justify-between items-center gap-3 p-[5px] w-full border-b border-b-borderGray border-b-solid">
                     <button className="shrink-0 border border-solid border-borderGray rounded-full w-buttons h-buttons bg-doneButton flex justify-center items-center text-[#fff] text-[20px]"
+                    onClick={() => dispatch(toggleTaskDone(task.id))}
                     >
                         {task.taskDone ? (<BiCheckCircle />) : ""}
                     </button>

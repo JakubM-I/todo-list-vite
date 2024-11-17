@@ -28,7 +28,10 @@ const taskSlice = createSlice({
         ]
     },
     reducers: {
-
+        toggleTaskDone: (state, {payload: taskId}) => {
+            const index = state.tasks.findIndex(task => task.id === taskId);
+            state.tasks[index].taskDone = !state.tasks[index].taskDone;
+        }
     }
 });
 
