@@ -7,7 +7,7 @@ import { taskSelector, toggleTaskDone } from "../taskSlice";
 
 
 const TasksList = () => {
-    const {tasks} = useSelector(taskSelector);
+    const tasks = useSelector(taskSelector);
     const dispatch = useDispatch();
 
     const toggleTaskPriority = (taskPriority) => {

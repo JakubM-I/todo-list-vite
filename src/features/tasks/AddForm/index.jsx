@@ -1,9 +1,17 @@
+import { useDispatch } from "react-redux";
+import { closeAddForm } from "../taskSlice";
+
 const AddTaskForm = () => {
+    // const dispatch = useDispatch();
+
     return (
-        <div className="" >  
-            <p>Formularz</p>
-        </div>
-      
+        <>
+            <form>
+                <input type="text" />
+                <button>Dodaj</button>
+            </form>
+           
+        </>
     )
 };
 
