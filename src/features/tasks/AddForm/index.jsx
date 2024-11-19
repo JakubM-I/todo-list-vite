@@ -5,7 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 
 const AddTaskForm = () => {
     const dispatch = useDispatch();
-    const [taskName, setTaskName] = useState();
+    const [taskName, setTaskName] = useState("");
     const [taskDesc, setTaskDesc] = useState();
     const [taskPriority, setTaskPriority] = useState();
     const [taskDate, setTaskDate] = useState();

@@ -1,31 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { loadTaskFromLocalStorage } from "../../utils/localStorage";
 
 const taskSlice = createSlice({
     name: "tasksList",
     initialState: {
-        tasks: [
-            {
-                id: 1,
-                taskName: "Zadanie 1",
-                taskPriority: 0,
-                taskDone: false,
-                taskVisibility: true,
-            },
-            {
-                id: 2,
-                taskName: "Zadanie 2",
-                taskPriority: 3,
-                taskDone: true,
-                taskVisibility: true,
-            },
-            {
-                id: 3,
-                taskName: "Zadanie 3",
-                taskPriority: 2,
-                taskDone: false,
-                taskVisibility: true,
-            }
-        ],
+        tasks: loadTaskFromLocalStorage(),
         addFormOpen: false,
     },
     reducers: {
