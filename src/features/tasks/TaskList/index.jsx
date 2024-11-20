@@ -3,7 +3,7 @@ import { BiTrash } from "react-icons/bi";
 import priority1 from "../../../assets/priority-1-icon.png";
 import priority2 from "../../../assets/priority-2-icon.png"
 import { useDispatch, useSelector } from "react-redux";
-import { taskSelector, toggleTaskDone } from "../taskSlice";
+import { removeTask, taskSelector, toggleTaskDone } from "../taskSlice";
 
 
 const TasksList = () => {
@@ -40,7 +40,10 @@ const TasksList = () => {
                             {toggleTaskPriority(task.taskPriority)}
                             {/* <img src={priority1} alt="" /> */}
                         </span>
-                        <button className="shrink-0 border border-solid border-borderGray rounded-full w-buttons h-buttons bg-removeButton flex justify-center items-center text-[#fff] text-[20px]">
+                        <button 
+                            className="shrink-0 border border-solid border-borderGray rounded-full w-buttons h-buttons bg-removeButton flex justify-center items-center text-[#fff] text-[20px]"
+                            onClick={() => dispatch(removeTask(task.id))}
+                        >
                             <BiTrash />
                         </button>
                     </div>
