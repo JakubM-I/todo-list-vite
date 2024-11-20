@@ -4,6 +4,7 @@ import priority1 from "../../../assets/priority-1-icon.png";
 import priority2 from "../../../assets/priority-2-icon.png"
 import { useDispatch, useSelector } from "react-redux";
 import { removeTask, taskSelector, toggleTaskDone } from "../taskSlice";
+import { NavLink } from "react-router-dom";
 
 
 const TasksList = () => {
@@ -23,7 +24,7 @@ const TasksList = () => {
     }
 
     return (
-        <ul>
+        <ul className="grow">
             {
                 [...tasks]
                 .sort((a, b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
@@ -35,7 +36,9 @@ const TasksList = () => {
                         {task.taskDone ? (<BiCheckCircle />) : ""}
                     </button>
                         <div className="grow">
-                            {task.taskName}
+                            <NavLink to={`details/${task.id}`} >
+                                {task.taskName}
+                            </NavLink>
                         </div>
                     <div className="flex gap-[5px]">
                         <span className="size-buttons flex justify-center items-center">

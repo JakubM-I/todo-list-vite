@@ -35,5 +35,7 @@ const taskSlice = createSlice({
 export const taskStateSelector = state => state.tasks;
 export const taskSelector = state => taskStateSelector(state).tasks;
 export const addFormState = state => taskStateSelector(state).addFormOpen;
+export const searchTaskById = (state, taskId) => taskSelector(state).find(task => task.id === taskId);
+
 export const {addTask, toggleTaskDone, removeTask, openAddForm, closeAddForm} = taskSlice.actions;
 export default taskSlice.reducer;

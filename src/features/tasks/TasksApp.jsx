@@ -2,6 +2,7 @@
 import PageSection from "../../common/PageSection";
 import AddMenu from "./AddMenu";
 import TasksList from "./TaskList";
+import TasksListWrapper from "./TasksListWrapper";
 
 
 
@@ -9,7 +10,7 @@ const TasksApp = () => {
     
 
     return (
-    <>
+    <div>
        {/* <PageHeader title="Lista zadań" /> */}
        {/* <PageSection 
             title="Dodaj zadanie"
@@ -18,11 +19,10 @@ const TasksApp = () => {
         <PageSection 
             title="Lista zadań"
             menu={<AddMenu />}
-            body={<TasksList />}
+            body={<TasksListWrapper />}
        />
-       
         
-    </>
+    </div>
     )
 };
 

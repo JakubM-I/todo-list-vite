@@ -1,5 +1,6 @@
 
 import RootElement from "../features/Root/root";
+import TaskPage from "../features/tasks/TaskPage";
 import TasksApp from "../features/tasks/TasksApp";
 
 
@@ -9,9 +10,17 @@ export const routes = [
       element: <RootElement />,
       children: [
         {
-            index: true,
-            element: <TasksApp />
-        }
+            // index: true,
+            path: "/",
+            element: <TasksApp />,
+            children: [
+              {
+                path: "details/:id",
+                element: <TaskPage />
+              }
+            ]
+        },
+
       ]
       
     }
