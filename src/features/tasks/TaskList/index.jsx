@@ -25,7 +25,9 @@ const TasksList = () => {
     return (
         <ul>
             {
-                tasks.map(task => (
+                [...tasks]
+                .sort((a, b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
+                .map(task => (
                     <li key={task.id} className="flex justify-between items-center gap-3 p-[5px] w-full border-b border-b-borderGray border-b-solid">
                     <button className="shrink-0 border border-solid border-borderGray rounded-full w-buttons h-buttons bg-doneButton flex justify-center items-center text-[#fff] text-[20px]"
                     onClick={() => dispatch(toggleTaskDone(task.id))}
