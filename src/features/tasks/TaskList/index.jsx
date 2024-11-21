@@ -4,12 +4,13 @@ import priority1 from "../../../assets/priority-1-icon.png";
 import priority2 from "../../../assets/priority-2-icon.png"
 import { useDispatch, useSelector } from "react-redux";
 import { removeTask, taskSelector, toggleTaskDone } from "../taskSlice";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 const TasksList = () => {
     const tasks = useSelector(taskSelector);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const toggleTaskPriority = (taskPriority) => {
         if(taskPriority === 0 || taskPriority === 1 ){
@@ -23,6 +24,10 @@ const TasksList = () => {
         return <img src={priority1} alt="" /> 
     }
 
+    const onTaskClick = (taskId) => {
+        navigate(`details/${taskId}`)
+    }
+
     return (
         <ul className="grow">
             {
@@ -30,15 +35,18 @@ const TasksList = () => {
                 .sort((a, b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
                 .map(task => (
                     <li key={task.id} className="flex justify-between items-center gap-3 p-[5px] w-full border-b border-b-borderGray border-b-solid">
-                    <button className="shrink-0 border border-solid border-borderGray rounded-full w-buttons h-buttons bg-doneButton flex justify-center items-center text-[#fff] text-[20px]"
+                    <button className="group shrink-0 border border-solid border-borderGray rounded-full w-buttons h-buttons bg-doneButton flex justify-center items-center text-[#fff] text-[20px]"
                     onClick={() => dispatch(toggleTaskDone(task.id))}
                     >
+                        {!task.taskDone ? (<span className="opacity-0 group-hover:opacity-100 transition-opacity duration-[450ms] delay-100"><BiCheckCircle /></span>) : "" }
+                        
                         {task.taskDone ? (<BiCheckCircle />) : ""}
                     </button>
                         <div className="grow">
-                            <NavLink to={`details/${task.id}`} >
+                            <div className="cursor-pointer" onClick={() => onTaskClick(task.id)}>{task.taskName}</div>
+                            {/* <NavLink to={`details/${task.id}`} >
                                 {task.taskName}
-                            </NavLink>
+                            </NavLink> */}
                         </div>
                     <div className="flex gap-[5px]">
                         <span className="size-buttons flex justify-center items-center">
