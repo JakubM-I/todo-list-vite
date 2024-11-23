@@ -45,19 +45,22 @@ const AddTaskForm = () => {
 
     return (
         <>
-            <form className="flex flex-col gap-[6px]">
-                <input type="text"  
+            <form className="flex flex-col gap-[10px]">
+                <input type="text"
+                    className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm"  
                     placeholder="Nazwa Zadania" 
                     value={taskName} 
                     ref={taskNameRef} 
                     onChange={({target}) => setTaskName(target.value)}/>
                 <input type="text" 
+                    className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm"
                     placeholder="Opis"
                     value={taskDesc}
                     onChange={({target}) => setTaskDesc(target.value)}
                 />
-                <div>
+                <div className="flex flex-nowrap gap-2 justify-start items-center">
                     <select 
+                        className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
                         name="priority"
                         value={taskPriority}
                         onChange={({target}) => setTaskPriority(target.value)}
@@ -68,6 +71,7 @@ const AddTaskForm = () => {
                         <option value="3">Wysoki</option>
                     </select>
                     <input 
+                        className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
                         type="date" 
                         name="date" 
                         id=""
@@ -75,6 +79,7 @@ const AddTaskForm = () => {
                         onChange={({target}) => setTaskDate(target.value)}
                     />
                     <select 
+                        className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
                         name="" 
                         id=""
                         value={taskCategory}
