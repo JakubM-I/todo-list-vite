@@ -18,7 +18,7 @@ const TaskPage = () => {
                 </span>
             </div>
 
-             <h3 className="font-bold text-base/[1] bg-primaryGreyColor p-2">{task.taskName}</h3>
+             <h3 className="border-t border-x rounded border-solid border-borderGray  font-bold text-base/[1] bg-primaryGreyColor p-2 ">{task.taskName}</h3>
              <div className="border rounded border-solid border-borderGray p-2">
                 <p className="block pb-2 text-sm mb-2">{task.taskDesc}</p>
                 <div className="flex gap-2 ">
