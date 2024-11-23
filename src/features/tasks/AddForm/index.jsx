@@ -45,7 +45,7 @@ const AddTaskForm = () => {
 
     return (
         <>
-            <form>
+            <form className="flex flex-col gap-[6px]">
                 <input type="text"  
                     placeholder="Nazwa Zadania" 
                     value={taskName} 
@@ -85,7 +85,11 @@ const AddTaskForm = () => {
                         <option value="osobiste">Osobiste</option>
                     </select>
                 </div>
-                <button onClick={onFormSubmit}>Dodaj</button>
+                <div className="flex items-center justify-end">
+                    <button
+                        className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue"
+                        onClick={onFormSubmit}>Dodaj</button>
+                </div>
             </form>
            
         </>
