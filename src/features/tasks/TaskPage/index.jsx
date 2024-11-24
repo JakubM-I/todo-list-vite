@@ -11,11 +11,11 @@ const TaskPage = () => {
     console.log(task)
 
     const toggleTaskPriority = (taskPriority) => {
-        if(taskPriority === 0 || taskPriority === 1 ){
+        if(taskPriority === "0" || taskPriority === "1" ){
             return "";
         };
 
-        if(taskPriority === 2){
+        if(taskPriority === "2"){
             return <img src={priority2} alt="" className="w-[1.2em] h-[1.2em]"/>
         }
 

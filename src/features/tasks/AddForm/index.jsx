@@ -7,7 +7,7 @@ const AddTaskForm = () => {
     const dispatch = useDispatch();
     const [taskName, setTaskName] = useState("");
     const [taskDesc, setTaskDesc] = useState();
-    const [taskPriority, setTaskPriority] = useState();
+    const [taskPriority, setTaskPriority] = useState("0");
     const [taskDate, setTaskDate] = useState();
     const [taskCategory, setTaskCategory] = useState();
     const taskNameRef = useRef();

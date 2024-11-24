@@ -3,7 +3,7 @@ import { BiTrash } from "react-icons/bi";
 import priority1 from "../../../assets/priority-1-icon.png";
 import priority2 from "../../../assets/priority-2-icon.png"
 import { useDispatch, useSelector } from "react-redux";
-import { removeTask, taskSelector, toggleTaskDone } from "../taskSlice";
+import { openAddForm, removeTask, taskSelector, toggleTaskDone } from "../taskSlice";
 import { NavLink, useNavigate } from "react-router-dom";
 
 
@@ -13,11 +13,11 @@ const TasksList = () => {
     const navigate = useNavigate();
 
     const toggleTaskPriority = (taskPriority) => {
-        if(taskPriority === 0 || taskPriority === 1 ){
+        if(taskPriority === "0" || taskPriority === "1" ){
             return "";
         };
 
-        if(taskPriority === 2){
+        if(taskPriority === "2"){
             return <img src={priority2} alt="" />
         }
 
@@ -26,6 +26,7 @@ const TasksList = () => {
 
     const onTaskClick = (taskId) => {
         navigate(`details/${taskId}`)
+        dispatch(openAddForm())
     }
 
     return (
