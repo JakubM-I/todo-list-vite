@@ -41,7 +41,7 @@ const TaskPage = () => {
                 <div className="flex gap-2 items-center">
                     {task.taskDate ? (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>) : ""}
                     {task.taskCategory ? (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>) : ""}
-                    {task.taskPriority ? (<p className="block text-xs/[1] p-[4px] border border-solid border-borderGray rounded">{toggleTaskPriority(task.taskPriority)}</p>) : ""}
+                    {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px] border border-solid border-borderGray rounded">{toggleTaskPriority(task.taskPriority)}</p>) }
                 </div>
              </div>
 
