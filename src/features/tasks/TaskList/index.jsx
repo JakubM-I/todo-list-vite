@@ -44,7 +44,10 @@ const TasksList = () => {
                         {task.taskDone ? (<BiCheckCircle />) : ""}
                     </button>
                         <div className="grow">
-                            <div className="cursor-pointer" onClick={() => onTaskClick(task.id)}>{task.taskName}</div>
+                            <div className={`cursor-pointer  ${task.taskDone ? "line-through text-disabledGray" : ""}`} 
+                            onClick={() => onTaskClick(task.id)}>
+                                {task.taskName}
+                            </div>
                             {/* <NavLink to={`details/${task.id}`} >
                                 {task.taskName}
                             </NavLink> */}
