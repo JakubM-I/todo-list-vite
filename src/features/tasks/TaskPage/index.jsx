@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { searchTaskById } from "../taskSlice";
 import priority1 from "../../../assets/priority-1-icon.png";
 import priority2 from "../../../assets/priority-2-icon.png"
+import { BiCheckCircle } from "react-icons/bi";
 
 const TaskPage = () => {
     const {id} = useParams();
@@ -31,8 +32,10 @@ const TaskPage = () => {
                     </Link>
                 </span>
             </div>
-
-             <h3 className="border-t border-x rounded-t border-solid border-borderGray  font-bold text-base/[1] bg-primaryGreyColor p-2 ">{task.taskName}</h3>
+            <div className="flex justify-start items-center border-t border-x rounded-t border-solid border-borderGray bg-primaryGreyColor">
+            <span className="flex justify-center items-center pl-2 text-doneButton">{task.taskDone ? (<BiCheckCircle />) : ""}</span>
+            <h3 className="  font-bold text-base/[1] p-2 ">{task.taskName}</h3>
+            </div>
              <div className="border rounded-b border-solid border-borderGray p-2">
                 <p className="block text-sm/[1.2] mb-3">{task.taskDesc}</p>
                 <div className="flex gap-2 items-center">
