@@ -3,6 +3,7 @@ import PageSection from "../../common/PageSection";
 import AddMenu from "./AddMenu";
 import TasksList from "./TaskList";
 import TasksListWrapper from "./TasksListWrapper";
+import TasksMenu from "./TasksMenu";
 
 
 
@@ -18,7 +19,8 @@ const TasksApp = () => {
        /> */}
         <PageSection 
             title="Lista zadań"
-            menu={<AddMenu />}
+            headerMenu={<AddMenu />}
+            menu={<TasksMenu />}
             body={<TasksListWrapper />}
        />
         
