@@ -23,6 +23,27 @@ const taskSlice = createSlice({
             // state.tasks = state.tasks.filter(task => task.id !== taskId )
         },
 
+        toggleAllTaskDone: ({tasks}) => {
+            // tasks.map(task => task.taskDone = true)
+            for(const task of tasks){
+                task.taskDone = true;
+            }
+        },
+
+        hideDoneTasks: ({tasks}) => {
+            tasks.forEach(task => {
+                if(task.taskDone === true){
+                    task.taskVisibility = !task.taskVisibility;
+                }
+            })
+            // const doneTasks = tasks.filter(task => task.taskDone === true)
+            // for(const task of doneTasks){
+            //     if(task.taskDone){
+            //         task.taskVisibility = !tasks.taskVisibility;
+            //     }
+            // }
+        },
+
         openAddForm: state => {
             state.addFormOpen = true;
         },
@@ -36,6 +57,7 @@ export const taskStateSelector = state => state.tasks;
 export const taskSelector = state => taskStateSelector(state).tasks;
 export const addFormState = state => taskStateSelector(state).addFormOpen;
 export const searchTaskById = (state, taskId) => taskSelector(state).find(task => task.id === taskId);
+export const anyHiddenTask = state => taskSelector(state).some(task => task.taskVisibility === false)
 
-export const {addTask, toggleTaskDone, removeTask, openAddForm, closeAddForm} = taskSlice.actions;
+export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, openAddForm, closeAddForm} = taskSlice.actions;
 export default taskSlice.reducer;
