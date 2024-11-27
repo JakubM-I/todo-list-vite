@@ -7,9 +7,7 @@ import { BiCheckCircle } from "react-icons/bi";
 
 const TaskPage = () => {
     const {id} = useParams();
-    console.log(id)
     const task = useSelector(state => searchTaskById(state, id));
-    console.log(task)
 
     const toggleTaskPriority = (taskPriority) => {
         if(taskPriority === "0" || taskPriority === "1" ){
