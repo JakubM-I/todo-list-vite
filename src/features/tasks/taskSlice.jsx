@@ -44,6 +44,12 @@ const taskSlice = createSlice({
             // }
         },
 
+        fetchEXampleTask: () => {},
+
+        loadExampleTasks: (state, {payload: exampleTasks}) => {
+            state.tasks = exampleTasks;
+        },
+
         openAddForm: state => {
             state.addFormOpen = true;
         },
@@ -60,5 +66,5 @@ export const searchTaskById = (state, taskId) => taskSelector(state).find(task =
 export const anyHiddenTask = state => taskSelector(state).some(task => task.taskVisibility === false);
 export const allTaskDone = state => taskSelector(state).every(task => task.taskDone === true);
 
-export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, openAddForm, closeAddForm} = taskSlice.actions;
+export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, fetchEXampleTask, loadExampleTasks, openAddForm, closeAddForm} = taskSlice.actions;
 export default taskSlice.reducer;
