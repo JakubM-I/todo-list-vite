@@ -10,8 +10,22 @@ const NavBar = () => (
         </div>
         <div className="absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]">
             <ul className="flex justify-center items-center gap-3">
-                <li><NavLink to={"/"}>Zadania</NavLink> </li>
-                <li><NavLink to={"categories"}>Kategorie</NavLink></li>
+                <li>
+                    <NavLink 
+                        to={"/"} 
+                        className="hover:text-primaryBlueHover"
+                    >
+                        Zadania
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink 
+                        to={"categories"}
+                        className="hover:text-primaryBlueHover"
+                    >
+                        Kategorie
+                    </NavLink>
+                </li>
             </ul>
         </div>
         <div className="ml-auto">
