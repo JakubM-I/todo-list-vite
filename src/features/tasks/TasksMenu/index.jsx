@@ -11,7 +11,7 @@ const TasksMenu = () => {
     return (
         <>
             {tasks.length > 0 && (<div className="w-[calc(100%-20px)] mx-auto border-x border-b border-borderGray border-solid rounded-b">
-                <ul className="flex justify-end items-center gap-4 p-[5px] pr-2 text-sm">
+                <ul className="flex flex-wrap justify-center items-center gap-2 p-[5px] pr-2 text-sm mobile-l:justify-end mobile-l:flex-nowrap mobile-l:gap-4">
                     <li>
                         <button 
                             className="disabled:text-disabledGray"
