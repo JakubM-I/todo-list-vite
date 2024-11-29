@@ -31,6 +31,10 @@ export default {
       },
       size: {
         buttons: "min(max(6.412vw,30px),35px)"
+      },
+      screens: {
+        "mobile-l": "425px",
+        "mobile-m": "375px",
       }
     },
   },
