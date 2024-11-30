@@ -3,14 +3,16 @@ import { BiTrash } from "react-icons/bi";
 import priority1 from "../../../assets/priority-1-icon.png";
 import priority2 from "../../../assets/priority-2-icon.png"
 import { useDispatch, useSelector } from "react-redux";
-import { openAddForm, removeTask, taskSelector, toggleTaskDone } from "../taskSlice";
-import { NavLink, useNavigate } from "react-router-dom";
+import { openAddForm, removeTask, searchTaskBtQuery, taskSelector, toggleTaskDone } from "../taskSlice";
+import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 
 
 const TasksList = () => {
-    const tasks = useSelector(taskSelector);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const query = searchParams.get("szukaj")
+    const tasks = useSelector(state => searchTaskBtQuery(state, query));
 
     const toggleTaskPriority = (taskPriority) => {
         if(taskPriority === "0" || taskPriority === "1" ){
