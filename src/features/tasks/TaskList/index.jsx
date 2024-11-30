@@ -27,8 +27,8 @@ const TasksList = () => {
     }
 
     const onTaskClick = (taskId) => {
-        navigate(`details/${taskId}`)
-        dispatch(openAddForm())
+        navigate(`details/${taskId}${query ? `?szukaj=${query}` : ""}`)
+        // dispatch(openAddForm())
     }
 
     return (
