@@ -1,17 +1,21 @@
 import { useRef, useState } from "react";
 import { BiSearch } from "react-icons/bi";
+import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import { openSearchingTasks } from "../../features/tasks/taskSlice";
 
 const SearchBar = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [query, setQuery] = useState(searchParams.get("szukaj"));
     const inputRef = useRef(null);
+    const dispatch= useDispatch();
 
     const searchOnSubmit = (e) => {
         e.preventDefault();
         setSearchParams(query.trim() 
             ? {szukaj: query} 
             : searchParams.delete("szukaj"))
+        dispatch(openSearchingTasks());
         setQuery("");
         inputRef.current.focus();
     }

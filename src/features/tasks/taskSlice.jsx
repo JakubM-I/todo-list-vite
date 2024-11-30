@@ -7,6 +7,7 @@ const taskSlice = createSlice({
         tasks: loadTaskFromLocalStorage(),
         addFormOpen: false,
     },
+    isSearching: false,
     reducers: {
         addTask: ({tasks}, {payload: newTask}) => {
             tasks.push(newTask)
@@ -53,8 +54,17 @@ const taskSlice = createSlice({
         openAddForm: state => {
             state.addFormOpen = true;
         },
+
         closeAddForm: state => {
             state.addFormOpen = false;
+        },
+
+        openSearchingTasks: state => {
+            state.isSearching = true;
+        },
+
+        closeSearchingTasks: state => {
+            state.isSearching = false;
         }
     }
 });
@@ -74,7 +84,8 @@ export const searchTaskBtQuery = (state, query) => {
     }
 
     return taskSelector(state).filter(task => task.taskName.toUpperCase().includes(query.trim().toUpperCase()) );
-}
+};
+export const isTaskSearching = state => taskStateSelector(state).isSearching;
 
-export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, fetchEXampleTask, loadExampleTasks, openAddForm, closeAddForm} = taskSlice.actions;
+export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, fetchEXampleTask, loadExampleTasks, openSearchingTasks, closeSearchingTasks, openAddForm, closeAddForm} = taskSlice.actions;
 export default taskSlice.reducer;
