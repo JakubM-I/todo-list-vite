@@ -65,6 +65,7 @@ export const addFormState = state => taskStateSelector(state).addFormOpen;
 export const searchTaskById = (state, taskId) => taskSelector(state).find(task => task.id === taskId);
 export const anyHiddenTask = state => taskSelector(state).some(task => task.taskVisibility === false);
 export const allTaskDone = state => taskSelector(state).every(task => task.taskDone === true);
+export const AnyTaskDone = state => taskSelector(state).some(task => task.taskDone === true)
 
 export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, fetchEXampleTask, loadExampleTasks, openAddForm, closeAddForm} = taskSlice.actions;
 export default taskSlice.reducer;
