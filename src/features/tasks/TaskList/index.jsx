@@ -86,7 +86,7 @@ const TasksList = () => {
                                         </span>
                                         <button 
                                             title="Usuń"
-                                            className="shrink-0 border border-solid border-primaryLightColor rounded-full w-[22px] h-[22px] flex justify-center items-center text-primaryTextColor text-[18px]"
+                                            className="shrink-0 p-[3px] border border-solid border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded w-[24px] h-[24px] flex justify-center items-center text-primaryTextColor text-[18px]"
                                             onClick={() => dispatch(removeTask(task.id))}
                                         >
                                             <BiTrash />
