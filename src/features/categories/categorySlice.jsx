@@ -11,8 +11,8 @@ const categorySlice = createSlice({
         },
 
         deleteCategory: ({categories}, {payload: categoryId}) => {
-            const categroyIndex = categories.findIndex(category => category.categoryId === categoryId);
-            categories.slice(categroyIndex, 0);
+            const categoryIndex = categories.findIndex(category => category.categoryId === categoryId);
+            categories.splice(categoryIndex, 0);
         }
     },
 
