@@ -58,7 +58,8 @@ const TasksList = () => {
                                 {date.date}
                             </h3>
                         )}
-                            {[...tasks]
+                           <ul>
+                           {[...tasks]
                             .filter(task => task.taskDate === date.date)
                             .sort((a, b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
                             .map(task => (
@@ -94,6 +95,7 @@ const TasksList = () => {
                                     </div>
                                 </li>
                             ))}
+                           </ul>
                     </li>
                 ))
             }
