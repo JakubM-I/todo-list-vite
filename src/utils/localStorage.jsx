@@ -12,7 +12,7 @@ export const saveCategoryToLocalStorage = (categories) => {
 export const loadCategoryFromLocalStorage = () => 
     JSON.parse(localStorage.getItem("categories")) || [
         {
-            "categoryId": "2",   
+            "categoryId": "1",   
             "categoryName": "Osobiste"
         },
         {
