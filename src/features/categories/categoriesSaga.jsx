@@ -1,4 +1,4 @@
-import { select, takeEvery } from "redux-saga/effects";
+import { call, select, takeEvery } from "redux-saga/effects";
 import { categorySelector } from "./categorySlice";
 import { saveCategoryToLocalStorage } from "../../utils/localStorage";
 
