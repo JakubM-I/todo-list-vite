@@ -26,5 +26,9 @@ export const loadCategoryFromLocalStorage = () =>
         {
             "categoryId": "4",   
             "categoryName": "Sport"
+        },
+        {
+            "categoryId": "5",   
+            "categoryName": "Zakupy"
         }
     ];

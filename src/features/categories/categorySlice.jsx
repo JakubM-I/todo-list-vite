@@ -21,7 +21,7 @@ const categorySlice = createSlice({
 });
 
 export const categoryStateSelector = state => state.categories;
-export const categorySelector = state => categoryStateSelector(state).categories
+export const categorySelector = state => categoryStateSelector(state).categories;
 
 export const {addCategory, deleteCategory} = categorySlice.actions;
 export default categorySlice.reducer;
