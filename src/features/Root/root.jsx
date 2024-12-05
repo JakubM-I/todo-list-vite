@@ -4,11 +4,24 @@ import NavBar from "../../common/NavBar";
 import AddTaskForm from "../tasks/AddForm";
 import { useSelector } from "react-redux";
 import PopupModal from "../../common/PopupModal";
-import { modalOpenSelector } from "../../common/PopupModal/modalSlice";
+import { modalOpenElementSelector, modalOpenSelector } from "../../common/PopupModal/modalSlice";
+import AddCategoryForm from "../categories/AddForm";
 
 const RootElement = () =>  {
     const openModal = useSelector(modalOpenSelector);
-    console.log(openModal);
+    const {title, body} = useSelector(modalOpenElementSelector)
+    console.log("openModal:", openModal);
+    console.log("title:", title, "body:", body)
+
+    const toggleBodyElement = (body) => {
+        if(body === "taskForm"){
+            return (<AddTaskForm />)
+        }
+
+        if(body === "categoryForm"){
+            return (<AddCategoryForm />)
+        }
+    }
 
     return (
         <div className="relative">
@@ -20,8 +33,8 @@ const RootElement = () =>  {
             </div>
             {openModal ? (
                 <PopupModal 
-                    title="Nowe zadanie"
-                    body={<AddTaskForm />}
+                    title={title}
+                    body={toggleBodyElement(body)}
                 />
             ) : ""}
         </div>
