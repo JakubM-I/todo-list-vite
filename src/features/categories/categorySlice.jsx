@@ -13,7 +13,7 @@ const categorySlice = createSlice({
 
         deleteCategory: ({categories}, {payload: categoryId}) => {
             const categoryIndex = categories.findIndex(category => category.categoryId === categoryId);
-            categories.splice(categoryIndex, 0);
+            categories.splice(categoryIndex, 1);
         }
     },
 

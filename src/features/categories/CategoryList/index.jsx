@@ -3,11 +3,12 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 import { BiEdit } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
-import { useSelector } from "react-redux";
-import { categorySelector, categoryStateSelector } from "../categorySlice";
+import { useDispatch, useSelector } from "react-redux";
+import { categorySelector, categoryStateSelector, deleteCategory } from "../categorySlice";
 
 const CategoryList = () => {
     const categories = useSelector(categorySelector);
+    const dispatch = useDispatch();
     console.log(categories);
     
     return (
@@ -24,6 +25,7 @@ const CategoryList = () => {
                                 </button>
                                 <button
                                     title="Usuń"
+                                    onClick={() => dispatch(deleteCategory(category.categoryId))}
                                     className="p-[3px] mb-1 border border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded"
                                 >
                                     <BiTrash />
