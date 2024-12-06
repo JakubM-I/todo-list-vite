@@ -10,8 +10,6 @@ import AddCategoryForm from "../categories/AddForm";
 const RootElement = () =>  {
     const openModal = useSelector(modalOpenSelector);
     const {title, body} = useSelector(modalOpenElementSelector)
-    console.log("openModal:", openModal);
-    console.log("title:", title, "body:", body)
 
     const toggleBodyElement = (body) => {
         if(body === "taskForm"){
