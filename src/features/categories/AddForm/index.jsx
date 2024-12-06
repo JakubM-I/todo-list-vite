@@ -26,11 +26,18 @@ const AddCategoryForm = () => {
         >
             <input 
                 className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm" 
-                type="text" 
+                type="text"
+                placeholder="Nazwa kategorii" 
                 value={categoryName}
                 onChange={({target}) => setCategoryName(target.value)}
             />
-            <button>Zapisz</button>
+            <div className="flex items-center justify-end">
+                <button 
+                    className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue"
+                >
+                    Dodaj
+                </button>
+            </div>
         </form>
     )
 };
