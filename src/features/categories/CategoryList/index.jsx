@@ -4,11 +4,25 @@ import { FaRegEdit } from "react-icons/fa";
 import { BiEdit } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { categorySelector, categoryStateSelector, deleteCategory } from "../categorySlice";
+import { categorySelector, categoryStateSelector, deleteCategory, editCategory } from "../categorySlice";
+import { openModal } from "../../../common/PopupModal/modalSlice";
 
 const CategoryList = () => {
     const categories = useSelector(categorySelector);
     const dispatch = useDispatch();
+    const openElement = {
+        title: "Edytuj kategorię",
+        body: "categoryForm",
+    }
+
+    const handleEdit = (category) => {
+        dispatch(openModal({
+            title: "Edytuj kategorię",
+            body: "categoryForm",
+            data: category,
+        }))
+    }
+
     console.log(categories);
     
     return (
@@ -21,7 +35,9 @@ const CategoryList = () => {
                                     title="Edytuj"
                                     className="p-[3px] mb-1 border border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded"
                                 >
-                                    <BiEditAlt />
+                                    <BiEditAlt
+                                        onClick={() => handleEdit(category)}
+                                    />
                                 </button>
                                 <button
                                     title="Usuń"
