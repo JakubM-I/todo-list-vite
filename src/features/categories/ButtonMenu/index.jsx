@@ -5,9 +5,10 @@ import { openModal } from "../../../common/PopupModal/modalSlice";
 const ButtonMenu = () => {
     const dispatch = useDispatch();
     const openElement = {
-        title: "Nowe zadanie",
+        title: "Nowa kategoria",
         body: "categoryForm",
     }
+
     return (
         <AddButton 
             title="Dodaj kategorię"

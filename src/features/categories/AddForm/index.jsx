@@ -1,22 +1,32 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addCategory } from "../categorySlice";
+import { addCategory, editCategory } from "../categorySlice";
 import { nanoid } from "@reduxjs/toolkit";
 
-const AddCategoryForm = () => {
+const AddCategoryForm = ({editedCategory = null}) => {
     const dispatch = useDispatch();
-    const [categoryName, setCategoryName] = useState();
+    const [categoryName, setCategoryName] = useState(editedCategory?.categoryName || "");
+    const isEdit = !!editedCategory;
 
     const categorySubmit = (e) => {
         e.preventDefault();
         if(!categoryName.trim()){
             return;
         }
+        
+        if(isEdit) {
+            dispatch(editCategory({
+                categoryId: editedCategory.categoryId,
+                categoryName: categoryName.trim(),
+            }))
 
-        dispatch(addCategory({
-            categoryId: nanoid(),
-            categoryName: categoryName.trim(),
-        }))
+        } else {
+            dispatch(addCategory({
+                categoryId: nanoid(),
+                categoryName: categoryName.trim(),
+            }))
+        }
+        
     }
 
     return (
@@ -35,7 +45,7 @@ const AddCategoryForm = () => {
                 <button 
                     className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue"
                 >
-                    Dodaj
+                   {isEdit ? "Zapis" : "Dodaj"}
                 </button>
             </div>
         </form>
