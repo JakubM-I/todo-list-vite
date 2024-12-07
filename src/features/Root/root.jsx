@@ -9,15 +9,15 @@ import AddCategoryForm from "../categories/AddForm";
 
 const RootElement = () =>  {
     const openModal = useSelector(modalOpenSelector);
-    const {title, body} = useSelector(modalOpenElementSelector)
+    const {title, body, data} = useSelector(modalOpenElementSelector)
 
-    const toggleBodyElement = (body) => {
+    const toggleBodyElement = (body, data) => {
         if(body === "taskForm"){
             return (<AddTaskForm />)
         }
 
         if(body === "categoryForm"){
-            return (<AddCategoryForm />)
+            return (<AddCategoryForm editedCategory={data} />)
         }
     }
 
@@ -32,7 +32,7 @@ const RootElement = () =>  {
             {openModal ? (
                 <PopupModal 
                     title={title}
-                    body={toggleBodyElement(body)}
+                    body={toggleBodyElement(body, data)}
                 />
             ) : ""}
         </div>
