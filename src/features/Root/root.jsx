@@ -5,7 +5,7 @@ import AddTaskForm from "../tasks/AddForm";
 import { useSelector } from "react-redux";
 import PopupModal from "../../common/PopupModal";
 import { modalOpenElementSelector, modalOpenSelector } from "../../common/PopupModal/modalSlice";
-import AddCategoryForm from "../categories/AddForm";
+import CategoryForm from "../categories/CategoryForm";
 
 const RootElement = () =>  {
     const openModal = useSelector(modalOpenSelector);
@@ -17,7 +17,7 @@ const RootElement = () =>  {
         }
 
         if(body === "categoryForm"){
-            return (<AddCategoryForm editedCategory={data} />)
+            return (<CategoryForm editedCategory={data} />)
         }
     }
 

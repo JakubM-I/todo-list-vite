@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addCategory, editCategory } from "../categorySlice";
 import { nanoid } from "@reduxjs/toolkit";
 
-const AddCategoryForm = ({editedCategory = null}) => {
+const CategoryForm = ({editedCategory = null}) => {
     const dispatch = useDispatch();
     const [categoryName, setCategoryName] = useState(editedCategory?.categoryName || "");
     const isEdit = !!editedCategory;
@@ -52,4 +52,4 @@ const AddCategoryForm = ({editedCategory = null}) => {
     )
 };
 
-export default AddCategoryForm;
+export default CategoryForm;
