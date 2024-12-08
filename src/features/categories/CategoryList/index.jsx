@@ -30,12 +30,11 @@ const CategoryList = () => {
                             <h2 className="text-primaryTextColor text-base">{category.categoryName}</h2>
                             <div className="flex justify-center items-center gap-2 ml-auto mr-0">
                                 <button 
+                                    onClick={() => handleEdit(category)}
                                     title="Edytuj"
                                     className="p-[3px] mb-1 border border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded"
                                 >
-                                    <BiEditAlt
-                                        onClick={() => handleEdit(category)}
-                                    />
+                                    <BiEditAlt />
                                 </button>
                                 <button
                                     title="Usuń"
