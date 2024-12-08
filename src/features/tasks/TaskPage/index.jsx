@@ -6,6 +6,7 @@ import priority2 from "../../../assets/priority-2-icon.png"
 import { BiCheckCircle } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
 import { useState } from "react";
+import EditTaskForm from "../EditForm";
 
 const TaskPage = () => {
     const {id} = useParams();
@@ -40,7 +41,11 @@ const TaskPage = () => {
                     </button>
                 </span>
             </div>
-            {isEdit ? (<p>Edycja zadania</p>) : (
+            {isEdit ? (
+                <EditTaskForm 
+                    editedTask = {task}
+                />
+                ) : (
                 <>
                     <div className="flex justify-start items-center border-t border-x rounded-t border-solid border-borderGray bg-primaryGreyColor">
                         <span className="flex justify-center items-center pl-2 text-doneButton">{task.taskDone ? (<BiCheckCircle />) : ""}</span>
