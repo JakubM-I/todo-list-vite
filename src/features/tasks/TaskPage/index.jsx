@@ -44,6 +44,7 @@ const TaskPage = () => {
             {isEdit ? (
                 <EditTaskForm 
                     editedTask = {task}
+                    onCancel = {() => setIsEdit(false)}
                 />
                 ) : (
                 <>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editTask } from "../taskSlice";
 
-const EditTaskForm = ({editedTask}) => {
+const EditTaskForm = ({editedTask, onCancel}) => {
     const [editTaskData, setEditTaskData] = useState(
         {
             id: editedTask.id,
@@ -62,7 +62,8 @@ const EditTaskForm = ({editedTask}) => {
                         </div> */}
                     </div>
                     <div>
-                        <button>Zapisz</button>
+                        <button onClick={onCancel} >Anuluj</button>
+                        <button type="submit">Zapisz</button>
                     </div>
             </form>
     </>
