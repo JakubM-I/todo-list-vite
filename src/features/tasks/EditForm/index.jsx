@@ -1,19 +1,25 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { editTask } from "../taskSlice";
 
 const EditTaskForm = ({editedTask}) => {
     const [editTaskData, setEditTaskData] = useState(
         {
-            id: editedTask.id, 
+            id: editedTask.id,
+            taskCategory: editedTask.taskCategory,
+            taskDate: editedTask.taskDate,
+            taskDesc: editedTask.taskDesc,
             taskDone: editedTask.taskDone,
             taskName: editedTask.taskName,
-            taskDesc: editedTask.taskDesc,
+            taskPriority: editedTask.taskPriority,
+            taskVisibility: editedTask.taskVisibility
         }
-    ) 
+    ); 
+    const dispatch = useDispatch();
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-
-
+        dispatch(editTask(editTaskData))
     }
 
     return (
@@ -54,6 +60,9 @@ const EditTaskForm = ({editedTask}) => {
                             {task.taskCategory && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>)}
                             {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px] border border-solid border-borderGray rounded">{toggleTaskPriority(task.taskPriority)}</p>) }
                         </div> */}
+                    </div>
+                    <div>
+                        <button>Zapisz</button>
                     </div>
             </form>
     </>
