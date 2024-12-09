@@ -1,6 +1,6 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { searchTaskById } from "../taskSlice";
+import { editTask, searchTaskById } from "../taskSlice";
 import priority1 from "../../../assets/priority-1-icon.png";
 import priority2 from "../../../assets/priority-2-icon.png"
 import { BiCheckCircle } from "react-icons/bi";
@@ -15,6 +15,7 @@ const TaskPage = () => {
     const [isEdit, setIsEdit] = useState(false);
     const query = searchParams.get("szukaj");
     const task = useSelector(state => searchTaskById(state, id));
+    const dispatch = useDispatch();
 
     const toggleTaskPriority = (taskPriority) => {
         if(taskPriority === "0" || taskPriority === "1" ){
@@ -45,6 +46,10 @@ const TaskPage = () => {
                 <EditTaskForm 
                     editedTask = {task}
                     onCancel = {() => setIsEdit(false)}
+                    onSubmit = {(editedTask) => {
+                        dispatch(editTask(editedTask));
+                        setIsEdit(false);
+                    }}
                 />
                 ) : (
                 <>

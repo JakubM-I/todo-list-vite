@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { editTask } from "../taskSlice";
 
-const EditTaskForm = ({editedTask, onCancel}) => {
+const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
     const [editTaskData, setEditTaskData] = useState(
         {
             id: editedTask.id,
@@ -15,11 +13,10 @@ const EditTaskForm = ({editedTask, onCancel}) => {
             taskVisibility: editedTask.taskVisibility
         }
     ); 
-    const dispatch = useDispatch();
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        dispatch(editTask(editTaskData))
+        onSubmit(editTaskData);
     }
 
     return (
