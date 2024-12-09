@@ -56,12 +56,12 @@ const TaskPage = () => {
                     <div className="flex justify-start items-center border-t border-x rounded-t border-solid border-borderGray bg-primaryGreyColor">
                         <span className="flex justify-center items-center pl-2 text-doneButton">{task.taskDone ? (<BiCheckCircle />) : ""}</span>
                         <h3 className="font-bold text-base/[1] p-2 ">{task.taskName}</h3>
-                        <button 
+                        {!task.taskDone  && (<button 
                             className="ml-auto mr-2 p-[3px] border border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded"
                             onClick={() => setIsEdit(true)}
                         >
                             <BiEditAlt />
-                        </button>
+                        </button>)}
                     </div>
                     <div className="border rounded-b border-solid border-borderGray p-2">
                         <p className="block text-sm/[1.2] mb-3">{task.taskDesc}</p>
