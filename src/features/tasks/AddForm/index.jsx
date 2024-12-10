@@ -1,10 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTask, closeAddForm } from "../taskSlice";
 import { useEffect, useRef, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
+import { categorySelector } from "../../categories/categorySlice";
 
 const AddTaskForm = () => {
     const dispatch = useDispatch();
+    const categories = useSelector(categorySelector);
     const [taskName, setTaskName] = useState("");
     const [taskDesc, setTaskDesc] = useState();
     const [taskPriority, setTaskPriority] = useState("0");
@@ -85,9 +87,12 @@ const AddTaskForm = () => {
                         value={taskCategory}
                         onChange={({target}) => setTaskCategory(target.value)}
                     >
-                        <option value="domowe">Domowe</option>
+                        {categories.map(category => (
+                            <option key={category.categoryId} value={category.categoryName.toLowerCase()}>{category.categoryName}</option>
+                        ))}
+                        {/* <option value="domowe">Domowe</option>
                         <option value="praca">Praca</option>
-                        <option value="osobiste">Osobiste</option>
+                        <option value="osobiste">Osobiste</option> */}
                     </select>
                 </div>
                 <div className="flex items-center justify-end">
