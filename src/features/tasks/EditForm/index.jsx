@@ -16,7 +16,10 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        onSubmit(editTaskData);
+        onSubmit({
+            ...editedTask,
+            ...editTaskData
+        });
     }
 
     return (
