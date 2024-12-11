@@ -60,8 +60,18 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                             className="block text-sm/[1.2] mb-3" />
                                 {/* {editedTask.taskDesc}</input> */}
                         <div className="flex gap-2 items-center">
-                            {/* {task.taskDate && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>)} */}
-                            {/* {editTaskData.taskCategory && ( */}
+                            <input 
+                                className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
+                                type="date"
+                                name="date"
+                                value={editTaskData.taskDate}
+                                onChange={({target}) => setEditTaskData(prev => ({
+                                    ...prev,
+                                    taskDate: target.value,
+                                }))}
+                            />
+                               
+                            
                                 <select 
                                     className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
                                     value={editTaskData.taskCategory}
@@ -81,7 +91,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                                     ))}
                                        
                                 </select>
-                            {/* )} */}
+                            
                             {/* {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px] border border-solid border-borderGray rounded">{toggleTaskPriority(task.taskPriority)}</p>) } */}
                         </div>
                     </div>
