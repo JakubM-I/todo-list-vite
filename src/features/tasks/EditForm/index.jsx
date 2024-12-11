@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { categorySelector } from "../../categories/categorySlice";
+
 
 const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
     const [editTaskData, setEditTaskData] = useState(
@@ -13,6 +16,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
             taskVisibility: editedTask.taskVisibility
         }
     ); 
+    const categories = useSelector(categorySelector);
 
     const onFormSubmit = (e) => {
         e.preventDefault();
@@ -55,11 +59,31 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                             )}
                             className="block text-sm/[1.2] mb-3" />
                                 {/* {editedTask.taskDesc}</input> */}
-                        {/* <div className="flex gap-2 items-center">
-                            {task.taskDate && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>)}
-                            {task.taskCategory && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>)}
-                            {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px] border border-solid border-borderGray rounded">{toggleTaskPriority(task.taskPriority)}</p>) }
-                        </div> */}
+                        <div className="flex gap-2 items-center">
+                            {/* {task.taskDate && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>)} */}
+                            {/* {editTaskData.taskCategory && ( */}
+                                <select 
+                                    className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
+                                    value={editTaskData.taskCategory}
+                                    onChange={({target}) => setEditTaskData(prev => ({
+                                        ...prev,
+                                        taskCategory: target.value,
+                                        })
+                                    )}
+                                >
+                                    {categories.map(category => (
+                                        <option 
+                                            key={category.categoryId}
+                                            value={category.categoryName.toLowerCase()}    
+                                        >
+                                            {category.categoryName}
+                                        </option>
+                                    ))}
+                                       
+                                </select>
+                            {/* )} */}
+                            {/* {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px] border border-solid border-borderGray rounded">{toggleTaskPriority(task.taskPriority)}</p>) } */}
+                        </div>
                     </div>
                     <div>
                         <button onClick={onCancel} >Anuluj</button>
