@@ -68,31 +68,42 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                                 onChange={({target}) => setEditTaskData(prev => ({
                                     ...prev,
                                     taskDate: target.value,
-                                }))}
+                                    })
+                                )}
                             />
-                               
-                            
-                                <select 
-                                    className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
-                                    value={editTaskData.taskCategory}
-                                    onChange={({target}) => setEditTaskData(prev => ({
-                                        ...prev,
-                                        taskCategory: target.value,
-                                        })
-                                    )}
-                                >
-                                    {categories.map(category => (
-                                        <option 
-                                            key={category.categoryId}
-                                            value={category.categoryName.toLowerCase()}    
-                                        >
-                                            {category.categoryName}
-                                        </option>
-                                    ))}
-                                       
-                                </select>
-                            
-                            {/* {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px] border border-solid border-borderGray rounded">{toggleTaskPriority(task.taskPriority)}</p>) } */}
+                            <select 
+                                className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
+                                value={editTaskData.taskCategory}
+                                onChange={({target}) => setEditTaskData(prev => ({
+                                    ...prev,
+                                    taskCategory: target.value,
+                                    })
+                                )}
+                            >
+                                {categories.map(category => (
+                                    <option 
+                                        key={category.categoryId}
+                                        value={category.categoryName.toLowerCase()}    
+                                    >
+                                        {category.categoryName}
+                                    </option>
+                                ))}           
+                            </select>
+                            <select 
+                                className="block text-xs/[1] p-[4px] border border-solid border-borderGray rounded"
+                                name="priority"
+                                value={editTaskData.taskPriority}
+                                onChange={({target}) => setEditTaskData(prev => ({
+                                    ...prev,
+                                    taskPriority: target.value,
+                                    })
+                                )}
+                            >
+                                <option value="0">Priorytet</option>
+                                <option value="1">Brak</option>
+                                <option value="2">Średni</option>
+                                <option value="3">Wysoki</option>
+                            </select>
                         </div>
                     </div>
                     <div>
