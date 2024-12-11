@@ -59,7 +59,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                             )}
                             className="block text-sm/[1.2] mb-3" />
                                 {/* {editedTask.taskDesc}</input> */}
-                        <div className="flex gap-2 items-center">
+                        <div className="flex gap-2 items-center mb-3">
                             <input 
                                 className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
                                 type="date"
@@ -105,11 +105,22 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                                 <option value="3">Wysoki</option>
                             </select>
                         </div>
+                        <div className="flex justify-end items-center gap-2">
+                            <button 
+                                className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue"
+                                onClick={onCancel} 
+                            >
+                                Anuluj
+                            </button>
+                            <button
+                                className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue" 
+                                type="submit"
+                            >
+                                Zapisz
+                            </button>
+                        </div>                                    
                     </div>
-                    <div>
-                        <button onClick={onCancel} >Anuluj</button>
-                        <button type="submit">Zapisz</button>
-                    </div>
+
             </form>
     </>
     )
