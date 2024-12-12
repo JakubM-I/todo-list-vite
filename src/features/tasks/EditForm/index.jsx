@@ -36,7 +36,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
             <form onSubmit={onFormSubmit}>
                 <div className="flex justify-start items-center border-t border-x rounded-t border-solid border-borderGray bg-primaryGreyColor">
                         <input 
-                            className="font-bold text-base/[1] p-2 bg-primaryGreyColor flex-grow focus-visible:none"
+                            className="font-bold text-base/[1] p-2 bg-primaryGreyColor flex-grow focus-visible outline-none"
                             type="text" 
                             ref={nameRef}
                             value={editTaskData.taskName}
