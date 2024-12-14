@@ -64,7 +64,7 @@ const TaskPage = () => {
                         </button>)}
                     </div>
                     <div className="border rounded-b border-solid border-borderGray p-2">
-                        <p className="block text-sm/[1.2] mb-3">{task.taskDesc}</p>
+                        <p className="block text-sm/[1.2] mb-3 p-1">{task.taskDesc}</p>
                         <div className="flex gap-2 items-center">
                             {task.taskDate && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>)}
                             {task.taskCategory && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>)}

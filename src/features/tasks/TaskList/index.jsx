@@ -96,9 +96,10 @@ const TasksList = () => {
                                         </div>
                                     </div>
                                     <div className="flex justify-start items-center gap-2">
-                                        <span className="w-[22px] h-[22px] flex justify-center items-center">
+                                    {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] w-[22px] h-[22px]">{toggleTaskPriority(task.taskPriority)}</p>) }
+                                        {/* <span className="w-[22px] h-[22px] flex justify-center items-center">
                                             {toggleTaskPriority(task.taskPriority)}   
-                                        </span>
+                                        </span> */}
                                         {task.taskCategory && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>)}
                                     </div>
                                     

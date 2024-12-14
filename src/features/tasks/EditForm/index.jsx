@@ -63,7 +63,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                                 taskDesc: target.value,
                                 })
                             )}
-                            className="block text-sm/[1.2] mb-3 w-full" />
+                            className="block text-sm/[1.2] mb-3 p-1 w-full border-solid border-borderGray focus:outline-none focus:border-b" />
                                 {/* {editedTask.taskDesc}</input> */}
                         <div className="flex gap-2 items-center mb-3">
                             <input 
