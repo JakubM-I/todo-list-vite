@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { openAddForm, removeTask, searchTaskBtQuery, taskSelector, toggleTaskDone } from "../taskSlice";
 import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
+import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 {/* <BiCheck /> */}
 {/* <BiCheckCircle /> */}
 
@@ -18,17 +19,17 @@ const TasksList = () => {
     const query = searchParams.get("szukaj")
     const tasks = useSelector(state => searchTaskBtQuery(state, query));
 
-    const toggleTaskPriority = (taskPriority) => {
-        if(taskPriority === "0" || taskPriority === "1" ){
-            return "";
-        };
+    // const toggleTaskPriority = (taskPriority) => {
+    //     if(taskPriority === "0" || taskPriority === "1" ){
+    //         return "";
+    //     };
 
-        if(taskPriority === "2"){
-            return <img src={priority2} alt="" />
-        }
+    //     if(taskPriority === "2"){
+    //         return <img src={priority2} alt=""  className="w-[1.2em] h-[1.2em]"/>
+    //     }
 
-        return <img src={priority1} alt="" /> 
-    }
+    //     return <img src={priority1} alt="" className="w-[1.2em] h-[1.2em]" /> 
+    // }
 
     const onTaskClick = (taskId) => {
         navigate(`details/${taskId}${query ? `?szukaj=${query}` : ""}`)
@@ -96,7 +97,7 @@ const TasksList = () => {
                                         </div>
                                     </div>
                                     <div className="flex justify-start items-center gap-2">
-                                    {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] w-[22px] h-[22px]">{toggleTaskPriority(task.taskPriority)}</p>) }
+                                    {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px]">{toggleTaskPriority(task.taskPriority)}</p>) }
                                         {/* <span className="w-[22px] h-[22px] flex justify-center items-center">
                                             {toggleTaskPriority(task.taskPriority)}   
                                         </span> */}

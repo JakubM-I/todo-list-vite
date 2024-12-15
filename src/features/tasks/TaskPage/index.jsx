@@ -7,6 +7,7 @@ import { BiCheckCircle } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
 import { useState } from "react";
 import EditTaskForm from "../EditForm";
+import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 
 const TaskPage = () => {
     const {id} = useParams();
@@ -17,17 +18,17 @@ const TaskPage = () => {
     const task = useSelector(state => searchTaskById(state, id));
     const dispatch = useDispatch();
 
-    const toggleTaskPriority = (taskPriority) => {
-        if(taskPriority === "0" || taskPriority === "1" ){
-            return "";
-        };
+    // const toggleTaskPriority = (taskPriority) => {
+    //     if(taskPriority === "0" || taskPriority === "1" ){
+    //         return "";
+    //     };
 
-        if(taskPriority === "2"){
-            return <img src={priority2} alt="" className="w-[1.2em] h-[1.2em]"/>
-        }
+    //     if(taskPriority === "2"){
+    //         return <img src={priority2} alt="" className="w-[1.2em] h-[1.2em]"/>
+    //     }
 
-        return <img src={priority1} alt="" className="w-[1.2em] h-[1.2em]"/> 
-    };
+    //     return <img src={priority1} alt="" className="w-[1.2em] h-[1.2em]"/> 
+    // };
 
     const onClickBack = () => {
         navigate(`/${query ? `?szukaj=${query}` : ""}`)
