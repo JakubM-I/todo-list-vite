@@ -7,6 +7,7 @@ const taskSlice = createSlice({
         tasks: loadTaskFromLocalStorage(),
         addFormOpen: false,
         isSearching: false,
+        sortType: "date",
     },
     
     reducers: {
@@ -71,7 +72,11 @@ const taskSlice = createSlice({
 
         closeSearchingTasks: state => {
             state.isSearching = false;
-        }
+        },
+
+        toggleSortType: (state, {payload: sortType}) => {
+            state.sortType = sortType;
+        },
     }
 });
 
@@ -92,6 +97,7 @@ export const searchTaskBtQuery = (state, query) => {
     return taskSelector(state).filter(task => task.taskName.toUpperCase().includes(query.trim().toUpperCase()) );
 };
 export const isTaskSearching = state => taskStateSelector(state).isSearching;
+export const tasksSortType = state => taskStateSelector(state).sortType;
 
-export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, editTask, fetchEXampleTask, loadExampleTasks, openSearchingTasks, closeSearchingTasks, openAddForm, closeAddForm} = taskSlice.actions;
+export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, editTask, fetchEXampleTask, loadExampleTasks, openSearchingTasks, closeSearchingTasks, openAddForm, closeAddForm, toggleSortType} = taskSlice.actions;
 export default taskSlice.reducer;
