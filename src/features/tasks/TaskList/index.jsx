@@ -33,7 +33,6 @@ const TasksList = () => {
     //     return <img src={priority1} alt="" className="w-[1.2em] h-[1.2em]" /> 
     // }
 
-    console.log(groups);
 
     const onTaskClick = (taskId) => {
         navigate(`details/${taskId}${query ? `?szukaj=${query}` : ""}`)

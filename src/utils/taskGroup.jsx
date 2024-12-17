@@ -4,52 +4,37 @@ import { useSearchParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 
 export const groupTask = () => {
-     const [searchParams] = useSearchParams();
-        
+    const [searchParams] = useSearchParams();
     const query = searchParams.get("szukaj")
     const tasks = useSelector(state => searchTaskBtQuery(state, query));
     const sortType = useSelector(tasksSortType);
    
-    let group = {};
+    if(sortType === "date"){
+        const allDatesList = tasks.map(task => ({ id: nanoid(), date: task.taskDate }))
 
-   if(sortType === "date"){
-    const allDatesList = tasks.map(task => ({ id: nanoid(), date: task.taskDate }))
-
-    const sortedDatesList = [...new Map(allDatesList.map((m) => [m.date || "no-date", m]))
-        .values()]
-        .sort((a, b) => {
+        const sortedDatesList = [...new Map(allDatesList.map((m) => [m.date || "no-date", m]))
+            .values()]
+            .sort((a, b) => {
                 if(!a.date) return -1;
                 if(!b.date) return 1;
         
                 return new Date(b.date) - new Date(a.date);
             });
 
-    // const groupSorted = [...datesList]
-    // .sort((a, b) => {
-    //     if(!a.date) return -1;
-    //     if(!b.date) return 1;
+        const groupedTasks = sortedDatesList.map(dataGroup => ({
+            ...dataGroup,
+            tasks: tasks
+            .filter(task => task.taskDate === dataGroup.date)
+            .sort((a, b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
+        }))
 
-    //     return new Date(b.date) - new Date(a.date);
-    // });
-    // console.log(groupSorted);
-    // console.log(tasks)
-
-    const groupedTasks = sortedDatesList.map(dataGroup => ({
-        ...dataGroup,
-        tasks: tasks
-        .filter(task => task.taskDate === dataGroup.date)
-        .sort((a, b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
-    }))
-
-    // return group = {
-    //     sortedGroup: groupSorted,
-    //     groupedTasks: groupTask,
-    // }\
-
-
-    return {
-        groups: groupedTasks
+        return {
+            groups: groupedTasks
+        };    
     };
-   };
+
+    if(sortType === "category"){
+        
+    }
 };
 
