@@ -21,7 +21,7 @@ export const groupTask = () => {
                 return new Date(b.date) - new Date(a.date);
             });
 
-        const groupedTasks = sortedDatesList.map(dataGroup => ({
+        const groupedDateTasks = sortedDatesList.map(dataGroup => ({
             ...dataGroup,
             tasks: tasks
             .filter(task => task.taskDate === dataGroup.date)
@@ -29,12 +29,26 @@ export const groupTask = () => {
         }))
 
         return {
-            groups: groupedTasks
+            groups: groupedDateTasks
         };    
     };
 
     if(sortType === "category"){
-        
+        const allCategoriesList = tasks.map(task => ({ id: nanoid(), category: task.taskCategory }));
+        const sortedCategoryList = [...new Map(allCategoriesList.map((m) => [m.category || "no-category", m]))
+            .values()]
+            .sort((a, b) => a.category.localeCompare(b.category));
+
+            const groupedCategoryTasks = sortedCategoryList.map(categoryGroup => ({
+                ...categoryGroup,
+                tasks: tasks
+                .filter(task => task.taskCategory === categoryGroup.category)
+                .sort((a,b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
+            }));
+
+            return {
+                groups: groupedCategoryTasks
+            }
     }
 };
 
