@@ -51,9 +51,9 @@ const TasksList = () => {
                         key={group.id}
                         className="pb-2"
                     >
-                        {group.date && (
+                        {group.label && (
                             <h3 className="pb-2 font-bold text-lg">
-                                {group.date}
+                                {group.label}
                             </h3>
                         )}
                            <ul>
