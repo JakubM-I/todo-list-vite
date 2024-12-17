@@ -10,7 +10,7 @@ export const groupTask = () => {
     const sortType = useSelector(tasksSortType);
    
     if(sortType === "date"){
-        const allDatesList = tasks.map(task => ({ id: nanoid(), date: task.taskDate }))
+        const allDatesList = tasks.map(task => ({ id: nanoid(), date: task.taskDate, label: task.taskDate || "" }))
 
         const sortedDatesList = [...new Map(allDatesList.map((m) => [m.date || "no-date", m]))
             .values()]
@@ -34,10 +34,16 @@ export const groupTask = () => {
     };
 
     if(sortType === "category"){
-        const allCategoriesList = tasks.map(task => ({ id: nanoid(), category: task.taskCategory }));
+        const allCategoriesList = tasks.map(task => ({ id: nanoid(), category: task.taskCategory, label: task.taskCategory || "" }));
         const sortedCategoryList = [...new Map(allCategoriesList.map((m) => [m.category || "no-category", m]))
             .values()]
-            .sort((a, b) => a.category.localeCompare(b.category));
+            .sort((a, b) => {
+                if (!a.category) return -1;
+                if (!b.category) return 1;
+
+                return a.category.localeCompare(b.category);
+            });
+                
 
             const groupedCategoryTasks = sortedCategoryList.map(categoryGroup => ({
                 ...categoryGroup,
