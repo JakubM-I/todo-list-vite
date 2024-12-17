@@ -4,11 +4,12 @@ import { BiTrash } from "react-icons/bi";
 import priority1 from "../../../assets/priority-1-icon.png";
 import priority2 from "../../../assets/priority-2-icon.png"
 import { useDispatch, useSelector } from "react-redux";
-import { openAddForm, removeTask, searchTaskBtQuery, taskSelector, toggleTaskDone } from "../taskSlice";
+import { openAddForm, removeTask, searchTaskBtQuery, taskSelector, tasksSortType, toggleTaskDone } from "../taskSlice";
 import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 import {groupTask} from "../../../utils/taskGroup";
+
 {/* <BiCheck /> */}
 {/* <BiCheckCircle /> */}
 
@@ -20,6 +21,7 @@ const TasksList = () => {
     const query = searchParams.get("szukaj")
     const tasks = useSelector(state => searchTaskBtQuery(state, query));
     const {groups} = groupTask();
+    const sortType = useSelector(tasksSortType);
 
     // const toggleTaskPriority = (taskPriority) => {
     //     if(taskPriority === "0" || taskPriority === "1" ){
@@ -92,8 +94,9 @@ const TasksList = () => {
                                         </div>
                                     </div>
                                     <div className="flex justify-start items-center gap-2">
-                                    {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px]">{toggleTaskPriority(task.taskPriority)}</p>) }
-                                        {task.taskCategory && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>)}
+                                        {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px]">{toggleTaskPriority(task.taskPriority)}</p>) }
+                                        {sortType === "date" && task.taskCategory && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>)}
+                                        {sortType === "category" && task.taskDate && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>)}
                                     </div>
                                     
                                 </li>
