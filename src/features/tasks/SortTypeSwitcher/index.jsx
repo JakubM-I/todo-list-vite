@@ -1,16 +1,15 @@
-import { useDispatch } from "react-redux";
-import { toggleSortType } from "../taskSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { tasksSortType, toggleSortType } from "../taskSlice";
 import { useState } from "react";
 
 const SortTypeSwitcher = () => {
+    const currentSortType = useSelector(tasksSortType)
     const dispatch = useDispatch();
-    const [selectedSortType, setSelectedSortType] = useState("date");
+    const [selectedSortType, setSelectedSortType] = useState(currentSortType);
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        dispatch(toggleSortType({
-            sortType: selectedSortType
-        }))
+        dispatch(toggleSortType(selectedSortType))
     }
 
     return (
@@ -37,6 +36,7 @@ const SortTypeSwitcher = () => {
                             name="sortType" 
                             id="category" 
                             value="category" 
+                            checked={selectedSortType === "category"}
                             onChange={({target}) => setSelectedSortType(target.value)}
                         />
                     </div>
