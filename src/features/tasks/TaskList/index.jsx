@@ -54,7 +54,7 @@ const TasksList = () => {
                         className="pb-2"
                     >
                         {group.label && (
-                            <h3 className="pb-2 font-bold text-lg">
+                            <h3 className="pb-2 font-bold text-l capitalize">
                                 {group.label}
                             </h3>
                         )}
