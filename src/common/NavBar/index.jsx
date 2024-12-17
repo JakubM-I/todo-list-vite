@@ -26,6 +26,14 @@ const NavBar = () => (
                         Kategorie
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink 
+                        to={"configuration"}
+                        className="hover:text-primaryBlueHover"
+                    >
+                        Ustawienia
+                    </NavLink>
+                </li>
             </ul>
         </div>
         <div className="ml-auto">
