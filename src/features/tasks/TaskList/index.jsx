@@ -4,11 +4,12 @@ import { BiTrash } from "react-icons/bi";
 import priority1 from "../../../assets/priority-1-icon.png";
 import priority2 from "../../../assets/priority-2-icon.png"
 import { useDispatch, useSelector } from "react-redux";
-import { openAddForm, removeTask, searchTaskBtQuery, taskSelector, tasksSortType, toggleTaskDone } from "../taskSlice";
+import { openAddForm, removeTask, searchTaskBtQuery, taskSelector, toggleTaskDone } from "../taskSlice";
 import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 import {groupTask} from "../../../utils/taskGroup";
+import { configurationSortTypeSelector } from "../../configuration/configurationSlice";
 
 {/* <BiCheck /> */}
 {/* <BiCheckCircle /> */}
@@ -21,7 +22,7 @@ const TasksList = () => {
     const query = searchParams.get("szukaj")
     const tasks = useSelector(state => searchTaskBtQuery(state, query));
     const {groups} = groupTask();
-    const sortType = useSelector(tasksSortType);
+    const sortType = useSelector(configurationSortTypeSelector);
 
     // const toggleTaskPriority = (taskPriority) => {
     //     if(taskPriority === "0" || taskPriority === "1" ){

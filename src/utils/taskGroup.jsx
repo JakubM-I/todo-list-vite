@@ -1,13 +1,15 @@
 import { useSelector } from "react-redux";
-import { searchTaskBtQuery, tasksSortType } from "../features/tasks/taskSlice";
+import { searchTaskBtQuery } from "../features/tasks/taskSlice";
 import { useSearchParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
+import { configurationSortTypeSelector } from "../features/configuration/configurationSlice";
 
 export const groupTask = () => {
     const [searchParams] = useSearchParams();
     const query = searchParams.get("szukaj")
     const tasks = useSelector(state => searchTaskBtQuery(state, query));
-    const sortType = useSelector(tasksSortType);
+    // const sortType = useSelector(tasksSortType);
+    const sortType = useSelector(configurationSortTypeSelector);
    
     if(sortType === "date"){
         const allDatesList = tasks.map(task => ({ id: nanoid(), date: task.taskDate, label: task.taskDate || "" }))
