@@ -3,6 +3,7 @@ import { addTask, closeAddForm } from "../taskSlice";
 import { useEffect, useRef, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { categorySelector } from "../../categories/categorySlice";
+import { closeModal } from "../../../common/PopupModal/modalSlice";
 
 const AddTaskForm = () => {
     const dispatch = useDispatch();
@@ -25,6 +26,10 @@ const AddTaskForm = () => {
         setTaskDate(currentDate)
     }, [currentDate]);
 
+    useEffect(() => {
+        taskNameRef.current.focus();
+    },[])
+
     const onFormSubmit = (e) => {
         e.preventDefault();
         if(!taskName.trim()){
@@ -41,7 +46,8 @@ const AddTaskForm = () => {
             taskDone: false,
             taskVisibility: true,
         }))
-        taskNameRef.current.focus();
+        dispatch(closeModal());
+        // taskNameRef.current.focus();
     }
     
 
@@ -49,13 +55,13 @@ const AddTaskForm = () => {
         <>
             <form className="flex flex-col gap-[10px]">
                 <input type="text"
-                    className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm"  
+                    className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm focus-visible outline-none"  
                     placeholder="Nazwa Zadania" 
                     value={taskName} 
                     ref={taskNameRef} 
                     onChange={({target}) => setTaskName(target.value)}/>
                 <input type="text" 
-                    className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm"
+                    className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm focus-visible outline-none"
                     placeholder="Opis"
                     value={taskDesc}
                     onChange={({target}) => setTaskDesc(target.value)}
