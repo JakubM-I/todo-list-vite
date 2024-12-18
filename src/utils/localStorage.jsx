@@ -38,4 +38,4 @@ export const saveConfigurationToLocalStorage = (configuration) => {
 };
 
 export const loadConfigurationFromLocalStorage = () => 
-    JSON.parse(localStorage.getItem("configuration")) || "data";
+    JSON.parse(localStorage.getItem("configuration"));

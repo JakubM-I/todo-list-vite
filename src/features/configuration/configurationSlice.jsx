@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { loadConfigurationFromLocalStorage } from "../../utils/localStorage";
 
 // const initialState = 
 
 const configurationSlice = createSlice({
     name: "configuration",
     initialState: {
-            sortType: "date",
+            sortType: loadConfigurationFromLocalStorage()?.sortType || "date",
+            lang: "PL",
     },
 
     reducers: {
