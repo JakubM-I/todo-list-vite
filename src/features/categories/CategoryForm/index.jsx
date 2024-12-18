@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addCategory, editCategory } from "../categorySlice";
 import { nanoid } from "@reduxjs/toolkit";
@@ -7,6 +7,11 @@ const CategoryForm = ({editedCategory = null}) => {
     const dispatch = useDispatch();
     const [categoryName, setCategoryName] = useState(editedCategory?.categoryName || "");
     const isEdit = !!editedCategory;
+    const categoryNameRef = useRef();
+
+    useEffect(() => {
+        categoryNameRef.current.focus()
+    },[])
 
     const categorySubmit = (e) => {
         e.preventDefault();
@@ -35,9 +40,10 @@ const CategoryForm = ({editedCategory = null}) => {
             className="flex flex-col gap-[10px]"
         >
             <input 
-                className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm" 
+                className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm focus-visible outline-none" 
                 type="text"
                 placeholder="Nazwa kategorii" 
+                ref={categoryNameRef}
                 value={categoryName}
                 onChange={({target}) => setCategoryName(target.value)}
             />
