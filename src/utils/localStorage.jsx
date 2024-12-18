@@ -32,3 +32,10 @@ export const loadCategoryFromLocalStorage = () =>
             "categoryName": "Zakupy"
         }
     ];
+
+export const saveConfigurationToLocalStorage = (configuration) => {
+    localStorage.setItem("configuration", JSON.stringify(configuration))
+};
+
+export const loadConfigurationFromLocalStorage = () => 
+    JSON.parse(localStorage.getItem("configuration")) || "data";
