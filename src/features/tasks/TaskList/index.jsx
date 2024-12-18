@@ -9,7 +9,7 @@ import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 import {groupTask} from "../../../utils/taskGroup";
-import { configurationSortTypeSelector } from "../../configuration/configurationSlice";
+import { configSortTypeSelector } from "../../configuration/configurationSlice";
 
 {/* <BiCheck /> */}
 {/* <BiCheckCircle /> */}
@@ -22,7 +22,7 @@ const TasksList = () => {
     const query = searchParams.get("szukaj")
     const tasks = useSelector(state => searchTaskBtQuery(state, query));
     const {groups} = groupTask();
-    const sortType = useSelector(configurationSortTypeSelector);
+    const sortType = useSelector(configSortTypeSelector);
 
     // const toggleTaskPriority = (taskPriority) => {
     //     if(taskPriority === "0" || taskPriority === "1" ){

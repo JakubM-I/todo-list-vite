@@ -15,8 +15,8 @@ const configurationSlice = createSlice({
     }
 });
 
-export const configurationStateSelector = state => state.configuration;
-export const configurationSortTypeSelector = state => configurationStateSelector(state).sortType;
+export const configStateSelector = state => state.configuration;
+export const configSortTypeSelector = state => configStateSelector(state).sortType;
 
 export const {toggleSortType} = configurationSlice.actions;
 export default configurationSlice.reducer;
