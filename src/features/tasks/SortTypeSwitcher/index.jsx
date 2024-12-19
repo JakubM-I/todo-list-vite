@@ -14,7 +14,7 @@ const SortTypeSwitcher = () => {
     }
 
     return (
-        <div>
+        <div className="border border-solid border-borderGray p-2 w-[min(210px,100%)]">
             <p className="pb-2 font-bold text-base">Domyślne sortowanie</p>
             <form onSubmit={onFormSubmit}
                 className="ml-2"
@@ -45,9 +45,11 @@ const SortTypeSwitcher = () => {
                         <label className="cursor-pointer" htmlFor="category">Kategorie</label>
                     </div>
                 </div>
-                <button className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue">
-                    Zpisz
-                </button>
+                <div className="flex justify-end pr-2">
+                    <button className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue">
+                        Zpisz
+                    </button>
+                </div>
             </form>
         </div>
     )
