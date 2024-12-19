@@ -4,7 +4,6 @@ const ConfigurationPage = () => {
 
     return (
         <>
-        <p>Konfiguracja</p>
         <SortTypeSwitcher />
         </>
     )
