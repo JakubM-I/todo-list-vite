@@ -10,28 +10,7 @@ export const saveCategoryToLocalStorage = (categories) => {
 };
 
 export const loadCategoryFromLocalStorage = () => 
-    JSON.parse(localStorage.getItem("categories")) || [
-        {
-            "categoryId": "1",   
-            "categoryName": "Osobiste"
-        },
-        {
-            "categoryId": "2",   
-            "categoryName": "Praca"
-        },
-        {
-            "categoryId": "3",   
-            "categoryName": "Domowe"
-        },
-        {
-            "categoryId": "4",   
-            "categoryName": "Sport"
-        },
-        {
-            "categoryId": "5",   
-            "categoryName": "Zakupy"
-        }
-    ];
+    JSON.parse(localStorage.getItem("categories")) || [];
 
 export const saveConfigurationToLocalStorage = (configuration) => {
     localStorage.setItem("configuration", JSON.stringify(configuration))
