@@ -1,5 +1,5 @@
-import { call, put, select, takeLatest } from "redux-saga/effects";
-import { configStateSelector, fetchExampleData, toggleSortType } from "./configurationSlice";
+import { call, delay, put, select, takeLatest } from "redux-saga/effects";
+import { configStateSelector, fetchExampleData, successFetchExampeData, toggleSortType } from "./configurationSlice";
 import { saveConfigurationToLocalStorage } from "../../utils/localStorage";
 import { fetchExampleDataFile } from "../../utils/fetchExampleTasks";
 import { loadExampleTasks } from "../tasks/taskSlice";
@@ -13,12 +13,15 @@ function* saveConfigToLocalStorageWorker() {
 
 function* loadExampleDataWorker() {
     try {
+        yield delay(1000);
         const exampleData = yield call(fetchExampleDataFile);
         yield put(loadExampleTasks(exampleData.tasks));
         yield put(loadExampleCategories(exampleData.categories));
+
+        yield put(successFetchExampeData());
     } catch (error) {
         yield call(alert, "Błąd wgrywania")
-        yield console.log(error);
+        yield console.error(error);
     }
 }
 

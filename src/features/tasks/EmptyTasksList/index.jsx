@@ -22,7 +22,7 @@ const EmptyTasksList = () => {
                     </span>
                 </>
                 ) 
-            };
+            }
         </div>
     )
 };
