@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { fetchEXampleTask } from "../taskSlice";
 import { fetchExampleData } from "../../configuration/configurationSlice";
 
 const EmptyTasksList = () => {

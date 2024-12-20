@@ -1,4 +1,4 @@
-import { call, select, takeLatest } from "redux-saga/effects";
+import { call, put, select, takeLatest } from "redux-saga/effects";
 import { configStateSelector, fetchExampleData, toggleSortType } from "./configurationSlice";
 import { saveConfigurationToLocalStorage } from "../../utils/localStorage";
 import { fetchExampleDataFile } from "../../utils/fetchExampleTasks";
