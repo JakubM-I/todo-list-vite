@@ -1,7 +1,8 @@
 import { call, put, select, takeEvery, takeLatest } from "redux-saga/effects";
 import { fetchEXampleTask, loadExampleTasks, taskSelector } from "./taskSlice";
 import { saveTaskToLocalStorage } from "../../utils/localStorage";
-import { fetchExampleTasksFile } from "../../utils/fetchExampleTasks";
+import { fetchExampleDataFile } from "../../utils/fetchExampleTasks";
+import { fetchExampleData } from "../configuration/configurationSlice";
 
 function* saveTaskLocalStorageWorker(){
     const tasks = yield select(taskSelector);
@@ -12,7 +13,7 @@ function* saveTaskLocalStorageWorker(){
 
 function* fetchExampleTasksWorker() {
     try{
-        const tasks = yield call(fetchExampleTasksFile);
+        const tasks = yield call(fetchExampleDataFile);
         yield put(loadExampleTasks(tasks))
     } catch (error) {
         yield call(alert, "Błąd wgrywania")
@@ -23,5 +24,5 @@ function* fetchExampleTasksWorker() {
 
 export function* tasksSaga(){
     yield takeEvery("*", saveTaskLocalStorageWorker);
-    yield takeLatest(fetchEXampleTask.type, fetchExampleTasksWorker)
+    // yield takeLatest(fetchExampleData.type, fetchExampleTasksWorker)
 }
