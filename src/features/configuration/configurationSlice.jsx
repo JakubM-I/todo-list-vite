@@ -14,11 +14,13 @@ const configurationSlice = createSlice({
         toggleSortType: (state, {payload: sortType}) => {
             state.sortType = sortType;
         },
+
+        fetchExampleData: () => {},
     }
 });
 
 export const configStateSelector = state => state.configuration;
 export const configSortTypeSelector = state => configStateSelector(state).sortType;
 
-export const {toggleSortType} = configurationSlice.actions;
+export const {toggleSortType, fetchExampleData} = configurationSlice.actions;
 export default configurationSlice.reducer;

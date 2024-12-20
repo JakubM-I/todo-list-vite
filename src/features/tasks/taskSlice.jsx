@@ -52,7 +52,7 @@ const taskSlice = createSlice({
             tasks[taskIndex] = payload;
         },
 
-        fetchEXampleTask: () => {},
+        // fetchEXampleTask: () => {},
 
         loadExampleTasks: (state, {payload: exampleTasks}) => {
             state.tasks = exampleTasks;
@@ -99,5 +99,5 @@ export const searchTaskBtQuery = (state, query) => {
 export const isTaskSearching = state => taskStateSelector(state).isSearching;
 // export const tasksSortType = state => taskStateSelector(state).sortType;
 
-export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, editTask, fetchEXampleTask, loadExampleTasks, openSearchingTasks, closeSearchingTasks, openAddForm, closeAddForm} = taskSlice.actions;
+export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, editTask, loadExampleTasks, openSearchingTasks, closeSearchingTasks, openAddForm, closeAddForm} = taskSlice.actions;
 export default taskSlice.reducer;

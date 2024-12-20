@@ -19,7 +19,11 @@ const categorySlice = createSlice({
         editCategory: ({categories}, {payload}) => {
             const index = categories.findIndex(category => category.categoryId === payload.categoryId);
             categories[index] = {...categories[index], categoryName: payload.categoryName}
-        }
+        },
+
+        loadExampleCategories: (state, {payload: exampleCatgeories}) => {
+            state.categories = exampleCatgeories;
+        },
     },
 
 
@@ -28,5 +32,5 @@ const categorySlice = createSlice({
 export const categoryStateSelector = state => state.categories;
 export const categorySelector = state => categoryStateSelector(state).categories;
 
-export const {addCategory, deleteCategory, editCategory} = categorySlice.actions;
+export const {addCategory, deleteCategory, editCategory, loadExampleCategories} = categorySlice.actions;
 export default categorySlice.reducer;
