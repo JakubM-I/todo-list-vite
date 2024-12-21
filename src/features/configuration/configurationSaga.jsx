@@ -21,7 +21,6 @@ function* loadExampleDataWorker() {
         yield put(successFetchExampeData());
     } catch (error) {
         yield put(errorFetchExampleData());
-        // yield call(alert, "Błąd wgrywania");
         yield console.error(error);
     }
 }

@@ -25,9 +25,7 @@ const EmptyTasksList = () => {
                         </div>
                      </div>)}
                     </>
-                ) 
-                : 
-                (
+                ) : (
                     <>
                         <p className="text-center mb-2">Dodaj swoje pierwsze zadanie</p>
                         <span className="flex justify-center items-center gap-1">

@@ -96,9 +96,6 @@ const AddTaskForm = () => {
                         {categories.map(category => (
                             <option key={category.categoryId} value={category.categoryName.toLowerCase()}>{category.categoryName}</option>
                         ))}
-                        {/* <option value="domowe">Domowe</option>
-                        <option value="praca">Praca</option>
-                        <option value="osobiste">Osobiste</option> */}
                     </select>
                 </div>
                 <div className="flex items-center justify-end">
