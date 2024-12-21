@@ -1,5 +1,5 @@
 import { call, delay, put, select, takeLatest } from "redux-saga/effects";
-import { configStateSelector, fetchExampleData, successFetchExampeData, toggleSortType } from "./configurationSlice";
+import { configStateSelector, errorFetchExampleData, fetchExampleData, successFetchExampeData, toggleSortType } from "./configurationSlice";
 import { saveConfigurationToLocalStorage } from "../../utils/localStorage";
 import { fetchExampleDataFile } from "../../utils/fetchExampleTasks";
 import { loadExampleTasks } from "../tasks/taskSlice";
@@ -20,7 +20,8 @@ function* loadExampleDataWorker() {
 
         yield put(successFetchExampeData());
     } catch (error) {
-        yield call(alert, "Błąd wgrywania")
+        yield put(errorFetchExampleData());
+        // yield call(alert, "Błąd wgrywania");
         yield console.error(error);
     }
 }

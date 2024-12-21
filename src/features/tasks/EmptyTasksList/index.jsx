@@ -1,26 +1,44 @@
 import { useDispatch, useSelector } from "react-redux";
-import { configLoadingState, fetchExampleData } from "../../configuration/configurationSlice";
+import { closeErrorFetchExampleData, configFetchErrorState, configLoadingState, fetchExampleData } from "../../configuration/configurationSlice";
 
 const EmptyTasksList = () => {
     const dispatch = useDispatch();
     const isLoading = useSelector(configLoadingState);
+    const isError = useSelector(configFetchErrorState);
     
     return (
         <div className="grow">
             {isLoading ? 
-                (<p className="text-center mb-2">Ładowanie danych...</p>) : 
                 (
-                <>
-                    <p className="text-center mb-2">Dodaj swoje pierwsze zadanie</p>
-                    <span className="flex justify-center items-center gap-1">
-                    <p>lub</p>
-                    <button onClick={() => dispatch(fetchExampleData())} 
-                        className="text-exmapleTaskButton hover:text-exmapleTaskButtonHover "
-                    >
-                        wczytaj przykładowe dane
-                    </button>
-                    </span>
-                </>
+                    <>
+                     <p className="text-center mb-2 text-disabledGray ">Ładowanie danych...</p>
+                     {isError && (
+                        <div className="w-[min(300px,100%)] mx-auto">
+                        <p className="text-sm text-removeButton mb-2">Błąd ładowania danych. Spróbuj jeszcze raz. </p>
+                        <div className="flex justify-end pr-2">
+                            <button
+                                onClick={() => dispatch(closeErrorFetchExampleData())}
+                                className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-sm/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue"
+                            >
+                                Zamknij
+                            </button>
+                        </div>
+                     </div>)}
+                    </>
+                ) 
+                : 
+                (
+                    <>
+                        <p className="text-center mb-2">Dodaj swoje pierwsze zadanie</p>
+                        <span className="flex justify-center items-center gap-1">
+                        <p>lub</p>
+                        <button onClick={() => dispatch(fetchExampleData())} 
+                            className="text-exmapleTaskButton hover:text-exmapleTaskButtonHover "
+                        >
+                            wczytaj przykładowe dane
+                        </button>
+                        </span>
+                    </>
                 ) 
             }
         </div>

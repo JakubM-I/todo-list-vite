@@ -9,6 +9,7 @@ const configurationSlice = createSlice({
             sortType: loadConfigurationFromLocalStorage()?.sortType || "date",
             lang: "PL",
             loading: false,
+            fetchError: false,
     },
 
     reducers: {
@@ -22,13 +23,24 @@ const configurationSlice = createSlice({
 
         successFetchExampeData: state => {
             state.loading = false;
+        },
+
+        errorFetchExampleData: state => {
+            state.fetchError = true;
+        },
+
+        closeErrorFetchExampleData: state => {
+            state.loading = false;
+            state.fetchError = false;
         }
+
     }
 });
 
 export const configStateSelector = state => state.configuration;
 export const configSortTypeSelector = state => configStateSelector(state).sortType;
 export const configLoadingState = state => configStateSelector(state).loading;
+export const configFetchErrorState = state => configStateSelector(state).fetchError;
 
-export const {toggleSortType, fetchExampleData, successFetchExampeData} = configurationSlice.actions;
+export const {toggleSortType, fetchExampleData, successFetchExampeData, errorFetchExampleData, closeErrorFetchExampleData} = configurationSlice.actions;
 export default configurationSlice.reducer;
