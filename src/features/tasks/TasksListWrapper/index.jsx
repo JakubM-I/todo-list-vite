@@ -20,7 +20,7 @@ const TasksListWrapper = () => {
     return (
         <>
             {isSearchingOm && (
-                <div className="pb-3">
+                <div className="pb-3 h-[calc(100%-91px)] overflow-y-auto">
                     <button 
                         onClick={() => closeSearchTask()}
                         className="text-sm text-primaryTextColor hover:text-primaryBlueHover flex justify-start items-center gap-2"

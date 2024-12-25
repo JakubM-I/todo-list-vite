@@ -11,7 +11,7 @@ const TasksApp = () => {
     
 
     return (
-    <div>
+    <>
        {/* <PageHeader title="Lista zadań" /> */}
        {/* <PageSection 
             title="Dodaj zadanie"
@@ -24,7 +24,7 @@ const TasksApp = () => {
             body={<TasksListWrapper />}
        />
         
-    </div>
+    </>
     )
 };
 

@@ -22,9 +22,9 @@ const RootElement = () =>  {
     }
 
     return (
-        <div className="relative">
+        <div className="relative h-[100svh]">
             <NavBar />
-            <div className="w-[min(1000px,calc(100%-20px))] mx-auto">
+            <div className="w-[min(1000px,calc(100%-20px))] mx-auto h-[calc(100%-82px)]">
                 <MainElement>
                     <Outlet />
                 </MainElement>
