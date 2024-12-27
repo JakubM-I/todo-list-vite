@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addCategory, editCategory } from "../categorySlice";
 import { nanoid } from "@reduxjs/toolkit";
+import { closeModal } from "../../../common/PopupModal/modalSlice";
 
 const CategoryForm = ({editedCategory = null}) => {
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const CategoryForm = ({editedCategory = null}) => {
                 categoryName: categoryName.trim(),
             }))
         }
-        
+        dispatch(closeModal());
     }
 
     return (
