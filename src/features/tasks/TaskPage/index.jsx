@@ -50,7 +50,7 @@ const TaskPage = () => {
 
     return (
         <div className={`${isMobile ? "absolute left-0 right-0 top-0 bottom-0 bg-transparentDarkBackground" : "w-[50%]" }`}>  
-            <div className={`${isMobile && "w-[calc(100%-25px)] translate-x-[-50%] relative left-1/2 top-[5%] bg-primaryLightColor"}`}>
+            <div className={`${isMobile && "w-full h-full mobile-l:h-auto mobile-l:w-[calc(100%-25px)] translate-x-[-50%] relative left-1/2 top-0 mobile-l:top-[5%] bg-primaryLightColor"}`}>
                 <div>            
                     <span className="flex justify-end">
                         <button onClick={() => onClickBack()} className="pr-1 p-[2px] mb-1 border border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded">
@@ -79,7 +79,7 @@ const TaskPage = () => {
                                 <BiEditAlt />
                             </button>)}
                         </div>
-                        <div className="border rounded-b border-solid border-borderGray p-2">
+                        <div className="border-none mobile-l:border-solid rounded-b border border-borderGray p-2">
                             <p className="block text-sm/[1.2] mb-3 p-1">{task.taskDesc}</p>
                             <div className="flex gap-2 items-center">
                                 {task.taskDate && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>)}
