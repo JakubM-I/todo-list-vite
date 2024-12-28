@@ -5,7 +5,7 @@ import priority1 from "../../../assets/priority-1-icon.png";
 import priority2 from "../../../assets/priority-2-icon.png"
 import { BiCheckCircle } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EditTaskForm from "../EditForm";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 
@@ -17,6 +17,20 @@ const TaskPage = () => {
     const query = searchParams.get("szukaj");
     const task = useSelector(state => searchTaskById(state, id));
     const dispatch = useDispatch();
+    const [isMobile, setIsMobile] = useState(false);
+    const mobileBreakePoint = 768;
+
+    const windowWidth = window.innerWidth;
+
+    // const currentWindowWidth = () => {
+
+    // }
+    
+    useEffect(() =>{
+        if(windowWidth <= mobileBreakePoint){
+            setIsMobile(true)
+        }
+    }, [])
 
     // const toggleTaskPriority = (taskPriority) => {
     //     if(taskPriority === "0" || taskPriority === "1" ){
@@ -35,7 +49,7 @@ const TaskPage = () => {
     }
 
     return (
-        <div className="w-[50%]">  
+        <div className={`${isMobile ? "absolute left-[50%] right-0 top-0 w-[calc(100%-25px)] translate-x-[-50%] bg-primaryLightColor" : "w-[50%]" }`}>  
             <div>            
                 <span className="flex justify-end">
                     <button onClick={() => onClickBack()} className="pr-1 p-[2px] mb-1 border border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded">
