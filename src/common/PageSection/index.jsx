@@ -1,6 +1,6 @@
 const PageSection = ({title, body, headerMenu, menu}) => (
     // <div className="h-full overflow-hidden">
-        <div className="h-full relative">
+        <div className="h-full">
             {title ? (
                 <div className="border border-solid border-borderGray p-3 bg-primaryGreyColor flex items-center sticky">
                     <h2 className="text-lg/[1] font-bold grow">{title}</h2>
