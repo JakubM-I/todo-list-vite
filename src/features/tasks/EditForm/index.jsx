@@ -54,7 +54,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                             <BiEditAlt />
                         </button> */}
                     </div>
-                    <div className="border rounded-b border-solid border-borderGray p-2">
+                    <div className="border-none mobile-l:border-solid rounded-b border border-borderGray p-2">
                         <input 
                             type="text" 
                             value={editTaskData.taskDesc}
