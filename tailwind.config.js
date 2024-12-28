@@ -20,6 +20,7 @@ export default {
       doneButton: "#22C55E",
       doneButtonDone: "#dffad8",
       removeButton: "#EF4444",
+      transparentDarkBackground: "#2d3033b8"
     },
 
     extend: {
