@@ -85,19 +85,26 @@ const TasksList = () => {
                                                 {toggleTaskPriority(task.taskPriority)}
                                         
                                             </span> */}
-                                            <button 
+                                            {/* <button 
                                                 title="Usuń"
                                                 className="shrink-0 p-[3px] border border-solid border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded w-[24px] h-[24px] flex justify-center items-center text-primaryTextColor text-[18px]"
                                                 onClick={() => dispatch(removeTask(task.id))}
                                             >
                                                 <BiTrash />
-                                            </button>
+                                            </button> */}
                                         </div>
                                     </div>
                                     <div className="flex justify-start items-center gap-2">
                                         {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px]">{toggleTaskPriority(task.taskPriority)}</p>) }
                                         {sortType === "date" && task.taskCategory && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>)}
                                         {sortType === "category" && task.taskDate && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>)}
+                                        <button 
+                                                title="Usuń"
+                                                className="shrink-0 ml-auto p-[3px] border border-solid border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded w-[24px] h-[24px] flex justify-center items-center text-primaryTextColor text-[18px]"
+                                                onClick={() => dispatch(removeTask(task.id))}
+                                            >
+                                                <BiTrash />
+                                            </button>
                                     </div>
                                     
                                 </li>
