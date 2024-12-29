@@ -48,9 +48,17 @@ const TaskPage = () => {
         navigate(`/${query ? `?szukaj=${query}` : ""}`)
     }
 
+    const handleContentCLick = (e) => {
+        e.stopPropagation();
+    }
+
     return (
-        <div className={`${isMobile ? "absolute left-0 right-0 top-0 bottom-0 bg-transparentDarkBackground" : "w-[50%]" }`}>  
-            <div className={`${isMobile && "w-full h-full mobile-l:h-auto mobile-l:w-[calc(100%-25px)] translate-x-[-50%] relative left-1/2 top-0 mobile-l:top-[5%] bg-primaryLightColor"}`}>
+        <div className={`${isMobile ? "absolute left-0 right-0 top-0 bottom-0 bg-transparentDarkBackground" : "w-[50%]" }`}
+        onClick={isMobile ? () => onClickBack() : undefined}
+        >  
+            <div className={`${isMobile && "w-full h-full mobile-l:h-auto mobile-l:w-[calc(100%-25px)] translate-x-[-50%] relative left-1/2 top-0 mobile-l:top-[5%] bg-primaryLightColor mobile-l:rounded-lg"}`}
+                onClick={isMobile ? handleContentCLick : undefined}
+            >
                 <div>            
                     <span className="flex justify-end">
                         <button onClick={() => onClickBack()} className="pr-1 p-[2px] mb-1 border border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded">
