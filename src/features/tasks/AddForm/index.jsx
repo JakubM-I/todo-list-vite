@@ -66,7 +66,7 @@ const AddTaskForm = () => {
                     value={taskDesc}
                     onChange={({target}) => setTaskDesc(target.value)}
                 />
-                <div className="flex flex-nowrap gap-2 justify-start items-center">
+                <div className="flex flex-wrap mobile-l:flex-nowrap gap-2 justify-start items-center">
                     <select 
                         className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
                         name="priority"

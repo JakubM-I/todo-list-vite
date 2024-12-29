@@ -10,7 +10,7 @@ const PopupModal = ({title, body}) => {
     }
 
     return (
-        <div className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vh] bg-transparentDarkBackground flex justify-center items-top" 
+        <div className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vh] px-2 bg-transparentDarkBackground flex justify-center items-top" 
         onClick={() => dispatch(closeModal())}>
              <div className="border border-solid border-borderGray bg-primaryLightColor p-3 mt-14 w-[min(450px,100%)] h-fit" onClick={handleContentCLick}>
                 <div className="flex items-center justify-end">
