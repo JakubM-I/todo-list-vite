@@ -28,8 +28,8 @@ const NavBar = () => {
                 </div>
             )}
             {/* <div className="absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"></div> */}
-            <div>
-                <ul className="flex justify-center items-center gap-4">
+            <div className={isMobile && "py-4 px-5 absolute left-1 top-[50px] bg-primaryGreyColor z-[5]"}>
+                <ul className="flex flex-col mobile-t:flex-row justify-center items-center gap-4">
                     <li>
                         <NavLink 
                             to={"/"} 
