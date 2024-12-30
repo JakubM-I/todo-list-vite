@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 const NavBar = () => {
         const [isMobile, setIsMobile] = useState(false);
+        const [isOpen, setIsOpen] = useState(false);
         const mobileBreakePoint = 768;
     
         const windowWidth = window.innerWidth;
@@ -15,10 +16,14 @@ const NavBar = () => {
                 setIsMobile(true)
             }
         }, [])
+
+        const handleCloseMenu = () => setIsOpen(false);
+
+
     return(
         <div className="p-0 pr-3 mobile-t:p-3 bg-primaryGreyColor mb-8 flex justify-between items-center relative">
             {isMobile ? (
-                <Hamburger size={22} direction="right"
+                <Hamburger toggled={isOpen} toggle={setIsOpen} size={22} direction="right"
                     className="w-[28px] h-[28px]"
                 />
             ) : (
@@ -28,12 +33,13 @@ const NavBar = () => {
                 </div>
             )}
             {/* <div className="absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"></div> */}
-            <div className={isMobile && "py-4 px-5 absolute left-1 top-[50px] bg-primaryGreyColor z-[5]"}>
+            <div className={isMobile && `py-4 px-5 absolute left-1 top-[50px] bg-primaryGreyColor z-[5] ${isOpen ? "block": "hidden" }`}>
                 <ul className="flex flex-col mobile-t:flex-row justify-center items-center gap-4">
                     <li>
                         <NavLink 
                             to={"/"} 
                             className="hover:text-primaryBlueHover"
+                            onClick={isMobile ? () => handleCloseMenu() : undefined}
                         >
                             Zadania
                         </NavLink>
@@ -42,6 +48,7 @@ const NavBar = () => {
                         <NavLink 
                             to={"categories"}
                             className="hover:text-primaryBlueHover"
+                            onClick={isMobile ? () => handleCloseMenu() : undefined}
                         >
                             Kategorie
                         </NavLink>
@@ -50,6 +57,7 @@ const NavBar = () => {
                         <NavLink 
                             to={"configuration"}
                             className="hover:text-primaryBlueHover"
+                            onClick={isMobile ? () => handleCloseMenu() : undefined}
                         >
                             Ustawienia
                         </NavLink>
