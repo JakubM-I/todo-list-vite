@@ -16,9 +16,11 @@ const NavBar = () => {
             }
         }, [])
     return(
-        <div className="p-3 bg-primaryGreyColor mb-8 flex justify-between items-center relative">
+        <div className="p-0 pr-3 mobile-t:p-3 bg-primaryGreyColor mb-8 flex justify-between items-center relative">
             {isMobile ? (
-                <Hamburger size={22} direction="right"/>
+                <Hamburger size={22} direction="right"
+                    className="w-[28px] h-[28px]"
+                />
             ) : (
                 <div className="flex gap-2 justify-start items-center">
                     <img src={logo} alt="TaskApp" />
@@ -27,7 +29,7 @@ const NavBar = () => {
             )}
             {/* <div className="absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"></div> */}
             <div>
-                <ul className="flex justify-center items-center gap-3">
+                <ul className="flex justify-center items-center gap-4">
                     <li>
                         <NavLink 
                             to={"/"} 
