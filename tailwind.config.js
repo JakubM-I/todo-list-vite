@@ -34,7 +34,7 @@ export default {
         buttons: "min(max(6.412vw,30px),35px)"
       },
       screens: {
-        "mobile-t": "768px",
+        "mobile-t": "769px",
         "mobile-l": "425px",
         "mobile-m": "375px",
       }
