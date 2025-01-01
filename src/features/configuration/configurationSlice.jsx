@@ -10,6 +10,8 @@ const configurationSlice = createSlice({
             lang: "PL",
             loading: false,
             fetchError: false,
+            inMobile: window.innerWidth <= 768,
+            windowWidth: window.innerWidth,
     },
 
     reducers: {
@@ -32,6 +34,12 @@ const configurationSlice = createSlice({
         closeErrorFetchExampleData: state => {
             state.loading = false;
             state.fetchError = false;
+        },
+
+        setWindowSize: (state, {payload: windowWidth}) => {
+            const width = windowWidth;
+            state.windowWidth = width;
+            state.isMobile = width <= 768;
         }
 
     }
@@ -41,6 +49,8 @@ export const configStateSelector = state => state.configuration;
 export const configSortTypeSelector = state => configStateSelector(state).sortType;
 export const configLoadingState = state => configStateSelector(state).loading;
 export const configFetchErrorState = state => configStateSelector(state).fetchError;
+export const configIsMobile = state => configStateSelector(state).isMobile;
+export const configWindowWidth = state => configStateSelector(state).windowWidth;
 
-export const {toggleSortType, fetchExampleData, successFetchExampeData, errorFetchExampleData, closeErrorFetchExampleData} = configurationSlice.actions;
+export const {toggleSortType, fetchExampleData, successFetchExampeData, errorFetchExampleData, closeErrorFetchExampleData, setWindowSize} = configurationSlice.actions;
 export default configurationSlice.reducer;
