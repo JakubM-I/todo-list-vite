@@ -4,7 +4,7 @@ import { saveConfigurationToLocalStorage } from "../../utils/localStorage";
 import { fetchExampleDataFile } from "../../utils/fetchExampleTasks";
 import { loadExampleTasks } from "../tasks/taskSlice";
 import { loadExampleCategories } from "../categories/categorySlice";
-import { resizeWindow } from "../../utils/uiAction";
+import { resizeWindow } from "./actions/uiAction";
 
 function* saveConfigToLocalStorageWorker() {
     const configuration = yield select(configStateSelector);
