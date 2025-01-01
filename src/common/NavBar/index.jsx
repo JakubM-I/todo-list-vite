@@ -3,19 +3,22 @@ import logo from "../../assets/done-icon.png"
 import SearchBar from "../SearchBar";
 import {Fade as Hamburger} from "hamburger-react";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { configIsMobile } from "../../features/configuration/configurationSlice";
 
 const NavBar = () => {
-        const [isMobile, setIsMobile] = useState(false);
+        const isMobile = useSelector(configIsMobile);
+        // const [isMobile, setIsMobile] = useState(false);
         const [isOpen, setIsOpen] = useState(false);
-        const mobileBreakePoint = 768;
+        // const mobileBreakePoint = 768;
     
-        const windowWidth = window.innerWidth;
+        // const windowWidth = window.innerWidth;
         
-        useEffect(() =>{
-            if(windowWidth <= mobileBreakePoint){
-                setIsMobile(true)
-            }
-        }, [])
+        // useEffect(() =>{
+        //     if(windowWidth <= mobileBreakePoint){
+        //         setIsMobile(true)
+        //     }
+        // }, [])
 
         const handleCloseMenu = () => setIsOpen(false);
 
