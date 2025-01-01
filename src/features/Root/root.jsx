@@ -6,8 +6,10 @@ import { useSelector } from "react-redux";
 import PopupModal from "../../common/PopupModal";
 import { modalOpenElementSelector, modalOpenSelector } from "../../common/PopupModal/modalSlice";
 import CategoryForm from "../categories/CategoryForm";
+import { useWindowResize } from "../../utils/useWindowResize";
 
 const RootElement = () =>  {
+    useWindowResize()
     const openModal = useSelector(modalOpenSelector);
     const {title, body, data} = useSelector(modalOpenElementSelector)
 

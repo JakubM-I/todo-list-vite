@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux"
 import { resizeWindow } from "./uiAction";
 
-const useWindowResize = () => {
+export const useWindowResize = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
