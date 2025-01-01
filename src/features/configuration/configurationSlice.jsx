@@ -10,7 +10,7 @@ const configurationSlice = createSlice({
             lang: "PL",
             loading: false,
             fetchError: false,
-            inMobile: window.innerWidth <= 768,
+            isMobile: window.innerWidth <= 768,
             windowWidth: window.innerWidth,
     },
 
