@@ -57,6 +57,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                     <div className="border-none mobile-l:border-solid rounded-b border border-borderGray p-2">
                         <input 
                             type="text" 
+                            placeholder="Opis"
                             value={editTaskData.taskDesc}
                             onChange={({target}) => setEditTaskData(prev => ({
                                 ...prev,
