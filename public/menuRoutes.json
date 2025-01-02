@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Zadania",
+        "url": "/"
+    },
+    {
+        "id": 2,
+        "name": "Kategorie",
+        "url": "categories"
+    },
+    {
+        "id": 3,
+        "name": "Ustawienia",
+        "url": "configuration"
+    }
+]
