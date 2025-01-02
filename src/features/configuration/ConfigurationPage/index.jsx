@@ -1,4 +1,4 @@
-import SortTypeSwitcher from "../../tasks/SortTypeSwitcher";
+import SortTypeSwitcher from "../SortTypeSwitcher";
 
 const ConfigurationPage = () => {
 

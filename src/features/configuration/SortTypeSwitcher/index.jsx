@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 // import { tasksSortType } from "../taskSlice";
 import { useState } from "react";
-import { configSortTypeSelector, toggleSortType } from "../../configuration/configurationSlice";
+import { configSortTypeSelector, toggleSortType } from "../configurationSlice";
 
 const SortTypeSwitcher = () => {
     const currentSortType = useSelector(configSortTypeSelector);
