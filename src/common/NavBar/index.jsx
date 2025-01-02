@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import logo from "../../assets/done-icon.png"
 import SearchBar from "../SearchBar";
 import {Fade as Hamburger} from "hamburger-react";
@@ -8,6 +8,7 @@ import { configIsMobile } from "../../features/configuration/configurationSlice"
 
 const NavBar = () => {
         const isMobile = useSelector(configIsMobile);
+        const menuRoutes = useLoaderData();
         // const [isMobile, setIsMobile] = useState(false);
         const [isOpen, setIsOpen] = useState(false);
         // const mobileBreakePoint = 768;
@@ -38,7 +39,18 @@ const NavBar = () => {
             {/* <div className="absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"></div> */}
             <div className={isMobile && `py-4 px-5 absolute left-1 top-[50px] bg-primaryGreyColor z-[5] ${isOpen ? "block": "hidden" }`}>
                 <ul className="flex flex-col mobile-t:flex-row justify-center items-center gap-4">
-                    <li>
+                    {menuRoutes.map(route => (
+                        <li key={route.id}>
+                            <NavLink 
+                                to={route.url} 
+                                className="hover:text-primaryBlueHover"
+                                onClick={isMobile ? () => handleCloseMenu() : undefined}
+                            >
+                                {route.name}
+                            </NavLink>
+                        </li> 
+                    ))}
+                    {/* <li>
                         <NavLink 
                             to={"/"} 
                             className="hover:text-primaryBlueHover"
@@ -64,7 +76,7 @@ const NavBar = () => {
                         >
                             Ustawienia
                         </NavLink>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             <div className="">
