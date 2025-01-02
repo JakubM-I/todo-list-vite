@@ -6,7 +6,6 @@ import { fetchExampleData } from "../configuration/configurationSlice";
 
 function* saveTaskLocalStorageWorker(){
     const tasks = yield select(taskSelector);
-    console.log(tasks)
 
     yield call(saveTaskToLocalStorage, tasks)
 }

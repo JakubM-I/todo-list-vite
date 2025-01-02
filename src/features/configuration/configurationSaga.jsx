@@ -8,7 +8,6 @@ import { resizeWindow } from "./actions/uiAction";
 
 function* saveConfigToLocalStorageWorker() {
     const configuration = yield select(configStateSelector);
-    console.log(configuration);
     yield call(saveConfigurationToLocalStorage, configuration)
 };
 

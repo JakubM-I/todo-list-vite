@@ -79,7 +79,7 @@ const NavBar = () => {
                     </li> */}
                 </ul>
             </div>
-            <div className="">
+            <div>
                 <SearchBar />
             </div>
         </div>
