@@ -37,7 +37,7 @@ const NavBar = () => {
                 </div>
             )}
             {/* <div className="absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"></div> */}
-            <div className={isMobile && `py-4 px-5 absolute left-1 top-[50px] bg-primaryGreyColor z-[5] ${isOpen ? "block": "hidden" }`}>
+            <div className={isMobile ? `py-4 px-5 absolute left-1 top-[50px] bg-primaryGreyColor z-[5] ${isOpen ? "block": "hidden" }` : ""}>
                 <ul className="flex flex-col mobile-t:flex-row justify-center items-center gap-4">
                     {menuRoutes.map(route => (
                         <li key={route.id}>
