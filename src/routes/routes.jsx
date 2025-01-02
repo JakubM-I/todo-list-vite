@@ -10,6 +10,9 @@ export const routes = [
     {
       path: "/",
       element: <RootElement />,
+      loader: () => {
+        return fetch("/todo-list-vite/menuRoutes.json")
+      },
       children: [
         {
             // index: true,
