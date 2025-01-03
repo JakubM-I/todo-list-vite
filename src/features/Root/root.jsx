@@ -7,6 +7,7 @@ import PopupModal from "../../common/PopupModal";
 import { modalOpenElementSelector, modalOpenSelector } from "../../common/PopupModal/modalSlice";
 import CategoryForm from "../categories/CategoryForm";
 import { useWindowResize } from "../../hooks/useWindowResize";
+import Notification from "../configuration/Notification";
 
 const RootElement = () =>  {
     useWindowResize()
@@ -20,6 +21,10 @@ const RootElement = () =>  {
 
         if(body === "categoryForm"){
             return (<CategoryForm editedCategory={data} />)
+        }
+
+        if(body === "notification"){
+            return (<Notification body={data} />)
         }
     }
 
