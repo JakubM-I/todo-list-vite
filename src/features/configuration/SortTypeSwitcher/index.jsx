@@ -2,15 +2,22 @@ import { useDispatch, useSelector } from "react-redux";
 // import { tasksSortType } from "../taskSlice";
 import { useState } from "react";
 import { configSortTypeSelector, toggleSortType } from "../configurationSlice";
+import { openModal } from "../../../common/PopupModal/modalSlice";
 
 const SortTypeSwitcher = () => {
     const currentSortType = useSelector(configSortTypeSelector);
     const dispatch = useDispatch();
     const [selectedSortType, setSelectedSortType] = useState(currentSortType);
+    const openElement = {
+        title: "Powiadomienie",
+        body: "notification",
+        data: "Zmiana sortowania została zapisana"
+    }
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        dispatch(toggleSortType(selectedSortType))
+        dispatch(toggleSortType(selectedSortType));
+        dispatch(openModal(openElement));
     }
 
     return (
