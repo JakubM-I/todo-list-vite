@@ -1,32 +1,125 @@
 {
     "tasks": [            
         {
-        "id": "1",
-        "taskName": "Zadanie 1",
-        "taskDesc": "Testowe zadanie 2",
-        "taskPriority": "0",
-        "taskDate": "2024-11-20",
-        "taskCategory": "osobiste",
-        "taskDone": false,
-        "taskVisibility": true
+            "id": "1",
+            "taskName": "Przygotować prezentację",
+            "taskDesc": "Prezentacja kwartalna dla zespołu sprzedaży",
+            "taskPriority": "3",
+            "taskDate": "2024-03-15",
+            "taskCategory": "praca",
+            "taskDone": false,
+            "taskVisibility": true
         },
         {
             "id": "2",
-            "taskName": "Zadanie 2",
-            "taskDesc": "Testowe zadanie w",
-            "taskPriority": "3",
-            "taskDate": "2024-11-14",
-            "taskCategory": "praca",
+            "taskName": "Kupić mleko",
+            "taskPriority": "0",
+            "taskDate": "2024-02-28",
+            "taskCategory": "zakupy",
             "taskDone": true,
             "taskVisibility": true
         },
         {
             "id": "3",
-            "taskName": "Zadanie 3",
-            "taskDesc": "Testowe zadanie 3",
+            "taskName": "Trening na siłowni",
+            "taskDesc": "Trening nóg i pleców",
+            "taskPriority": "2",
+            "taskDate": "2024-03-01",
+            "taskCategory": "sport",
+            "taskDone": false,
+            "taskVisibility": true
+        },
+        {
+            "id": "4",
+            "taskName": "Umówić wizytę u dentysty",
             "taskPriority": "2",
             "taskDate": "",
+            "taskCategory": "osobiste",
+            "taskDone": false,
+            "taskVisibility": true
+        },
+        {
+            "id": "5",
+            "taskName": "Przejrzeć dokumenty projektowe",
+            "taskDesc": "Analiza specyfikacji nowego projektu",
+            "taskPriority": "3",
+            "taskDate": "2024-03-10",
             "taskCategory": "praca",
+            "taskDone": false,
+            "taskVisibility": true
+        },
+        {
+            "id": "6",
+            "taskName": "Odkurzyć mieszkanie",
+            "taskPriority": "1",
+            "taskDate": "2024-02-25",
+            "taskCategory": "domowe",
+            "taskDone": true,
+            "taskVisibility": true
+        },
+        {
+            "id": "7",
+            "taskName": "Spotkanie z zespołem",
+            "taskDesc": "Omówienie postępów w projekcie",
+            "taskPriority": "2",
+            "taskDate": "2024-03-05",
+            "taskCategory": "praca",
+            "taskDone": false,
+            "taskVisibility": true
+        },
+        {
+            "id": "8",
+            "taskName": "Kupić prezent urodzinowy",
+            "taskPriority": "2",
+            "taskDate": "",
+            "taskCategory": "",
+            "taskDone": false,
+            "taskVisibility": true
+        },
+        {
+            "id": "9",
+            "taskName": "Basen",
+            "taskDesc": "Trening pływacki 1h",
+            "taskPriority": "1",
+            "taskDate": "2024-02-20",
+            "taskCategory": "sport",
+            "taskDone": false,
+            "taskVisibility": true
+        },
+        {
+            "id": "10",
+            "taskName": "Zrobić listę zakupów",
+            "taskPriority": "0",
+            "taskDate": "2024-03-02",
+            "taskCategory": "zakupy",
+            "taskDone": false,
+            "taskVisibility": true
+        },
+        {
+            "id": "11",
+            "taskName": "Kupić warzywa",
+            "taskPriority": "1",
+            "taskDate": "2024-02-28",
+            "taskCategory": "zakupy",
+            "taskDone": false,
+            "taskVisibility": true
+        },
+        {
+            "id": "12",
+            "taskName": "Przygotować raport miesięczny",
+            "taskDesc": "Raport z wyników sprzedaży",
+            "taskPriority": "3",
+            "taskDate": "2024-03-10", 
+            "taskCategory": "praca",
+            "taskDone": false,
+            "taskVisibility": true
+        },
+        {
+            "id": "13",
+            "taskName": "Umyć okna",
+            "taskPriority": "1",
+            "taskDate": "2024-02-25", 
+            "taskCategory": "domowe",
             "taskDone": false,
             "taskVisibility": true
         }
