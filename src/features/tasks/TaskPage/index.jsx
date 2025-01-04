@@ -8,7 +8,7 @@ import { BiEditAlt } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import EditTaskForm from "../EditForm";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
-import { configIsMobile } from "../../configuration/configurationSlice";
+import { uiIsMobile } from "../../ui/uiSlice";
 
 const TaskPage = () => {
     const {id} = useParams();
@@ -18,7 +18,7 @@ const TaskPage = () => {
     const query = searchParams.get("szukaj");
     const task = useSelector(state => searchTaskById(state, id));
     const dispatch = useDispatch();
-    const isMobile = useSelector(configIsMobile);
+    const isMobile = useSelector(uiIsMobile);
     // const [isMobile, setIsMobile] = useState(false);
     // const mobileBreakePoint = 768;
 

@@ -4,10 +4,10 @@ import SearchBar from "../SearchBar";
 import {Fade as Hamburger} from "hamburger-react";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { configIsMobile } from "../../features/configuration/configurationSlice";
+import { uiIsMobile } from "../../features/ui/uiSlice";
 
 const NavBar = () => {
-        const isMobile = useSelector(configIsMobile);
+        const isMobile = useSelector(uiIsMobile);
         const menuRoutes = useLoaderData();
         // const [isMobile, setIsMobile] = useState(false);
         const [isOpen, setIsOpen] = useState(false);
