@@ -5,7 +5,6 @@ const TasksMenu = () => {
     const tasks = useSelector(taskSelector);
     const isHiiden = useSelector(anyHiddenTask);
     const isAllTaskDone = useSelector(allTaskDone);
-    console.log(isHiiden)
     const isAnyTaskDone = useSelector(AnyTaskDone);
     const dispatch = useDispatch();
 

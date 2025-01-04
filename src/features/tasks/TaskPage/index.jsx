@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { editTask, searchTaskById } from "../taskSlice";
-import priority1 from "../../../assets/priority-1-icon.png";
-import priority2 from "../../../assets/priority-2-icon.png"
 import { BiCheckCircle } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import EditTaskForm from "../EditForm";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 import { uiIsMobile } from "../../ui/uiSlice";
@@ -19,32 +17,6 @@ const TaskPage = () => {
     const task = useSelector(state => searchTaskById(state, id));
     const dispatch = useDispatch();
     const isMobile = useSelector(uiIsMobile);
-    // const [isMobile, setIsMobile] = useState(false);
-    // const mobileBreakePoint = 768;
-
-    // const windowWidth = window.innerWidth;
-
-    // const currentWindowWidth = () => {
-
-    // }
-    
-    // useEffect(() =>{
-    //     if(windowWidth <= mobileBreakePoint){
-    //         setIsMobile(true)
-    //     }
-    // }, [])
-
-    // const toggleTaskPriority = (taskPriority) => {
-    //     if(taskPriority === "0" || taskPriority === "1" ){
-    //         return "";
-    //     };
-
-    //     if(taskPriority === "2"){
-    //         return <img src={priority2} alt="" className="w-[1.2em] h-[1.2em]"/>
-    //     }
-
-    //     return <img src={priority1} alt="" className="w-[1.2em] h-[1.2em]"/> 
-    // };
 
     const onClickBack = () => {
         navigate(`/${query ? `?szukaj=${query}` : ""}`)

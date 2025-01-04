@@ -1,50 +1,23 @@
-import { BiCheckCircle } from "react-icons/bi";
 import { BiCheck } from "react-icons/bi";
 import { BiTrash } from "react-icons/bi";
-import priority1 from "../../../assets/priority-1-icon.png";
-import priority2 from "../../../assets/priority-2-icon.png"
 import { useDispatch, useSelector } from "react-redux";
-import { openAddForm, removeTask, searchTaskBtQuery, taskSelector, toggleTaskDone } from "../taskSlice";
-import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
-import { nanoid } from "@reduxjs/toolkit";
+import { removeTask, toggleTaskDone } from "../taskSlice";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 import {groupTask} from "../../../utils/taskGroup";
 import { configSortTypeSelector } from "../../configuration/configurationSlice";
-
-{/* <BiCheck /> */}
-{/* <BiCheckCircle /> */}
-
 
 const TasksList = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const query = searchParams.get("szukaj")
-    const tasks = useSelector(state => searchTaskBtQuery(state, query));
     const {groups} = groupTask();
     const sortType = useSelector(configSortTypeSelector);
 
-    // const toggleTaskPriority = (taskPriority) => {
-    //     if(taskPriority === "0" || taskPriority === "1" ){
-    //         return "";
-    //     };
-
-    //     if(taskPriority === "2"){
-    //         return <img src={priority2} alt=""  className="w-[1.2em] h-[1.2em]"/>
-    //     }
-
-    //     return <img src={priority1} alt="" className="w-[1.2em] h-[1.2em]" /> 
-    // }
-
-
     const onTaskClick = (taskId) => {
         navigate(`details/${taskId}${query ? `?szukaj=${query}` : ""}`)
-        // dispatch(openAddForm())
     }
-
-    const allDatesList = tasks.map(task => ({ id: nanoid(), date: task.taskDate }))
-
-    const datesList = [...new Map(allDatesList.map((m) => [m.date || "no-date", m])).values()];
 
     return (
         <ul className="grow">
@@ -99,14 +72,13 @@ const TasksList = () => {
                                         {sortType === "date" && task.taskCategory && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>)}
                                         {sortType === "category" && task.taskDate && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>)}
                                         <button 
-                                                title="Usuń"
-                                                className="shrink-0 ml-auto p-[3px] border border-solid border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded w-[24px] h-[24px] flex justify-center items-center text-primaryTextColor text-[18px]"
-                                                onClick={() => dispatch(removeTask(task.id))}
-                                            >
-                                                <BiTrash />
-                                            </button>
-                                    </div>
-                                    
+                                            title="Usuń"
+                                            className="shrink-0 ml-auto p-[3px] border border-solid border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded w-[24px] h-[24px] flex justify-center items-center text-primaryTextColor text-[18px]"
+                                            onClick={() => dispatch(removeTask(task.id))}
+                                        >
+                                            <BiTrash />
+                                        </button>
+                                    </div>                                  
                                 </li>
                             ))}
                            </ul>
