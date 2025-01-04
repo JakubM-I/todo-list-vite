@@ -3,6 +3,7 @@ import tasksListReducer from "./features/tasks/taskSlice";
 import modalReducer from "./common/PopupModal/modalSlice";
 import categoriesReducer from "./features/categories/categorySlice";
 import configurationReducer from "./features/configuration/configurationSlice";
+import uiReducer from "./features/ui/uiSlice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./rootSaga";
 
@@ -14,6 +15,7 @@ const store = configureStore({
         modal: modalReducer,
         categories: categoriesReducer,
         configuration: configurationReducer,
+        ui: uiReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(sagaMiddleware),
