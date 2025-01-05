@@ -11,7 +11,7 @@ export const routes = [
       path: "/",
       element: <RootElement />,
       loader: () => {
-        return fetch("/todo-list-vite/menuRoutes.json")
+        return fetch("https://todolist-ext-app.netlify.app/menuRoutes.json")
       },
       children: [
         {
