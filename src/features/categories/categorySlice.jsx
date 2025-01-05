@@ -26,7 +26,6 @@ const categorySlice = createSlice({
         },
     },
 
-
 });
 
 export const categoryStateSelector = state => state.categories;

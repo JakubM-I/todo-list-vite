@@ -7,7 +7,6 @@ const taskSlice = createSlice({
         tasks: loadTaskFromLocalStorage(),
         addFormOpen: false,
         isSearching: false,
-        // sortType: "date",
     },
     
     reducers: {
@@ -22,12 +21,10 @@ const taskSlice = createSlice({
 
         removeTask: (state, {payload: taskId}) => {
             const index = state.tasks.findIndex(task => task.id === taskId)
-            state.tasks.splice(index, 1)
-            // state.tasks = state.tasks.filter(task => task.id !== taskId )
+            state.tasks.splice(index, 1);
         },
 
         toggleAllTaskDone: ({tasks}) => {
-            // tasks.map(task => task.taskDone = true)
             for(const task of tasks){
                 task.taskDone = true;
             }
@@ -39,20 +36,12 @@ const taskSlice = createSlice({
                     task.taskVisibility = !task.taskVisibility;
                 }
             })
-            // const doneTasks = tasks.filter(task => task.taskDone === true)
-            // for(const task of doneTasks){
-            //     if(task.taskDone){
-            //         task.taskVisibility = !tasks.taskVisibility;
-            //     }
-            // }
         },
 
         editTask: ({tasks}, {payload}) => {
             const taskIndex = tasks.findIndex(task => task.id === payload.id);
             tasks[taskIndex] = payload;
         },
-
-        // fetchEXampleTask: () => {},
 
         loadExampleTasks: (state, {payload: exampleTasks}) => {
             state.tasks = exampleTasks;
@@ -74,9 +63,6 @@ const taskSlice = createSlice({
             state.isSearching = false;
         },
 
-        // toggleSortType: (state, {payload: sortType}) => {
-        //     state.sortType = sortType;
-        // },
     }
 });
 
@@ -97,7 +83,6 @@ export const searchTaskBtQuery = (state, query) => {
     return taskSelector(state).filter(task => task.taskName.toUpperCase().includes(query.trim().toUpperCase()) );
 };
 export const isTaskSearching = state => taskStateSelector(state).isSearching;
-// export const tasksSortType = state => taskStateSelector(state).sortType;
 
 export const {addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, editTask, loadExampleTasks, openSearchingTasks, closeSearchingTasks, openAddForm, closeAddForm} = taskSlice.actions;
 export default taskSlice.reducer;
