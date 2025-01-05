@@ -16,7 +16,6 @@ const TasksListWrapper = () => {
         dispatch(closeSearchingTasks());
     }
 
-
     return (
         <>
             {isSearchingOm && (

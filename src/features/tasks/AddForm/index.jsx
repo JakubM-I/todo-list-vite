@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addTask, closeAddForm } from "../taskSlice";
+import { addTask } from "../taskSlice";
 import { useEffect, useRef, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { categorySelector } from "../../categories/categorySlice";
@@ -28,7 +28,7 @@ const AddTaskForm = () => {
 
     useEffect(() => {
         taskNameRef.current.focus();
-    },[])
+    },[]);
 
     const onFormSubmit = (e) => {
         e.preventDefault();
@@ -47,12 +47,9 @@ const AddTaskForm = () => {
             taskVisibility: true,
         }))
         dispatch(closeModal());
-        // taskNameRef.current.focus();
-    }
+    };
     
-
     return (
-        <>
             <form className="flex flex-col gap-[10px]">
                 <input type="text"
                     className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm focus-visible outline-none"  
@@ -104,8 +101,6 @@ const AddTaskForm = () => {
                         onClick={onFormSubmit}>Dodaj</button>
                 </div>
             </form>
-           
-        </>
     )
 };
 

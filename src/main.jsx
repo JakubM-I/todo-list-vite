@@ -10,14 +10,6 @@ import store from './store.jsx';
 const router = createBrowserRouter(routes, {
   basename: "/todo-list-vite/",
 });
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <App />
-//   }
-// ], {
-//   basename: "/todo-list-vite/",
-// });
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

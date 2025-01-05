@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 import MainElement from "../../common/Main";
 import NavBar from "../../common/NavBar";
 import AddTaskForm from "../tasks/AddForm";
-import { useSelector } from "react-redux";
 import PopupModal from "../../common/PopupModal";
 import { modalOpenElementSelector, modalOpenSelector } from "../../common/PopupModal/modalSlice";
 import CategoryForm from "../categories/CategoryForm";
@@ -43,7 +43,6 @@ const RootElement = () =>  {
                 />
             ) : ""}
         </div>
-        
     )
 };
 

@@ -32,7 +32,6 @@ const SearchBar = () => {
              />
             <button 
                 className="appearance-none p-1 bg-borderGray border rounded-lg border-borderGray transition easy-in duration-700 hover:bg-secondaryText"
-                
             >
                 <BiSearch />
             </button>

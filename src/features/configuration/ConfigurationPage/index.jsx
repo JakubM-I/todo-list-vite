@@ -1,12 +1,7 @@
 import SortTypeSwitcher from "../SortTypeSwitcher";
 
-const ConfigurationPage = () => {
-
-    return (
-        <>
+const ConfigurationPage = () => (
         <SortTypeSwitcher />
-        </>
-    )
-};
+    );
 
 export default ConfigurationPage;

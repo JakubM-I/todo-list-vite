@@ -3,7 +3,7 @@ export const fetchExampleDataFile = async () => {
 
     if(!response.ok){
         throw new Error(response.statusText)
-    }
+    };
 
     return await response.json();
 }

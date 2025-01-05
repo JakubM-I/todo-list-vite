@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-// import { tasksSortType } from "../taskSlice";
 import { useState } from "react";
 import { configSortTypeSelector, toggleSortType } from "../configurationSlice";
 import { openModal } from "../../../common/PopupModal/modalSlice";
@@ -60,6 +59,6 @@ const SortTypeSwitcher = () => {
             </form>
         </div>
     )
-}
+};
 
 export default SortTypeSwitcher;

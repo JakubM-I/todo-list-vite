@@ -1,9 +1,9 @@
 import { NavLink, useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import logo from "../../assets/done-icon.png"
 import SearchBar from "../SearchBar";
 import {Fade as Hamburger} from "hamburger-react";
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import { uiIsMobile } from "../../features/ui/uiSlice";
 
 const NavBar = () => {

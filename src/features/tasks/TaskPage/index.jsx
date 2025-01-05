@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { editTask, searchTaskById } from "../taskSlice";
+import { uiIsMobile } from "../../ui/uiSlice";
 import { BiCheckCircle } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
-import { useState } from "react";
 import EditTaskForm from "../EditForm";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
-import { uiIsMobile } from "../../ui/uiSlice";
 
 const TaskPage = () => {
     const {id} = useParams();

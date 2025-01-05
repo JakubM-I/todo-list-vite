@@ -15,7 +15,6 @@ export const routes = [
       },
       children: [
         {
-            // index: true,
             path: "/",
             element: <TasksApp />,
             children: [
@@ -34,6 +33,5 @@ export const routes = [
           element: <ConfigurationApp />
         }
       ]
-      
     }
   ];

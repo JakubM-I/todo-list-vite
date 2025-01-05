@@ -1,14 +1,13 @@
 import { useSelector } from "react-redux";
-import { searchTaskBtQuery } from "../features/tasks/taskSlice";
 import { useSearchParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
+import { searchTaskBtQuery } from "../features/tasks/taskSlice";
 import { configSortTypeSelector } from "../features/configuration/configurationSlice";
 
 export const groupTask = () => {
     const [searchParams] = useSearchParams();
     const query = searchParams.get("szukaj")
     const tasks = useSelector(state => searchTaskBtQuery(state, query));
-    // const sortType = useSelector(tasksSortType);
     const sortType = useSelector(configSortTypeSelector);
    
     if(sortType === "date"){
@@ -28,7 +27,7 @@ export const groupTask = () => {
             tasks: tasks
             .filter(task => task.taskDate === dataGroup.date)
             .sort((a, b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
-        }))
+        }));
 
         return {
             groups: groupedDateTasks
@@ -46,17 +45,16 @@ export const groupTask = () => {
                 return a.category.localeCompare(b.category);
             });
                 
+        const groupedCategoryTasks = sortedCategoryList.map(categoryGroup => ({
+            ...categoryGroup,
+            tasks: tasks
+            .filter(task => task.taskCategory === categoryGroup.category)
+            .sort((a,b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
+        }));
 
-            const groupedCategoryTasks = sortedCategoryList.map(categoryGroup => ({
-                ...categoryGroup,
-                tasks: tasks
-                .filter(task => task.taskCategory === categoryGroup.category)
-                .sort((a,b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
-            }));
-
-            return {
-                groups: groupedCategoryTasks
-            }
+        return {
+            groups: groupedCategoryTasks
+        }
     }
 };
 
