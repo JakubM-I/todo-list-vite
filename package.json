@@ -1,7 +1,6 @@
 {
   "name": "yc-task-list-ext-vite",
   "private": true,
-  "homepage": "https://jakubm-i.github.io/todo-list-vite/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

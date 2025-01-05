@@ -7,9 +7,7 @@ import './index.css'
 import store from './store.jsx';
 
 
-const router = createBrowserRouter(routes, {
-  basename: "/todo-list-vite/",
-});
+const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
