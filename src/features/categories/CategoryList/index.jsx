@@ -42,7 +42,7 @@ const CategoryList = () => {
                     </div>
                 </li>
                 ))
-            };
+            }
         </ul>
     )
 };
