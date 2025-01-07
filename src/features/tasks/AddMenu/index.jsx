@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { openModal } from "../../../common/PopupModal/modalSlice";
-import AddButton from "../../../common/AddButton";
+import PrimaryButton from "../../../common/PrimaryButton";
 
 const AddMenu = () => {
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const AddMenu = () => {
 
     return (
         <div>
-            <AddButton 
+            <PrimaryButton 
                 title="Dodaj zadanie"
                 onClick={() => dispatch(openModal(openElement))}
             />

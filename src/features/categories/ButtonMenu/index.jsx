@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import AddButton from "../../../common/AddButton"
+import PrimaryButton from "../../../common/PrimaryButton"
 import { openModal } from "../../../common/PopupModal/modalSlice";
 
 const ButtonMenu = () => {
@@ -10,7 +10,7 @@ const ButtonMenu = () => {
     }
 
     return (
-        <AddButton 
+        <PrimaryButton 
             title="Dodaj kategorię"
             onClick={() => dispatch(openModal(openElement))}
         />

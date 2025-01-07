@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { categorySelector } from "../../categories/categorySlice";
+import PrimaryButton from "../../../common/PrimaryButton";
 
 
 const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
@@ -105,18 +106,14 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                         </select>
                     </div>
                     <div className="flex justify-end items-center gap-2">
-                        <button 
-                            className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue"
-                            onClick={onCancel} 
-                        >
-                            Anuluj
-                        </button>
-                        <button
-                            className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue" 
+                        <PrimaryButton 
+                            title="Anuluj"
+                            onClick={onCancel}
+                        />
+                        <PrimaryButton 
+                            title="Zapisz"
                             type="submit"
-                        >
-                            Zapisz
-                        </button>
+                        />
                     </div>                                    
                 </div>
             </form>
