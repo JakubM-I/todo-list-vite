@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addCategory, editCategory } from "../categorySlice";
 import { nanoid } from "@reduxjs/toolkit";
 import { closeModal } from "../../../common/PopupModal/modalSlice";
+import PrimaryButton from "../../../common/PrimaryButton";
 
 const CategoryForm = ({editedCategory = null}) => {
     const dispatch = useDispatch();
@@ -49,11 +50,9 @@ const CategoryForm = ({editedCategory = null}) => {
                 onChange={({target}) => setCategoryName(target.value)}
             />
             <div className="flex items-center justify-end">
-                <button 
-                    className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue"
-                >
-                   {isEdit ? "Zapis" : "Dodaj"}
-                </button>
+                <PrimaryButton 
+                    title={isEdit ? "Zapisz" : "Dodaj"}
+                />
             </div>
         </form>
     )
