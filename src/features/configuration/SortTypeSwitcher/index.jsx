@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { configSortTypeSelector, toggleSortType } from "../configurationSlice";
 import { openModal } from "../../../common/PopupModal/modalSlice";
+import PrimaryButton from "../../../common/PrimaryButton";
 
 const SortTypeSwitcher = () => {
     const currentSortType = useSelector(configSortTypeSelector);
@@ -52,9 +53,9 @@ const SortTypeSwitcher = () => {
                     </div>
                 </div>
                 <div className="flex justify-end pr-2">
-                    <button className="bg-primaryBlue rounded-lg border border-primaryBlue text-primaryLightColor text-[min(max(2.89vw,14px),17px)]/[1] py-2 px-3 transition-colors easy-in duration-700 hover:bg-primaryLightColor hover:text-primaryBlue">
-                        Zpisz
-                    </button>
+                    <PrimaryButton 
+                        title="Zapisz"
+                    />
                 </div>
             </form>
         </div>
