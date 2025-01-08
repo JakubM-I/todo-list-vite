@@ -30,7 +30,7 @@ const TaskPage = () => {
         <div className={`${isMobile ? "absolute left-0 right-0 top-0 bottom-0 bg-transparentDarkBackground" : "w-[50%]" }`}
         onClick={isMobile ? () => onClickBack() : undefined}
         >  
-            <div className={`${isMobile && "w-full h-full mobile-l:h-auto mobile-l:w-[calc(100%-25px)] translate-x-[-50%] relative left-1/2 top-0 mobile-l:top-[5%] bg-primaryLightColor mobile-l:rounded-lg"}`}
+            <div className={`${isMobile ? "w-full h-full mobile-l:h-auto mobile-l:w-[calc(100%-25px)] translate-x-[-50%] relative left-1/2 top-0 mobile-l:top-[5%] bg-primaryLightColor mobile-l:rounded-lg" : "sticky top-0"}`}
                 onClick={isMobile ? handleContentCLick : undefined}
             >
                 <div>            

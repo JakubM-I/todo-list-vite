@@ -127,6 +127,10 @@
 
     "categories": [
         {
+            "categoryId": "0",   
+            "categoryName": "Kategoria"
+        },
+        {
             "categoryId": "1",   
             "categoryName": "Osobiste"
         },
