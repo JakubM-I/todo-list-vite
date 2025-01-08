@@ -21,7 +21,10 @@ const CategoryList = () => {
     
     return (
         <ul className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-2">
-            {categories.map(category => (
+            {categories
+                .filter(category => category.id !== 0)
+                .sort((a, b) => a.categoryName.localeCompare(b.categoryName))
+                .map(category => (
                 <li key={category.categoryId} className="border border-borderGray p-2 flex justify-start items-center gap-2">
                     <h2 className="text-primaryTextColor text-base">{category.categoryName}</h2>
                     <div className="flex justify-center items-center gap-2 ml-auto mr-0">
