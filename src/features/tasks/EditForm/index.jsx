@@ -71,6 +71,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
     [&::-webkit-calendar-picker-indicator]:cursor-pointer"
                                 type="date"
                                 name="date"
+                                placeholder="dd.mm.rrrr"
                                 value={editTaskData.taskDate}
                                 onChange={({target}) => setEditTaskData(prev => ({
                                     ...prev,
