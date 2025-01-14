@@ -60,7 +60,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                         className="appearance-none block text-sm/[1.2] mb-3 p-1 w-full border-solid border-borderGray focus:outline-none focus:border-b" 
                     />
                     <div className="flex gap-2 items-center mb-3">
-                        <div className="relative border border-solid border-borderGray rounded cursor-pointer">
+                        <div className="relative border border-solid border-borderGray rounded cursor-pointer flex items-center">
                             <input 
                                 className="appearance-none h-[22px] mw-[85px] block text-xs/[1] p-[4px] pr-4 focus:outline-none cursor-pointer bg-primaryLightColor 
                                 [&::-webkit-calendar-picker-indicator]:opacity-0
@@ -106,7 +106,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
 
                         <div className="relative border border-solid border-borderGray rounded cursor-pointer">
                             <select 
-                                className="appearance-none block text-xs/[1] p-[5px] pr-4 focus:outline-none cursor-pointer bg-primaryLightColor"
+                                className="appearance-none block text-xs/[1] p-[5px] pr-[18px] focus:outline-none cursor-pointer bg-primaryLightColor"
                                 value={editTaskData.taskCategory}
                                 onChange={({target}) => setEditTaskData(prev => ({
                                     ...prev,
@@ -141,7 +141,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                         </div>
                         <div className="relative border border-solid border-borderGray rounded cursor-pointer">
                             <select 
-                                className="appearance-none block text-xs/[1] p-[5px] pr-4 focus:outline-none cursor-pointer bg-primaryLightColor"
+                                className="appearance-none block text-xs/[1] p-[5px] pr-[18px] focus:outline-none cursor-pointer bg-primaryLightColor"
                                 name="priority"
                                 value={editTaskData.taskPriority}
                                 onChange={({target}) => setEditTaskData(prev => ({
