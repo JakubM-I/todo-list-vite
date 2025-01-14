@@ -106,7 +106,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
 
                         <div className="relative border border-solid border-borderGray rounded cursor-pointer">
                             <select 
-                                className="appearance-none block text-xs/[1] p-[5px] pr-4 focus:outline-none cursor-pointer"
+                                className="appearance-none block text-xs/[1] p-[5px] pr-4 focus:outline-none cursor-pointer bg-primaryLightColor"
                                 value={editTaskData.taskCategory}
                                 onChange={({target}) => setEditTaskData(prev => ({
                                     ...prev,
@@ -141,7 +141,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                         </div>
                         <div className="relative border border-solid border-borderGray rounded cursor-pointer">
                             <select 
-                                className="appearance-none block text-xs/[1] p-[5px] pr-4 focus:outline-none cursor-pointer"
+                                className="appearance-none block text-xs/[1] p-[5px] pr-4 focus:outline-none cursor-pointer bg-primaryLightColor"
                                 name="priority"
                                 value={editTaskData.taskPriority}
                                 onChange={({target}) => setEditTaskData(prev => ({
