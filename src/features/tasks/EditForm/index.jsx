@@ -62,13 +62,15 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                     <div className="flex gap-2 items-center mb-3">
                         <div className="relative border border-solid border-borderGray rounded cursor-pointer">
                             <input 
-                                className="appearance-none block text-xs/[1] p-[4px] pr-4 focus:outline-none cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-0
+                                className="appearance-none h-[22px] mw-[85px] block text-xs/[1] p-[4px] pr-4 focus:outline-none cursor-pointer bg-primaryLightColor 
+                                [&::-webkit-calendar-picker-indicator]:opacity-0
     [&::-webkit-calendar-picker-indicator]:absolute
     [&::-webkit-calendar-picker-indicator]:top-0
     [&::-webkit-calendar-picker-indicator]:right-0
     [&::-webkit-calendar-picker-indicator]:w-full
     [&::-webkit-calendar-picker-indicator]:h-full
-    [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+    [&::-webkit-calendar-picker-indicator]:cursor-pointer
+    [&::-webkit-datetime-edit-text]:hidden"
                                 type="date"
                                 name="date"
                                 placeholder="dd.mm.rrrr"
@@ -79,6 +81,11 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                                     })
                                 )}
                             />
+                            {/* {!editTaskData.taskDate && (
+                                <span className="absolute top-0 left-0 text-xs/[1] pointer-events-none whitespace-nowrap">
+                                    dd.mm.rrrr
+                                </span>
+                            )} */}
                             <div className="absolute inset-y-0 right-0 pr-[2px] flex items-center pointer-events-none">
                                 <svg 
                                     className="h-[13px] w-[13px] text-gray-400" 
