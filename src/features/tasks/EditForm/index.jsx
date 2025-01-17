@@ -82,7 +82,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                                 )}
                             />
                             {!editTaskData.taskDate && (
-                                <span className="text-xs/[1] pointer-events-none whitespace-nowrap">
+                                <span className="text-xs/[1] p-[5px] pr-[18px] pointer-events-none whitespace-nowrap">
                                         Termin
                                 </span>)}
                             {/* {editTaskData.taskDate ? (
