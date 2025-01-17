@@ -81,6 +81,10 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                                     })
                                 )}
                             />
+                            {editTaskData.taskDate && (
+                                <span className="absolute top-0 left-0 text-xs/[1] pointer-events-none whitespace-nowrap">
+                                        Termin
+                                </span>)}
                             {/* {editTaskData.taskDate ? (
                                 <span className="absolute top-0 left-0 text-xs/[1] pointer-events-none whitespace-nowrap">
                                         {editTaskData.taskDate ? new Date(editTaskData.taskDate).toLocaleDateString("pl-PL") : ""}
