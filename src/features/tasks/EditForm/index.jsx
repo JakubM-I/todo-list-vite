@@ -62,7 +62,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                     <div className="flex gap-2 items-center mb-3">
                         <div className="relative border border-solid border-borderGray rounded cursor-pointer flex items-center  bg-primaryLightColor">
                             <input 
-                                className={`appearance-none h-[22px] min-w-[85px] block text-xs/[1] pl-1 pr-4 focus:outline-none cursor-pointer bg-primaryLightColor 
+                                className={`appearance-none h-[22px] min-w-[85px] block text-xs/[1] pl-1 py-[5px] pr-4 focus:outline-none cursor-pointer bg-primaryLightColor 
                                 [&::-webkit-calendar-picker-indicator]:opacity-0
     [&::-webkit-calendar-picker-indicator]:absolute
     [&::-webkit-calendar-picker-indicator]:top-0
