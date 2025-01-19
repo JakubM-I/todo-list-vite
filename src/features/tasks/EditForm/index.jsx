@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { categorySelector } from "../../categories/categorySlice";
 import PrimaryButton from "../../../common/PrimaryButton";
+import InputDate from "../../../common/Inputs";
 
 
 const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
@@ -61,20 +62,28 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                     />
                     <div className="flex gap-2 items-center mb-3">
                         <div className="relative border border-solid border-borderGray rounded cursor-pointer flex items-center  bg-primaryLightColor">
-                            <input 
+                            <InputDate 
+                                taskData={editTaskData.taskDate}
+                                onChange={({target}) => setEditTaskData(prev => ({
+                                    ...prev,
+                                    taskDate: target.value,
+                                    })
+                                )}
+                            />
+                            {/* <input 
                                 className={`appearance-none h-[22px] min-w-[85px] block text-xs/[1] pl-1 py-[5px] pr-4 focus:outline-none cursor-pointer bg-primaryLightColor 
                                 [&::-webkit-calendar-picker-indicator]:opacity-0
-    [&::-webkit-calendar-picker-indicator]:absolute
-    [&::-webkit-calendar-picker-indicator]:top-0
-    [&::-webkit-calendar-picker-indicator]:right-0
-    [&::-webkit-calendar-picker-indicator]:w-full
-    [&::-webkit-calendar-picker-indicator]:h-full
-    [&::-webkit-calendar-picker-indicator]:cursor-pointer 
-    ${!editTaskData.taskDate ? 
-        "[&::-webkit-datetime-edit-text]:hidden [&::-webkit-datetime-edit]:hidden [&::-webkit-datetime-edit-fields-wrapper]:hidden " 
-        : 
-    "[&::-webkit-datetime-edit-text]:visible [&::-webkit-datetime-edit]:visible [&::-webkit-datetime-edit-fields-wrapper]:visible "}
-    `}
+                                [&::-webkit-calendar-picker-indicator]:absolute
+                                [&::-webkit-calendar-picker-indicator]:top-0
+                                [&::-webkit-calendar-picker-indicator]:right-0
+                                [&::-webkit-calendar-picker-indicator]:w-full
+                                [&::-webkit-calendar-picker-indicator]:h-full
+                                [&::-webkit-calendar-picker-indicator]:cursor-pointer 
+                                ${!editTaskData.taskDate ? 
+                                "[&::-webkit-datetime-edit-text]:hidden [&::-webkit-datetime-edit]:hidden [&::-webkit-datetime-edit-fields-wrapper]:hidden " 
+                                : 
+                                "[&::-webkit-datetime-edit-text]:visible [&::-webkit-datetime-edit]:visible [&::-webkit-datetime-edit-fields-wrapper]:visible "}
+                                `}
                                 type="date"
                                 name="date"
                                 placeholder="dd.mm.rrrr"
@@ -84,11 +93,11 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                                     taskDate: target.value,
                                     })
                                 )}
-                            />
-                            {!editTaskData.taskDate && (
+                            /> */}
+                            {/* {!editTaskData.taskDate && (
                                 <span className="absolute left-0 top-[-50%] translate-y-[50%] text-xs/[1] p-[5px] pr-[18px] pointer-events-none whitespace-nowrap">
                                         Termin
-                                </span>)}
+                                </span>)} */}
                             {/* {editTaskData.taskDate ? (
                                 <span className="absolute top-0 left-0 text-xs/[1] pointer-events-none whitespace-nowrap">
                                         {editTaskData.taskDate ? new Date(editTaskData.taskDate).toLocaleDateString("pl-PL") : ""}
