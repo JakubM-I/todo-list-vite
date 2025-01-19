@@ -1,6 +1,5 @@
 const InputDate = ({taskData, onChange}) => (
     <>  
-        {console.log(taskData)}
         <input 
             className={`appearance-none h-[22px] min-w-[85px] block text-xs/[1] pl-1 py-[5px] pr-4 focus:outline-none cursor-pointer bg-primaryLightColor 
             [&::-webkit-calendar-picker-indicator]:opacity-0
