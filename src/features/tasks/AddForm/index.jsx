@@ -5,6 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { categorySelector } from "../../categories/categorySlice";
 import { closeModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton";
+import InputDate from "../../../common/Inputs";
 
 const AddTaskForm = () => {
     const dispatch = useDispatch();
@@ -76,14 +77,18 @@ const AddTaskForm = () => {
                         <option value="2">Średni</option>
                         <option value="3">Wysoki</option>
                     </select>
-                    <input 
+                    <InputDate 
+                        taskData={taskDate}
+                        onChange={({target}) => setTaskDate(target.value)}
+                    />
+                    {/* <input 
                         className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
                         type="date" 
                         name="date" 
                         id=""
                         value={taskDate}
                         onChange={({target}) => setTaskDate(target.value)}
-                    />
+                    /> */}
                     <select 
                         className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
                         name="" 
