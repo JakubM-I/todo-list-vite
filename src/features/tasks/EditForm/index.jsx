@@ -87,42 +87,6 @@ const EditTaskForm = ({ editedTask, onCancel, onSubmit }) => {
                             </option>
                         ))}
                     </InputSelect>
-
-                    {/* <div className="relative border border-solid border-borderGray rounded cursor-pointer">
-                            <select 
-                                className="appearance-none block text-xs/[1] p-[5px] pr-[18px] focus:outline-none cursor-pointer bg-primaryLightColor"
-                                value={editTaskData.taskCategory}
-                                onChange={({target}) => setEditTaskData(prev => ({
-                                    ...prev,
-                                    taskCategory: target.value,
-                                    })
-                                )}
-                            >
-                                {categories.map(category => (
-                                    <option 
-                                        key={category.categoryId}
-                                        value={category.categoryName.toLowerCase()}    
-                                    >
-                                        {category.categoryName}
-                                    </option>
-                                ))}           
-                            </select>
-                            <div className="absolute inset-y-0 right-0 pr-[2px] flex items-center pointer-events-none">
-                                <svg
-                                className="h-4 w-4 text-gray-400"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M19 9l-7 7-7-7"
-                                />
-                                </svg>
-                            </div>
-                        </div> */}
                     <InputSelect
                         taskData={editTaskData.taskPriority}
                         onChange={({ target }) => setEditTaskData(prev => ({
@@ -136,39 +100,6 @@ const EditTaskForm = ({ editedTask, onCancel, onSubmit }) => {
                         <option value="2">Średni</option>
                         <option value="3">Wysoki</option>
                     </InputSelect>
-                    {/* <div className="relative border border-solid border-borderGray rounded cursor-pointer">
-                        <select
-                            className="appearance-none block text-xs/[1] p-[5px] pr-[18px] focus:outline-none cursor-pointer bg-primaryLightColor"
-                            name="priority"
-                            value={editTaskData.taskPriority}
-                            onChange={({ target }) => setEditTaskData(prev => ({
-                                ...prev,
-                                taskPriority: target.value,
-                            })
-                            )}
-                        >
-                            <option value="0">Priorytet</option>
-                            <option value="1">Brak</option>
-                            <option value="2">Średni</option>
-                            <option value="3">Wysoki</option>
-                        </select>
-                        <div className="absolute inset-y-0 right-0 pr-[2px] flex items-center pointer-events-none">
-                            <svg
-                                className="h-4 w-4 text-gray-400"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M19 9l-7 7-7-7"
-                                />
-                            </svg>
-                        </div>
-                    </div> */}
-
                 </div>
                 <div className="flex justify-end items-center gap-2">
                     <PrimaryButton

@@ -6,6 +6,7 @@ import { categorySelector } from "../../categories/categorySlice";
 import { closeModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton";
 import InputDate from "../../../common/Inputs/inputDate";
+import InputSelect from "../EditForm/inputSelect";
 
 const AddTaskForm = () => {
     const dispatch = useDispatch();
@@ -30,11 +31,11 @@ const AddTaskForm = () => {
 
     useEffect(() => {
         taskNameRef.current.focus();
-    },[]);
+    }, []);
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        if(!taskName.trim()){
+        if (!taskName.trim()) {
             return;
         }
 
@@ -50,64 +51,53 @@ const AddTaskForm = () => {
         }))
         dispatch(closeModal());
     };
-    
+
     return (
-            <form className="flex flex-col gap-[10px]">
-                <input type="text"
-                    className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm focus-visible outline-none"  
-                    placeholder="Nazwa Zadania" 
-                    value={taskName} 
-                    ref={taskNameRef} 
-                    onChange={({target}) => setTaskName(target.value)}/>
-                <input type="text" 
-                    className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm focus-visible outline-none"
-                    placeholder="Opis"
-                    value={taskDesc}
-                    onChange={({target}) => setTaskDesc(target.value)}
+        <form className="flex flex-col gap-[10px]">
+            <input type="text"
+                className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm focus-visible outline-none"
+                placeholder="Nazwa Zadania"
+                value={taskName}
+                ref={taskNameRef}
+                onChange={({ target }) => setTaskName(target.value)} />
+            <input type="text"
+                className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm focus-visible outline-none"
+                placeholder="Opis"
+                value={taskDesc}
+                onChange={({ target }) => setTaskDesc(target.value)}
+            />
+            <div className="flex flex-wrap mobile-l:flex-nowrap gap-2 justify-start items-center">
+                <InputSelect
+                    taskData={taskPriority}
+                    onChange={({ target }) => setTaskPriority(target.value)}
+                >
+                    <option value="0">Priorytet</option>
+                    <option value="1">Brak</option>
+                    <option value="2">Średni</option>
+                    <option value="3">Wysoki</option>
+                </InputSelect>
+                <InputDate
+                    taskData={taskDate}
+                    onChange={({ target }) => setTaskDate(target.value)}
                 />
-                <div className="flex flex-wrap mobile-l:flex-nowrap gap-2 justify-start items-center">
-                    <select 
-                        className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
-                        name="priority"
-                        value={taskPriority}
-                        onChange={({target}) => setTaskPriority(target.value)}
-                    >
-                        <option value="0">Priorytet</option>
-                        <option value="1">Brak</option>
-                        <option value="2">Średni</option>
-                        <option value="3">Wysoki</option>
-                    </select>
-                    <InputDate 
-                        taskData={taskDate}
-                        onChange={({target}) => setTaskDate(target.value)}
-                    />
-                    {/* <input 
-                        className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
-                        type="date" 
-                        name="date" 
-                        id=""
-                        value={taskDate}
-                        onChange={({target}) => setTaskDate(target.value)}
-                    /> */}
-                    <select 
-                        className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded"
-                        name="" 
-                        id=""
-                        value={taskCategory}
-                        onChange={({target}) => setTaskCategory(target.value)}
-                    >
-                        {categories.map(category => (
-                            <option key={category.categoryId} value={category.categoryName.toLowerCase()}>{category.categoryName}</option>
-                        ))}
-                    </select>
-                </div>
-                <div className="flex items-center justify-end">
-                    <PrimaryButton 
-                        title="Dodaj"
-                        onClick={onFormSubmit}
-                    />
-                </div>
-            </form>
+                <InputSelect
+                    taskData={taskCategory}
+                    onChange={({ target }) => setTaskCategory(target.value)}
+                >
+                    {categories.map(category => (
+                        <option key={category.categoryId} value={category.categoryName.toLowerCase()}>
+                            {category.categoryName}
+                        </option>
+                    ))}
+                </InputSelect>
+            </div>
+            <div className="flex items-center justify-end">
+                <PrimaryButton
+                    title="Dodaj"
+                    onClick={onFormSubmit}
+                />
+            </div>
+        </form>
     )
 };
 
