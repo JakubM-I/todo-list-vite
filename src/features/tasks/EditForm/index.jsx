@@ -61,7 +61,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                         className="appearance-none block text-sm/[1.2] mb-3 p-1 w-full border-solid border-borderGray focus:outline-none focus:border-b" 
                     />
                     <div className="flex gap-2 items-center mb-3">
-                        <div className="relative border border-solid border-borderGray rounded cursor-pointer flex items-center  bg-primaryLightColor">
+                        {/* <div className="relative border border-solid border-borderGray rounded cursor-pointer flex items-center  bg-primaryLightColor"> */}
                             <InputDate 
                                 taskData={editTaskData.taskDate}
                                 onChange={({target}) => setEditTaskData(prev => ({
@@ -108,7 +108,7 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                                     dd.mm.rrrr
                                 </span>
                             )} */}
-                            <div className="absolute inset-y-0 right-0 pr-[2px] flex items-center pointer-events-none">
+                            {/* <div className="absolute inset-y-0 right-0 pr-[2px] flex items-center pointer-events-none">
                                 <svg 
                                     className="h-[13px] w-[13px] text-gray-400" 
                                     xmlns="http://www.w3.org/2000/svg" 
@@ -123,8 +123,8 @@ const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
                                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
                                     />
                                 </svg>
-                            </div>
-                        </div>
+                            </div> */}
+                        {/* </div> */}
 
                         <div className="relative border border-solid border-borderGray rounded cursor-pointer">
                             <select 
