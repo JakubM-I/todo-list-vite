@@ -5,7 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { categorySelector } from "../../categories/categorySlice";
 import { closeModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton";
-import InputDate from "../../../common/Inputs";
+import InputDate from "../../../common/Inputs/inputDate";
 
 const AddTaskForm = () => {
     const dispatch = useDispatch();

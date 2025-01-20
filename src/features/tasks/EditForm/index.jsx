@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { categorySelector } from "../../categories/categorySlice";
 import PrimaryButton from "../../../common/PrimaryButton";
-import InputDate from "../../../common/Inputs";
+import InputDate from "../../../common/Inputs/inputDate";
 
 
 const EditTaskForm = ({editedTask, onCancel, onSubmit}) => {
