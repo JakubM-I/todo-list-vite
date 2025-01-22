@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { categorySelector } from "../../categories/categorySlice";
 import PrimaryButton from "../../../common/PrimaryButton";
 import InputDate from "../../../common/Inputs/inputDate";
-import InputSelect from "./inputSelect";
+import InputSelect from "../../../common/Inputs/inputSelect";
 
 
 const EditTaskForm = ({ editedTask, onCancel, onSubmit }) => {
