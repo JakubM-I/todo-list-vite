@@ -6,7 +6,8 @@ import { categorySelector } from "../../categories/categorySlice";
 import { closeModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton";
 import InputDate from "../../../common/Inputs/inputDate";
-import InputSelect from "../EditForm/inputSelect";
+import InputSelect from "../../../common/Inputs/inputSelect";
+
 
 const AddTaskForm = () => {
     const dispatch = useDispatch();
