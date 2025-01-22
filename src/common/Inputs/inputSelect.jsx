@@ -1,7 +1,7 @@
 const InputSelect = ({ taskData, onChange, children }) => (
     <div className="relative border border-solid border-borderGray rounded cursor-pointer">
         <select
-            className="appearance-none block text-xs/[1] p-[5px] pr-[18px] focus:outline-none cursor-pointer bg-primaryLightColor"
+            className="appearance-none block text-xs/[1] p-[5px] pr-[20px] focus:outline-none cursor-pointer bg-primaryLightColor"
             value={taskData}
             onChange={onChange}
         >
