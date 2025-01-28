@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { categorySelector } from "../../categories/categorySlice";
 import PrimaryButton from "../../../common/PrimaryButton";
-import InputDate from "../../../common/Inputs/inputDate";
-import InputSelect from "../../../common/Inputs/inputSelect";
+import InputDate from "../../../common/Inputs/inputDate.tsx";
+import InputSelect from "../../../common/Inputs/inputSelect.tsx";
 
 
 const EditTaskForm = ({ editedTask, onCancel, onSubmit }) => {

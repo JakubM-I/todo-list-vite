@@ -5,8 +5,8 @@ import { nanoid } from "@reduxjs/toolkit";
 import { categorySelector } from "../../categories/categorySlice";
 import { closeModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton";
-import InputDate from "../../../common/Inputs/inputDate";
-import InputSelect from "../../../common/Inputs/inputSelect";
+import InputDate from "../../../common/Inputs/inputDate.tsx";
+import InputSelect from "../../../common/Inputs/inputSelect.tsx";
 
 
 const AddTaskForm = () => {

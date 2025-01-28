@@ -1,4 +1,6 @@
-const InputSelect = ({ taskData, onChange, children }) => (
+import { InputSelectProps } from "../../types/interfaces";
+
+const InputSelect: React.FC<InputSelectProps> = ({ taskData, onChange, children }) => (
     <div className="relative border border-solid border-borderGray rounded cursor-pointer">
         <select
             className="appearance-none block text-xs/[1] p-[5px] pr-[20px] focus:outline-none cursor-pointer bg-primaryLightColor"

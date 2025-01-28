@@ -1,4 +1,6 @@
-const InputDate = ({ taskData, onChange }) => (
+import { InputDateProps } from "../../types/interfaces";
+
+const InputDate: React.FC<InputDateProps> = ({ taskData, onChange }) => (
     <div className="relative border border-solid border-borderGray rounded cursor-pointer flex items-center  bg-primaryLightColor">
         <input
             className={`appearance-none h-[22px] min-w-[85px] block text-xs/[1] pl-1 py-[5px] pr-4 focus:outline-none cursor-pointer bg-primaryLightColor 

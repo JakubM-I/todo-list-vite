@@ -26,34 +26,34 @@ const SortTypeSwitcher = () => {
             <form onSubmit={onFormSubmit}
                 className="ml-2"
             >
-               <div className="mb-2">
+                <div className="mb-2">
                     <div className="flex justify-start items-center gap-2">
-                        <input 
-                            type="radio" 
-                            name="sortType" 
-                            id="date" 
-                            value="date" 
+                        <input
+                            type="radio"
+                            name="sortType"
+                            id="date"
+                            value="date"
                             checked={selectedSortType === "date"}
-                            onChange={({target}) => setSelectedSortType(target.value)}
+                            onChange={({ target }) => setSelectedSortType(target.value)}
                             className="cursor-pointer"
                         />
                         <label className="cursor-pointer" htmlFor="date">Data</label>
                     </div>
                     <div className="flex justify-start items-center gap-2">
-                        <input 
-                            type="radio" 
-                            name="sortType" 
-                            id="category" 
-                            value="category" 
+                        <input
+                            type="radio"
+                            name="sortType"
+                            id="category"
+                            value="category"
                             checked={selectedSortType === "category"}
-                            onChange={({target}) => setSelectedSortType(target.value)}
+                            onChange={({ target }) => setSelectedSortType(target.value)}
                             className="cursor-pointer"
                         />
                         <label className="cursor-pointer" htmlFor="category">Kategorie</label>
                     </div>
                 </div>
                 <div className="flex justify-end pr-2">
-                    <PrimaryButton 
+                    <PrimaryButton
                         title="Zapisz"
                     />
                 </div>
