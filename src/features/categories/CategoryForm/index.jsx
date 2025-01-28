@@ -5,7 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { closeModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton";
 
-const CategoryForm = ({editedCategory = null}) => {
+const CategoryForm = ({ editedCategory = null }) => {
     const dispatch = useDispatch();
     const [categoryName, setCategoryName] = useState(editedCategory?.categoryName || "");
     const isEdit = !!editedCategory;
@@ -13,15 +13,15 @@ const CategoryForm = ({editedCategory = null}) => {
 
     useEffect(() => {
         categoryNameRef.current.focus()
-    },[])
+    }, [])
 
     const categorySubmit = (e) => {
         e.preventDefault();
-        if(!categoryName.trim()){
+        if (!categoryName.trim()) {
             return;
         }
-        
-        if(isEdit) {
+
+        if (isEdit) {
             dispatch(editCategory({
                 categoryId: editedCategory.categoryId,
                 categoryName: categoryName.trim(),
@@ -37,20 +37,20 @@ const CategoryForm = ({editedCategory = null}) => {
     }
 
     return (
-        <form 
+        <form
             onSubmit={categorySubmit}
             className="flex flex-col gap-[10px]"
         >
-            <input 
-                className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm focus-visible outline-none" 
+            <input
+                className="border-b border-solid border-borderGray p-1 text-sm/[1.2] placeholder:text-secondaryText placeholder:text-sm focus-visible outline-none"
                 type="text"
-                placeholder="Nazwa kategorii" 
+                placeholder="Nazwa kategorii"
                 ref={categoryNameRef}
                 value={categoryName}
-                onChange={({target}) => setCategoryName(target.value)}
+                onChange={({ target }) => setCategoryName(target.value)}
             />
             <div className="flex items-center justify-end">
-                <PrimaryButton 
+                <PrimaryButton
                     title={isEdit ? "Zapisz" : "Dodaj"}
                 />
             </div>

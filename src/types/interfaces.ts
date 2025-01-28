@@ -20,3 +20,9 @@ export interface Configuration {
     loading: true | false;
     sortType: string;
 }
+
+export interface PrimaryButtonProps {
+    title: string;
+    onClick?: () => void;
+    type?: "submit" | "reset" | "button" | undefined;
+}

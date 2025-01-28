@@ -10,7 +10,7 @@ const ButtonMenu = () => {
     }
 
     return (
-        <PrimaryButton 
+        <PrimaryButton
             title="Dodaj kategorię"
             onClick={() => dispatch(openModal(openElement))}
         />

@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   base: "/todo-list-vite/",
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.tsx', '.ts', '.jsx', '.js']
   }
 })
