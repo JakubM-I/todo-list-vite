@@ -26,3 +26,14 @@ export interface PrimaryButtonProps {
     onClick?: () => void;
     type?: "submit" | "reset" | "button" | undefined;
 }
+
+export interface InputDateProps {
+    taskData: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface InputSelectProps {
+    taskData: string;
+    onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    children: React.ReactElement;
+}
