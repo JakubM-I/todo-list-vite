@@ -1,4 +1,6 @@
-const PageSection = ({title, body, headerMenu, menu}) => (
+import { PageSectionProps } from "../../types/interfaces";
+
+const PageSection: React.FC<PageSectionProps> = ({title, body, headerMenu, menu}) => (
         <div className="h-full">
             {title ? (
                 <div className="border border-solid border-borderGray p-3 bg-primaryGreyColor flex items-center sticky">

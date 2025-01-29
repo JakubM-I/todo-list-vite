@@ -37,3 +37,10 @@ export interface InputSelectProps {
     onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     children: React.ReactElement;
 }
+
+export interface PageSectionProps {
+    title?: string;
+    body?: React.ReactElement;
+    headerMenu?: React.ReactElement;
+    menu?: React.ReactElement;
+}
