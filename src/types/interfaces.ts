@@ -44,3 +44,8 @@ export interface PageSectionProps {
     headerMenu?: React.ReactElement;
     menu?: React.ReactElement;
 }
+
+export interface PopupModalProps {
+    title: string;
+    body: React.ReactElement;
+}
