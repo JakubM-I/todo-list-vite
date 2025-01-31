@@ -31,7 +31,7 @@ const NavBar: React.FC = () => {
                             <NavLink 
                                 to={route.url} 
                                 className="hover:text-primaryBlueHover"
-                                onClick={isMobile ? () => handleCloseMenu() : undefined}
+                                onClick={isMobile ? handleCloseMenu : undefined}
                             >
                                 {route.name}
                             </NavLink>
