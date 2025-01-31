@@ -49,3 +49,9 @@ export interface PopupModalProps {
     title: string;
     body: React.ReactElement;
 }
+
+export interface MenuRoutesUrl {
+    id: number;
+    name: string;
+    url: string;
+}
