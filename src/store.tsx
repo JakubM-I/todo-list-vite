@@ -9,7 +9,7 @@ import rootSaga from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = configureStore({
+export const store = configureStore({
     reducer: {
         tasks: tasksListReducer,
         modal: modalReducer,
@@ -23,4 +23,6 @@ const store = configureStore({
 
 sagaMiddleware.run(rootSaga);
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+export type AppStore = typeof store
