@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux";
 import PageSection from "../PageSection";
 import { closeModal } from "./modalSlice";
+import { PopupModalProps } from "../../types/interfaces";
 
-const PopupModal = ({title, body}) => {
+const PopupModal: React.FC<PopupModalProps> = ({title, body}) => {
     const dispatch = useDispatch();
 
-    const handleContentCLick = (e) => {
+    const handleContentCLick = (e: React.SyntheticEvent) => {
         e.stopPropagation();
     }
 

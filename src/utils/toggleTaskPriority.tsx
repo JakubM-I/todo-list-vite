@@ -1,7 +1,8 @@
 import priority1 from "../assets/priority-1-icon.png";
 import priority2 from "../assets/priority-2-icon.png"
+import { ToggleTaskPriority } from "../types/interfaces";
 
-   export const toggleTaskPriority = (taskPriority) => {
+   export const toggleTaskPriority: ToggleTaskPriority = (taskPriority) => {
         if(taskPriority === "0" || taskPriority === "1" ){
             return "";
         };

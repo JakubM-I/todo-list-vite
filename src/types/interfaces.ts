@@ -37,3 +37,25 @@ export interface InputSelectProps {
     onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     children: React.ReactElement;
 }
+
+export interface PageSectionProps {
+    title?: string;
+    body?: React.ReactElement;
+    headerMenu?: React.ReactElement;
+    menu?: React.ReactElement;
+}
+
+export interface PopupModalProps {
+    title: string;
+    body: React.ReactElement;
+}
+
+export interface MenuRoutesUrl {
+    id: number;
+    name: string;
+    url: string;
+}
+
+export interface ToggleTaskPriority {
+    (taskPriority: string): React.ReactElement | "";
+}

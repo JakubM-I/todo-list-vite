@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
-import MainElement from "../../common/Main";
+import MainElement from "../../common/Main/index.tsx";
 import NavBar from "../../common/NavBar";
 import AddTaskForm from "../tasks/AddForm";
 import PopupModal from "../../common/PopupModal";
@@ -9,21 +9,21 @@ import CategoryForm from "../categories/CategoryForm";
 import { useWindowResize } from "../../hooks/useWindowResize";
 import Notification from "../configuration/Notification";
 
-const RootElement = () =>  {
+const RootElement = () => {
     useWindowResize()
     const openModal = useSelector(modalOpenSelector);
-    const {title, body, data} = useSelector(modalOpenElementSelector)
+    const { title, body, data } = useSelector(modalOpenElementSelector)
 
     const toggleBodyElement = (body, data) => {
-        if(body === "taskForm"){
+        if (body === "taskForm") {
             return (<AddTaskForm />)
         }
 
-        if(body === "categoryForm"){
+        if (body === "categoryForm") {
             return (<CategoryForm editedCategory={data} />)
         }
 
-        if(body === "notification"){
+        if (body === "notification") {
             return (<Notification body={data} />)
         }
     }
@@ -37,7 +37,7 @@ const RootElement = () =>  {
                 </MainElement>
             </div>
             {openModal ? (
-                <PopupModal 
+                <PopupModal
                     title={title}
                     body={toggleBodyElement(body, data)}
                 />

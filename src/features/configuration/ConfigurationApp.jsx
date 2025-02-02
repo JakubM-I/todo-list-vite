@@ -4,11 +4,11 @@ import ConfigurationPage from "./ConfigurationPage"
 const ConfigurationApp = () => {
     return (
         <div>
-        <PageSection 
-            title="Ustawienia"
-            body={<ConfigurationPage />}
-       />
-    </div>
+            <PageSection
+                title="Ustawienia"
+                body={<ConfigurationPage />}
+            />
+        </div>
     )
 };
 
