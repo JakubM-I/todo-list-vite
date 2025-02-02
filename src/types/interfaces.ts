@@ -55,3 +55,7 @@ export interface MenuRoutesUrl {
     name: string;
     url: string;
 }
+
+export interface ToggleTaskPriority {
+    (taskPriority: string): React.ReactElement | "";
+}
