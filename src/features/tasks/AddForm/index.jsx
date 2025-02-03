@@ -3,7 +3,7 @@ import { addTask } from "../taskSlice";
 import { useEffect, useRef, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { categorySelector } from "../../categories/categorySlice";
-import { closeModal } from "../../../common/PopupModal/modalSlice";
+import { closeModal, closingModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton";
 import InputDate from "../../../common/Inputs/inputDate.tsx";
 import InputSelect from "../../../common/Inputs/inputSelect.tsx";
@@ -50,7 +50,8 @@ const AddTaskForm = () => {
             taskDone: false,
             taskVisibility: true,
         }))
-        dispatch(closeModal());
+        // dispatch(closeModal());
+        dispatch(closingModal());
     };
 
     return (

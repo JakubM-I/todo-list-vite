@@ -1,13 +1,15 @@
-import { takeLatest } from "redux-saga/effects";
-import { closeModal, openModal } from "./modalSlice";
+import { delay, put, takeLatest } from "redux-saga/effects";
+import { closeModal, closingModal, openModal } from "./modalSlice";
 
 function* openModalWorker() {
 };
 
 function* closeModalWorker() {
+    yield delay(1000);
+    yield put(closeModal());
 };
 
 export function* modalSaga() {
     yield takeLatest(openModal.type, openModalWorker);
-    yield takeLatest(closeModal.type, closeModalWorker);
+    yield takeLatest(closingModal.type, closeModalWorker);
 };
