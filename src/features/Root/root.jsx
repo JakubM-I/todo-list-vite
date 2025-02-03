@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import MainElement from "../../common/Main/index.tsx";
 import NavBar from "../../common/NavBar";
 import AddTaskForm from "../tasks/AddForm";
-import PopupModal from "../../common/PopupModal";
+import PopupModal from "../../common/PopupModal/ModalContent/index.tsx";
 import { modalOpenElementSelector, modalOpenSelector } from "../../common/PopupModal/modalSlice";
 import CategoryForm from "../categories/CategoryForm";
 import { useWindowResize } from "../../hooks/useWindowResize";
