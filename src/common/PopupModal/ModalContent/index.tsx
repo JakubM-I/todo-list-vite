@@ -1,12 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import PageSection from "../../PageSection";
-import { closeModal, modalOpenLoadingSelector } from "../modalSlice";
+import { closeModal, modalOpenLoadingSelector, modalOpenSuccessSelector } from "../modalSlice";
 import { PopupModalProps } from "../../../types/interfaces";
 import PopupModalLoading from "../ModalLoading";
+import PopupModalSuccess from "../ModalSuccess";
 
 const PopupModal: React.FC<PopupModalProps> = ({title, body}) => {
     const dispatch = useDispatch();
-    const isLoading = useSelector(modalOpenLoadingSelector)
+    const isLoading = useSelector(modalOpenLoadingSelector);
+    const isSuccess = useSelector(modalOpenSuccessSelector);
 
     const handleContentCLick = (e: React.SyntheticEvent) => {
         e.stopPropagation();
@@ -16,7 +18,7 @@ const PopupModal: React.FC<PopupModalProps> = ({title, body}) => {
         <div className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vh] px-2 bg-transparentDarkBackground flex justify-center items-top" 
             onClick={() => dispatch(closeModal())}
         >
-            {!isLoading ? (
+            {!isLoading && !isSuccess && (
                             <div className="border border-solid border-borderGray bg-primaryLightColor p-3 mt-14 w-[min(450px,100%)] h-fit" onClick={handleContentCLick}>
                             <div className="flex items-center justify-end">
                                 <button className="pr-1 p-[2px] mb-1 border border-primaryLightColor hover:border-solid hover:border-borderGray hover:bg-[#e2e8f052] rounded" onClick={() => dispatch(closeModal())}>
@@ -28,9 +30,10 @@ const PopupModal: React.FC<PopupModalProps> = ({title, body}) => {
                                 body={body}
                             />
                         </div>
-            ) : 
-                <PopupModalLoading />
-            }
+            )}
+            {isLoading && <PopupModalLoading /> }
+            {isSuccess && <PopupModalSuccess />  }    
+            
         </div>
     )
 };
