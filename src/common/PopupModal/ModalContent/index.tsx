@@ -5,7 +5,7 @@ import { PopupModalProps } from "../../../types/interfaces";
 import PopupModalLoading from "../ModalLoading";
 import PopupModalSuccess from "../ModalSuccess";
 
-const PopupModal: React.FC<PopupModalProps> = ({ title, body }) => {
+const PopupModal: React.FC<PopupModalProps> = ({ title, body, success }) => {
     const dispatch = useDispatch();
     const isLoading = useSelector(modalOpenLoadingSelector);
     const isSuccess = useSelector(modalOpenSuccessSelector);
@@ -30,7 +30,7 @@ const PopupModal: React.FC<PopupModalProps> = ({ title, body }) => {
                         body={body}
                     />}
                 {isLoading && <PopupModalLoading />}
-                {isSuccess && <PopupModalSuccess />}
+                {isSuccess && <PopupModalSuccess success={success} />}
             </div>
         </div>
     )

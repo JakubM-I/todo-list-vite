@@ -12,7 +12,7 @@ import Notification from "../configuration/Notification";
 const RootElement = () => {
     useWindowResize()
     const openModal = useSelector(modalOpenSelector);
-    const { title, body, data } = useSelector(modalOpenElementSelector)
+    const { title, body, data, success } = useSelector(modalOpenElementSelector)
 
     const toggleBodyElement = (body, data) => {
         if (body === "taskForm") {
@@ -40,6 +40,7 @@ const RootElement = () => {
                 <PopupModal
                     title={title}
                     body={toggleBodyElement(body, data)}
+                    success={success}
                 />
             ) : ""}
         </div>
