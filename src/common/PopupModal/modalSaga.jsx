@@ -5,10 +5,14 @@ function* openModalWorker() {
 };
 
 function* closeModalWorker() {
-    yield delay(1000);
-    yield put(successModal());
-    yield delay(1000);
-    yield put(closeModal());
+    try {
+        yield delay(1000);
+        yield put(successModal());
+        yield delay(1000);
+        yield put(closeModal());
+    } catch (error) {
+        yield console.error(error);
+    }
 };
 
 export function* modalSaga() {
