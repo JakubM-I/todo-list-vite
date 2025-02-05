@@ -4,9 +4,10 @@ import { closeModal, modalOpenLoadingSelector, modalOpenSuccessSelector } from "
 import { PopupModalProps } from "../../../types/interfaces";
 import PopupModalLoading from "../ModalLoading";
 import PopupModalSuccess from "../ModalSuccess";
+import { AppDispatch } from "../../../store";
 
 const PopupModal: React.FC<PopupModalProps> = ({ title, body, success }) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const isLoading = useSelector(modalOpenLoadingSelector);
     const isSuccess = useSelector(modalOpenSuccessSelector);
 
@@ -19,7 +20,6 @@ const PopupModal: React.FC<PopupModalProps> = ({ title, body, success }) => {
             onClick={() => dispatch(closeModal())}
         >
             <div className="border border-solid border-borderGray bg-primaryLightColor p-3 mt-14 w-[min(450px,100%)] h-fit" onClick={handleContentCLick}>
-
                 {!isLoading && !isSuccess && (
                     <>
                         <div className="flex items-center justify-end">
