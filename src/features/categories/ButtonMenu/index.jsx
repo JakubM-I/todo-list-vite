@@ -7,6 +7,7 @@ const ButtonMenu = () => {
     const openElement = {
         title: "Nowa kategoria",
         body: "categoryForm",
+        success: "Kategoria została zapisana"
     }
 
     return (
