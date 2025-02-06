@@ -1,13 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import PageSection from "../../PageSection";
 import { closeModal, modalOpenLoadingSelector, modalOpenSuccessSelector } from "../modalSlice";
 import { PopupModalProps } from "../../../types/interfaces";
 import PopupModalLoading from "../ModalLoading";
 import PopupModalSuccess from "../ModalSuccess";
-import { AppDispatch } from "../../../store";
+import { useAppDispatch } from "../../../hooks/reduxHooks";
 
 const PopupModal: React.FC<PopupModalProps> = ({ title, body, success }) => {
-    const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useAppDispatch();
     const isLoading = useSelector(modalOpenLoadingSelector);
     const isSuccess = useSelector(modalOpenSuccessSelector);
 
