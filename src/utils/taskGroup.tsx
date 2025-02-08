@@ -1,14 +1,16 @@
-import { useSelector } from "react-redux";
+
 import { useSearchParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { searchTaskByQuery } from "../features/tasks/taskSlice";
 import { configSortTypeSelector } from "../features/configuration/configurationSlice";
+import { Task } from "../types/interfaces";
+import { useAppSelector } from "../hooks/reduxHooks";
 
 export const groupTask = () => {
     const [searchParams] = useSearchParams();
     const query = searchParams.get("szukaj")
-    const tasks = useSelector(state => searchTaskByQuery(state, query));
-    const sortType = useSelector(configSortTypeSelector);
+    const tasks: Task[] = useAppSelector(state => searchTaskByQuery(state, query));
+    const sortType: string = useAppSelector(configSortTypeSelector);
 
     if (sortType === "date") {
         const allDatesList = tasks.map(task => ({ id: nanoid(), date: task.taskDate, label: task.taskDate || "" }))
@@ -19,14 +21,14 @@ export const groupTask = () => {
                 if (!a.date) return -1;
                 if (!b.date) return 1;
 
-                return new Date(b.date) - new Date(a.date);
+                return new Date(b.date).getTime() - new Date(a.date).getTime();
             });
 
         const groupedDateTasks = sortedDatesList.map(dataGroup => ({
             ...dataGroup,
             tasks: tasks
                 .filter(task => task.taskDate === dataGroup.date)
-                .sort((a, b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
+                .sort((a, b) => Number(a.taskDone) - Number(b.taskDone) || Number(b.taskPriority) - Number(a.taskPriority))
         }));
 
         return {
@@ -49,7 +51,7 @@ export const groupTask = () => {
             ...categoryGroup,
             tasks: tasks
                 .filter(task => task.taskCategory === categoryGroup.category)
-                .sort((a, b) => a.taskDone - b.taskDone || b.taskPriority - a.taskPriority)
+                .sort((a, b) => Number(a.taskDone) - Number(b.taskDone) || Number(b.taskPriority) - Number(a.taskPriority))
         }));
 
         return {

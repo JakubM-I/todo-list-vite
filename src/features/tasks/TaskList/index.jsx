@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeTask, toggleTaskDone } from "../taskSlice";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
-import { groupTask } from "../../../utils/taskGroup";
+import { groupTask } from "../../../utils/taskGroup.tsx";
 import { configSortTypeSelector } from "../../configuration/configurationSlice";
 
 const TasksList = () => {
