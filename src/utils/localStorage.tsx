@@ -11,10 +11,8 @@ export const saveCategoryToLocalStorage = (categories: Category) => {
     localStorage.setItem("categories", JSON.stringify(categories))
 };
 
-export const loadCategoryFromLocalStorage = (): Category => {
-    const category = localStorage.getItem("categories");
-    return category ? JSON.parse(category) : [{ "categoryId": "0", "categoryName": "Kategoria" }]
-};
+export const loadCategoryFromLocalStorage = (): Category =>
+    JSON.parse(localStorage.getItem("categories") || "[]");
 
 export const saveConfigurationToLocalStorage = (configuration: Configuration) => {
     localStorage.setItem("configuration", JSON.stringify(configuration))

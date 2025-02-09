@@ -86,6 +86,7 @@ const AddTaskForm = () => {
                     taskData={taskCategory}
                     onChange={({ target }) => setTaskCategory(target.value)}
                 >
+                    <option value="">Kategoria</option>
                     {categories.map(category => (
                         <option key={category.categoryId} value={category.categoryName.toLowerCase()}>
                             {category.categoryName}

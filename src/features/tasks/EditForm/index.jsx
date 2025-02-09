@@ -78,6 +78,7 @@ const EditTaskForm = ({ editedTask, onCancel, onSubmit }) => {
                         })
                         )}
                     >
+                        <option value="">Kategoria</option>
                         {categories.map(category => (
                             <option
                                 key={category.categoryId}
