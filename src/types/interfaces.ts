@@ -48,6 +48,11 @@ export interface PageSectionProps {
 export interface PopupModalProps {
     title: string;
     body: React.ReactElement;
+    success?: string;
+}
+
+export interface PopupModalSuccessProps {
+    success?: string;
 }
 
 export interface MenuRoutesUrl {

@@ -1,17 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loadConfigurationFromLocalStorage } from "../../utils/localStorage";
 
+const savedConfig = loadConfigurationFromLocalStorage()
+
 const configurationSlice = createSlice({
     name: "configuration",
     initialState: {
-            sortType: loadConfigurationFromLocalStorage()?.sortType || "date",
-            lang: "PL",
-            loading: false,
-            fetchError: false,
+        sortType: savedConfig?.sortType || "date",
+        lang: savedConfig?.lang || "PL",
+        loading: savedConfig?.loading || false,
+        fetchError: savedConfig?.fetchError || false,
     },
 
     reducers: {
-        toggleSortType: (state, {payload: sortType}) => {
+        toggleSortType: (state, { payload: sortType }) => {
             state.sortType = sortType;
         },
 
@@ -40,5 +42,5 @@ export const configSortTypeSelector = state => configStateSelector(state).sortTy
 export const configLoadingState = state => configStateSelector(state).loading;
 export const configFetchErrorState = state => configStateSelector(state).fetchError;
 
-export const {toggleSortType, fetchExampleData, successFetchExampeData, errorFetchExampleData, closeErrorFetchExampleData} = configurationSlice.actions;
+export const { toggleSortType, fetchExampleData, successFetchExampeData, errorFetchExampleData, closeErrorFetchExampleData } = configurationSlice.actions;
 export default configurationSlice.reducer;

@@ -1,10 +1,9 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux"
 import { resizeWindow } from "../features/ui/actions/uiAction";
-import { AppDispatch } from "../store";
+import { useAppDispatch } from "./reduxHooks";
 
 export const useWindowResize = (): void => {
-    const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(resizeWindow());

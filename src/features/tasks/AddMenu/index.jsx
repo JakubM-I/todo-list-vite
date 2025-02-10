@@ -7,11 +7,12 @@ const AddMenu = () => {
     const openElement = {
         title: "Nowe zadanie",
         body: "taskForm",
+        success: "Zadanie zostało zapisane"
     }
 
     return (
         <div>
-            <PrimaryButton 
+            <PrimaryButton
                 title="Dodaj zadanie"
                 onClick={() => dispatch(openModal(openElement))}
             />
