@@ -128,26 +128,22 @@
     "categories": [
         {
             "categoryId": "0",   
-            "categoryName": "Kategoria"
-        },
-        {
-            "categoryId": "1",   
             "categoryName": "Osobiste"
         },
         {
-            "categoryId": "2",   
+            "categoryId": "1",   
             "categoryName": "Praca"
         },
         {
-            "categoryId": "3",   
+            "categoryId": "2",   
             "categoryName": "Domowe"
         },
         {
-            "categoryId": "4",   
+            "categoryId": "3",   
             "categoryName": "Sport"
         },
         {
-            "categoryId": "5",   
+            "categoryId": "4",   
             "categoryName": "Zakupy"
         }
     ]
