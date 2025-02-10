@@ -5,7 +5,7 @@ import PrimaryButton from "../../../common/PrimaryButton";
 import { SortType } from "../../../types/types";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 
-const SortTypeSwitcher = () => {
+const SortTypeSwitcher = (): React.ReactElement => {
     const currentSortType = useAppSelector(configSortTypeSelector);
     const dispatch = useAppDispatch();
     const [selectedSortType, setSelectedSortType] = useState<SortType>(currentSortType);
