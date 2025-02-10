@@ -1,20 +1,21 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import React, { useState } from "react";
 import { configSortTypeSelector, toggleSortType } from "../configurationSlice";
 import { openModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton";
+import { SortType } from "../../../types/types";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 
 const SortTypeSwitcher = () => {
-    const currentSortType = useSelector(configSortTypeSelector);
-    const dispatch = useDispatch();
-    const [selectedSortType, setSelectedSortType] = useState(currentSortType);
+    const currentSortType = useAppSelector(configSortTypeSelector);
+    const dispatch = useAppDispatch();
+    const [selectedSortType, setSelectedSortType] = useState<SortType>(currentSortType);
     const openElement = {
         title: "Powiadomienie",
         body: "notification",
         data: "Zmiana sortowania została zapisana"
     }
 
-    const onFormSubmit = (e) => {
+    const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         dispatch(toggleSortType(selectedSortType));
         dispatch(openModal(openElement));
@@ -34,7 +35,7 @@ const SortTypeSwitcher = () => {
                             id="date"
                             value="date"
                             checked={selectedSortType === "date"}
-                            onChange={({ target }) => setSelectedSortType(target.value)}
+                            onChange={({ target }) => setSelectedSortType(target.value as SortType)}
                             className="cursor-pointer"
                         />
                         <label className="cursor-pointer" htmlFor="date">Data</label>
@@ -46,7 +47,7 @@ const SortTypeSwitcher = () => {
                             id="category"
                             value="category"
                             checked={selectedSortType === "category"}
-                            onChange={({ target }) => setSelectedSortType(target.value)}
+                            onChange={({ target }) => setSelectedSortType(target.value as SortType)}
                             className="cursor-pointer"
                         />
                         <label className="cursor-pointer" htmlFor="category">Kategorie</label>
