@@ -1,7 +1,7 @@
 import SortTypeSwitcher from "../SortTypeSwitcher";
 
-const ConfigurationPage = () => (
-        <SortTypeSwitcher />
-    );
+const ConfigurationPage = (): React.ReactElement => (
+    <SortTypeSwitcher />
+);
 
 export default ConfigurationPage;
