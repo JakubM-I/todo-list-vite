@@ -20,7 +20,7 @@ const CategoryList = () => {
     }
 
     return (
-        <ul className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-2">
+        <ul className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-2">
             {categories
                 .filter(category => category.id !== "0")
                 .sort((a, b) => a.categoryName.localeCompare(b.categoryName))
