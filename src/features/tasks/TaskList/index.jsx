@@ -1,7 +1,7 @@
 import { BiCheck } from "react-icons/bi";
 import { BiTrash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { removeTask, toggleTaskDone } from "../taskSlice";
+import { hideDoneTasksState, removeTask, toggleTaskDone } from "../taskSlice";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 import { groupTask } from "../../../utils/taskGroup.tsx";
@@ -14,6 +14,7 @@ const TasksList = () => {
     const query = searchParams.get("szukaj")
     const { groups } = groupTask();
     const sortType = useSelector(configSortTypeSelector);
+    const isHideDoneTasks = useSelector(hideDoneTasksState);
 
     const onTaskClick = (taskId) => {
         navigate(`details/${taskId}${query ? `?szukaj=${query}` : ""}`)
@@ -35,7 +36,7 @@ const TasksList = () => {
                         <ul>
                             {group.tasks
                                 .map(task => (
-                                    <li key={task.id} className={`px-[5px] py-2 w-full border-b border-b-borderGray border-b-solid ${task.taskVisibility ? "" : "hidden"}`}>
+                                    <li key={task.id} className={`px-[5px] py-2 w-full border-b border-b-borderGray border-b-solid ${isHideDoneTasks && task.taskDone ? "hidden" : ""}`}>
                                         <div className="flex justify-between items-center gap-3 mb-2">
                                             <button className="group shrink-0 border border-solid border-doneButton rounded-full w-[22px] h-[22px] flex justify-center items-center text-doneButton text-[20px]"
                                                 onClick={() => dispatch(toggleTaskDone(task.id))}

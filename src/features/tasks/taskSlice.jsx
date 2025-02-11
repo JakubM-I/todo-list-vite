@@ -7,6 +7,7 @@ const taskSlice = createSlice({
         tasks: loadTaskFromLocalStorage(),
         addFormOpen: false,
         isSearching: false,
+        hideDoneTasks: false,
     },
 
     reducers: {
@@ -30,13 +31,17 @@ const taskSlice = createSlice({
             }
         },
 
-        hideDoneTasks: ({ tasks }) => {
-            tasks.forEach(task => {
-                if (task.taskDone === true) {
-                    task.taskVisibility = !task.taskVisibility;
-                }
-            })
+        hideDoneTasks: state => {
+            state.hideDoneTasks = !state.hideDoneTasks;
         },
+
+        // hideDoneTasks: ({ tasks }) => {
+        //     tasks.forEach(task => {
+        //         if (task.taskDone === true) {
+        //             task.taskVisibility = !task.taskVisibility;
+        //         }
+        //     })
+        // },
 
         editTask: ({ tasks }, { payload }) => {
             const taskIndex = tasks.findIndex(task => task.id === payload.id);
@@ -83,6 +88,7 @@ export const searchTaskByQuery = (state, query) => {
     return taskSelector(state).filter(task => task.taskName.toUpperCase().includes(query.trim().toUpperCase()));
 };
 export const isTaskSearching = state => taskStateSelector(state).isSearching;
+export const hideDoneTasksState = state => taskStateSelector(state).hideDoneTasks;
 
 export const { addTask, toggleTaskDone, removeTask, toggleAllTaskDone, hideDoneTasks, editTask, loadExampleTasks, openSearchingTasks, closeSearchingTasks, openAddForm, closeAddForm } = taskSlice.actions;
 export default taskSlice.reducer;
