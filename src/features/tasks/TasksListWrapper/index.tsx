@@ -4,7 +4,6 @@ import TasksList from "../TaskList"
 import { closeSearchingTasks, isTaskSearching, taskSelector } from "../taskSlice";
 import EmptyTasksList from "../EmptyTasksList";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
-import React from "react";
 
 const TasksListWrapper = (): React.ReactElement => {
     const dispatch = useAppDispatch();

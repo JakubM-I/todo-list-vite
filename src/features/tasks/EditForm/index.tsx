@@ -1,13 +1,14 @@
-import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { categorySelector } from "../../categories/categorySlice";
-import PrimaryButton from "../../../common/PrimaryButton";
+import React, { useEffect, useRef, useState } from "react";
+import { categorySelector } from "../../categories/categorySlice.jsx";
+import PrimaryButton from "../../../common/PrimaryButton/index.tsx";
 import InputDate from "../../../common/Inputs/inputDate.tsx";
 import InputSelect from "../../../common/Inputs/inputSelect.tsx";
+import { Category, EditTaskFormProps, Task } from "../../../types/interfaces.ts";
+import { useAppSelector } from "../../../hooks/reduxHooks.tsx";
 
 
-const EditTaskForm = ({ editedTask, onCancel, onSubmit }) => {
-    const [editTaskData, setEditTaskData] = useState(
+const EditTaskForm: React.FC<EditTaskFormProps> = ({ editedTask, onCancel, onSubmit }) => {
+    const [editTaskData, setEditTaskData] = useState<Task>(
         {
             id: editedTask.id,
             taskCategory: editedTask.taskCategory,
@@ -19,14 +20,14 @@ const EditTaskForm = ({ editedTask, onCancel, onSubmit }) => {
             taskVisibility: editedTask.taskVisibility
         }
     );
-    const categories = useSelector(categorySelector);
-    const nameRef = useRef();
+    const categories: Category[] = useAppSelector(categorySelector);
+    const nameRef = useRef<HTMLInputElement>(null!);
 
     useEffect(() => {
         nameRef.current.focus();
     }, []);
 
-    const onFormSubmit = (e) => {
+    const onFormSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
         onSubmit({
             ...editedTask,

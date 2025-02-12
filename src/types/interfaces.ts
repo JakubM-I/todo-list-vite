@@ -28,14 +28,14 @@ export interface PrimaryButtonProps {
 }
 
 export interface InputDateProps {
-    taskData: string;
+    taskData: string | undefined;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface InputSelectProps {
-    taskData: string;
+    taskData: string | undefined;
     onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-    children: React.ReactElement;
+    children: React.ReactNode;
 }
 
 export interface PageSectionProps {
@@ -63,4 +63,10 @@ export interface MenuRoutesUrl {
 
 export interface ToggleTaskPriority {
     (taskPriority: string): React.ReactElement | "";
+}
+
+export interface EditTaskFormProps {
+    editedTask: Task;
+    onCancel: () => void;
+    onSubmit: (task: Task) => void;
 }
