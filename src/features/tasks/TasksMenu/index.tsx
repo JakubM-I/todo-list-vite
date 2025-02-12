@@ -1,13 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
-import { allTaskDone, anyHiddenTask, hideDoneTasks, AnyTaskDone, taskSelector, toggleAllTaskDone, hideDoneTasksState } from "../taskSlice";
+import { allTaskDone, hideDoneTasks, AnyTaskDone, taskSelector, toggleAllTaskDone, hideDoneTasksState } from "../taskSlice";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 
-const TasksMenu = () => {
-    const tasks = useSelector(taskSelector);
-    // const isHiiden = useSelector(anyHiddenTask);
-    const isHiiden = useSelector(hideDoneTasksState);
-    const isAllTaskDone = useSelector(allTaskDone);
-    const isAnyTaskDone = useSelector(AnyTaskDone);
-    const dispatch = useDispatch();
+const TasksMenu = (): React.ReactElement => {
+    const tasks = useAppSelector(taskSelector);
+    const isHiiden = useAppSelector(hideDoneTasksState);
+    const isAllTaskDone = useAppSelector(allTaskDone);
+    const isAnyTaskDone = useAppSelector(AnyTaskDone);
+    const dispatch = useAppDispatch();
 
     return (
         <>
