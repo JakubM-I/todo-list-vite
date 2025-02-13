@@ -1,9 +1,9 @@
-import { useDispatch } from "react-redux";
 import PrimaryButton from "../../../common/PrimaryButton"
 import { openModal } from "../../../common/PopupModal/modalSlice";
+import { useAppDispatch } from "../../../hooks/reduxHooks";
 
-const ButtonMenu = () => {
-    const dispatch = useDispatch();
+const ButtonMenu = (): React.ReactElement => {
+    const dispatch = useAppDispatch();
     const openElement = {
         title: "Nowa kategoria",
         body: "categoryForm",
