@@ -70,3 +70,11 @@ export interface EditTaskFormProps {
     onCancel: () => void;
     onSubmit: (task: Task) => void;
 }
+
+export interface CategoryFormProps {
+    editedCategory: Category;
+}
+
+export interface CategoryHandleEdit {
+    (category: Category): void;
+}

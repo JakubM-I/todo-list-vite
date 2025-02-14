@@ -1,21 +1,22 @@
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 import { addCategory, editCategory } from "../categorySlice";
 import { nanoid } from "@reduxjs/toolkit";
-import { closeModal, closingModal } from "../../../common/PopupModal/modalSlice";
+import { closingModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton";
+import { useAppDispatch } from "../../../hooks/reduxHooks";
+import { CategoryFormProps } from "../../../types/interfaces";
 
-const CategoryForm = ({ editedCategory = null }) => {
-    const dispatch = useDispatch();
+const CategoryForm: React.FC<CategoryFormProps> = ({ editedCategory = null }) => {
+    const dispatch = useAppDispatch();
     const [categoryName, setCategoryName] = useState(editedCategory?.categoryName || "");
     const isEdit = !!editedCategory;
-    const categoryNameRef = useRef();
+    const categoryNameRef = useRef<HTMLInputElement>(null!);
 
     useEffect(() => {
         categoryNameRef.current.focus()
     }, [])
 
-    const categorySubmit = (e) => {
+    const categorySubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
         if (!categoryName.trim()) {
             return;
