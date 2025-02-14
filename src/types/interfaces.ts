@@ -74,3 +74,7 @@ export interface EditTaskFormProps {
 export interface CategoryFormProps {
     editedCategory: Category;
 }
+
+export interface CategoryHandleEdit {
+    (category: Category): void;
+}

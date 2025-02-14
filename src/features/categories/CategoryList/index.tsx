@@ -1,17 +1,15 @@
 import { BiTrash } from "react-icons/bi";
-import { FaRegTrashCan } from "react-icons/fa6";
-import { FaRegEdit } from "react-icons/fa";
-import { BiEdit } from "react-icons/bi";
 import { BiEditAlt } from "react-icons/bi";
-import { useDispatch, useSelector } from "react-redux";
-import { categorySelector, categoryStateSelector, deleteCategory, editCategory } from "../categorySlice";
+import { categorySelector, deleteCategory } from "../categorySlice";
 import { openModal } from "../../../common/PopupModal/modalSlice";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
+import { Category, CategoryHandleEdit } from "../../../types/interfaces";
 
-const CategoryList = () => {
-    const categories = useSelector(categorySelector);
-    const dispatch = useDispatch();
+const CategoryList: React.FC = () => {
+    const categories: Category[] = useAppSelector(categorySelector);
+    const dispatch = useAppDispatch();
 
-    const handleEdit = (category) => {
+    const handleEdit: CategoryHandleEdit = (category) => {
         dispatch(openModal({
             title: "Edytuj kategorię",
             body: "categoryForm",
@@ -22,7 +20,7 @@ const CategoryList = () => {
     return (
         <ul className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-2">
             {categories
-                .filter(category => category.id !== "0")
+                .filter(category => category.categoryId !== "0")
                 .sort((a, b) => a.categoryName.localeCompare(b.categoryName))
                 .map(category => (
                     <li key={category.categoryId} className="border border-borderGray p-2 flex justify-start items-center gap-2">
