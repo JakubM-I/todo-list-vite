@@ -9,6 +9,11 @@ export interface Task {
     taskVisibility: false | true;
 }
 
+export interface ExampleData {
+    tasks: Task[];
+    categories: Category[];
+}
+
 export interface Category {
     categoryId: string;
     categoryName: string;

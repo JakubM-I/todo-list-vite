@@ -1,19 +1,20 @@
 import { call, delay, put, select, takeLatest } from "redux-saga/effects";
-import { configStateSelector, errorFetchExampleData, fetchExampleData, successFetchExampeData, toggleSortType } from "./configurationSlice";
-import { saveConfigurationToLocalStorage } from "../../utils/localStorage";
+import { configStateSelector, errorFetchExampleData, fetchExampleData, successFetchExampeData, toggleSortType } from "./configurationSlice.jsx";
+import { saveConfigurationToLocalStorage } from "../../utils/localStorage.tsx";
 import { fetchExampleDataFile } from "../../utils/fetchExampleTasks.tsx";
-import { loadExampleTasks } from "../tasks/taskSlice";
-import { loadExampleCategories } from "../categories/categorySlice";
+import { loadExampleTasks } from "../tasks/taskSlice.jsx";
+import { loadExampleCategories } from "../categories/categorySlice.jsx";
+import { Configuration, ExampleData } from "../../types/interfaces.ts";
 
 function* saveConfigToLocalStorageWorker() {
-    const configuration = yield select(configStateSelector);
+    const configuration: Configuration = yield select(configStateSelector);
     yield call(saveConfigurationToLocalStorage, configuration)
 };
 
 function* loadExampleDataWorker() {
     try {
         yield delay(1000);
-        const exampleData = yield call(fetchExampleDataFile);
+        const exampleData: ExampleData = yield call(fetchExampleDataFile);
         yield put(loadExampleTasks(exampleData.tasks));
         yield put(loadExampleCategories(exampleData.categories));
 
