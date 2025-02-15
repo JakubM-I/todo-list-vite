@@ -1,7 +1,7 @@
 import PageSection from "../../common/PageSection";
 import ConfigurationPage from "./ConfigurationPage"
 
-const ConfigurationApp = () => {
+const ConfigurationApp: React.FC = () => {
     return (
         <div>
             <PageSection
