@@ -3,15 +3,15 @@ import AddMenu from "./AddMenu";
 import TasksListWrapper from "./TasksListWrapper";
 import TasksMenu from "./TasksMenu";
 
-const TasksApp = () => {
+const TasksApp: React.FC = () => {
 
     return (
-        <PageSection 
+        <PageSection
             title="Lista zadań"
             headerMenu={<AddMenu />}
             menu={<TasksMenu />}
             body={<TasksListWrapper />}
-       />
+        />
     )
 };
 
