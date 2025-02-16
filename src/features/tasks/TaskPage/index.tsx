@@ -7,16 +7,17 @@ import { BiEditAlt } from "react-icons/bi";
 import EditTaskForm from "../EditForm";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
+import { Task } from "../../../types/interfaces";
 
-const TaskPage = () => {
+const TaskPage: React.FC = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const [isEdit, setIsEdit] = useState<boolean>(false);
     const query = searchParams.get("szukaj");
-    const task = useAppSelector(state => searchTaskById(state, id));
+    const task: Task = useAppSelector(state => searchTaskById(state, id));
     const dispatch = useAppDispatch();
-    const isMobile = useAppSelector(uiIsMobile);
+    const isMobile: boolean = useAppSelector(uiIsMobile);
 
     const onClickBack = (): void => {
         navigate(`/${query ? `?szukaj=${query}` : ""}`)
@@ -66,7 +67,7 @@ const TaskPage = () => {
                             <div className="flex gap-2 items-center">
                                 {task.taskDate && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>)}
                                 {task.taskCategory && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>)}
-                                {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px] border border-solid border-borderGray rounded">{toggleTaskPriority(task.taskPriority)}</p>)}
+                                {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px] border border-solid border-borderGray rounded">{toggleTaskPriority(task.taskPriority!)}</p>)}
                             </div>
                         </div>
                     </>
