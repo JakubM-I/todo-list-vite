@@ -1,9 +1,9 @@
-import { useDispatch } from "react-redux";
 import { openModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton";
+import { useAppDispatch } from "../../../hooks/reduxHooks";
 
-const AddMenu = () => {
-    const dispatch = useDispatch();
+const AddMenu: React.FC = () => {
+    const dispatch = useAppDispatch();
     const openElement = {
         title: "Nowe zadanie",
         body: "taskForm",
