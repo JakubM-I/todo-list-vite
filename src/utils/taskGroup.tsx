@@ -5,8 +5,9 @@ import { searchTaskByQuery } from "../features/tasks/taskSlice";
 import { configSortTypeSelector } from "../features/configuration/configurationSlice";
 import { Task } from "../types/interfaces";
 import { useAppSelector } from "../hooks/reduxHooks";
+import { ReturnedGroupedTasks } from "../types/types";
 
-export const groupTask = () => {
+export const groupTask = (): ReturnedGroupedTasks => {
     const [searchParams] = useSearchParams();
     const query = searchParams.get("szukaj")
     const tasks: Task[] = useAppSelector(state => searchTaskByQuery(state, query));

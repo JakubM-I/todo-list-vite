@@ -83,3 +83,17 @@ export interface CategoryFormProps {
 export interface CategoryHandleEdit {
     (category: Category): void;
 }
+
+export interface DataGroup {
+    tasks: Task[];
+    id: string;
+    date: string | undefined;
+    label: string;
+}
+
+export interface CategoryGroup {
+    tasks: Task[];
+    id: string;
+    category: string | undefined;
+    label: string;
+}
