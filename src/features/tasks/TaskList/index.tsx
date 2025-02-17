@@ -12,9 +12,8 @@ const TasksList: React.FC = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
-    const query = searchParams.get("szukaj")
-    const result: ReturnedGroupedTasks = groupTask();
-    const { groups } = result || { groups: [] };
+    const query = searchParams.get("szukaj");
+    const { groups }: ReturnedGroupedTasks = groupTask();
     const sortType: string = useAppSelector(configSortTypeSelector);
     const isHideDoneTasks: boolean = useAppSelector(hideDoneTasksState);
 

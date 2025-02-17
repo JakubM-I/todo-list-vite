@@ -58,6 +58,10 @@ export const groupTask = (): ReturnedGroupedTasks => {
         return {
             groups: groupedCategoryTasks
         }
-    }
+    };
+
+    return {
+        groups: []
+    };
 };
 
