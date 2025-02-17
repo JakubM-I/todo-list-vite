@@ -1,22 +1,24 @@
 import { BiCheck } from "react-icons/bi";
 import { BiTrash } from "react-icons/bi";
-import { useDispatch, useSelector } from "react-redux";
 import { hideDoneTasksState, removeTask, toggleTaskDone } from "../taskSlice";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toggleTaskPriority } from "../../../utils/toggleTaskPriority";
 import { groupTask } from "../../../utils/taskGroup.tsx";
 import { configSortTypeSelector } from "../../configuration/configurationSlice";
+import { ReturnedGroupedTasks } from "../../../types/types.ts";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks.tsx";
 
-const TasksList = () => {
-    const dispatch = useDispatch();
+const TasksList: React.FC = () => {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const query = searchParams.get("szukaj")
-    const { groups } = groupTask();
-    const sortType = useSelector(configSortTypeSelector);
-    const isHideDoneTasks = useSelector(hideDoneTasksState);
+    const result: ReturnedGroupedTasks = groupTask();
+    const { groups } = result || { groups: [] };
+    const sortType: string = useAppSelector(configSortTypeSelector);
+    const isHideDoneTasks: boolean = useAppSelector(hideDoneTasksState);
 
-    const onTaskClick = (taskId) => {
+    const onTaskClick = (taskId: string): void => {
         navigate(`details/${taskId}${query ? `?szukaj=${query}` : ""}`)
     }
 
@@ -53,7 +55,7 @@ const TasksList = () => {
                                             </div>
                                         </div>
                                         <div className="flex justify-start items-center gap-2">
-                                            {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px]">{toggleTaskPriority(task.taskPriority)}</p>)}
+                                            {task.taskPriority === "0" || task.taskPriority === "1" ? "" : (<p className="block text-xs/[1] p-[4px]">{toggleTaskPriority(task.taskPriority!)}</p>)}
                                             {sortType === "date" && task.taskCategory && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskCategory}</p>)}
                                             {sortType === "category" && task.taskDate && (<p className="block text-xs/[1] p-[5px] border border-solid border-borderGray rounded">{task.taskDate}</p>)}
                                             <button
