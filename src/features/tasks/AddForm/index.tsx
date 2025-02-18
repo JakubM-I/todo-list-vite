@@ -1,23 +1,24 @@
-import { useDispatch, useSelector } from "react-redux";
-import { addTask } from "../taskSlice";
+import { addTask } from "../taskSlice.jsx";
 import { useEffect, useRef, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
-import { categorySelector } from "../../categories/categorySlice";
-import { closeModal, closingModal } from "../../../common/PopupModal/modalSlice";
-import PrimaryButton from "../../../common/PrimaryButton";
+import { categorySelector } from "../../categories/categorySlice.jsx";
+import { closingModal } from "../../../common/PopupModal/modalSlice.jsx";
+import PrimaryButton from "../../../common/PrimaryButton/index.tsx";
 import InputDate from "../../../common/Inputs/inputDate.tsx";
 import InputSelect from "../../../common/Inputs/inputSelect.tsx";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks.tsx";
+import { Category } from "../../../types/interfaces.ts";
 
 
-const AddTaskForm = () => {
-    const dispatch = useDispatch();
-    const categories = useSelector(categorySelector);
-    const [taskName, setTaskName] = useState("");
-    const [taskDesc, setTaskDesc] = useState();
-    const [taskPriority, setTaskPriority] = useState("0");
-    const [taskDate, setTaskDate] = useState();
-    const [taskCategory, setTaskCategory] = useState();
-    const taskNameRef = useRef();
+const AddTaskForm: React.FC = () => {
+    const dispatch = useAppDispatch();
+    const categories: Category[] = useAppSelector(categorySelector);
+    const [taskName, setTaskName] = useState<string>("");
+    const [taskDesc, setTaskDesc] = useState<string>();
+    const [taskPriority, setTaskPriority] = useState<string>("0");
+    const [taskDate, setTaskDate] = useState<string>();
+    const [taskCategory, setTaskCategory] = useState<string>();
+    const taskNameRef = useRef<HTMLInputElement>(null!);
 
     const nowDate = new Date();
     const currentDate = [
@@ -34,7 +35,7 @@ const AddTaskForm = () => {
         taskNameRef.current.focus();
     }, []);
 
-    const onFormSubmit = (e) => {
+    const onFormSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if (!taskName.trim()) {
             return;
@@ -50,7 +51,6 @@ const AddTaskForm = () => {
             taskDone: false,
             taskVisibility: true,
         }))
-        // dispatch(closeModal());
         dispatch(closingModal());
     };
 
@@ -97,7 +97,7 @@ const AddTaskForm = () => {
             <div className="flex items-center justify-end">
                 <PrimaryButton
                     title="Dodaj"
-                    onClick={onFormSubmit}
+                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => onFormSubmit(e)}
                 />
             </div>
         </form>
