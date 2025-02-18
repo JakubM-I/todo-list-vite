@@ -28,7 +28,7 @@ export interface Configuration {
 
 export interface PrimaryButtonProps {
     title: string;
-    onClick?: () => void;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     type?: "submit" | "reset" | "button" | undefined;
 }
 
