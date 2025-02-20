@@ -2,7 +2,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi"
 import TasksList from "../TaskList"
 import { closeSearchingTasks, isTaskSearching, taskSelector } from "../taskSlice";
-import EmptyTasksList from "../EmptyTasksList";
+import EmptyList from "../../../common/EmptyList";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 
 const TasksListWrapper = (): React.ReactElement => {
@@ -34,7 +34,7 @@ const TasksListWrapper = (): React.ReactElement => {
                         <TasksList />
                         <Outlet />
                     </>
-                ) : (<EmptyTasksList />)}
+                ) : (<EmptyList body="Dodaj swoje pierwsze zadanie" />)}
             </div>
         </>
     )
