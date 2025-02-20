@@ -1,6 +1,6 @@
 import PageSection from "../../common/PageSection";
 import ButtonMenu from "./ButtonMenu";
-import CategoryList from "./CategoryList"
+import CategoryListWrapper from "./CategoryListWrapper";
 
 const CategoryApp: React.FC = () => {
     return (
@@ -8,7 +8,7 @@ const CategoryApp: React.FC = () => {
             <PageSection
                 title="Kategorie"
                 headerMenu={<ButtonMenu />}
-                body={<CategoryList />}
+                body={<CategoryListWrapper />}
             />
         </div>
     )
