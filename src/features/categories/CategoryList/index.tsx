@@ -19,8 +19,7 @@ const CategoryList: React.FC = () => {
 
     return (
         <ul className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-2">
-            {categories
-                .filter(category => category.categoryId !== "0")
+            {[...categories]
                 .sort((a, b) => a.categoryName.localeCompare(b.categoryName))
                 .map(category => (
                     <li key={category.categoryId} className="border border-borderGray p-2 flex justify-start items-center gap-2">
