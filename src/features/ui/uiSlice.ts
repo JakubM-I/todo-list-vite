@@ -15,7 +15,7 @@ const uiSlice = createSlice({
     name: "ui",
     initialState,
     reducers: {
-        setWindowSize: (state, { payload }: PayloadAction<number>) => {
+        setWindowSize: (state: UiState, { payload }: PayloadAction<number>) => {
             const width = payload;
             state.windowWidth = width;
             state.isMobile = width <= 768;
