@@ -2,7 +2,7 @@ import { addTask } from "../taskSlice.jsx";
 import { useEffect, useRef, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { categorySelector } from "../../categories/categorySlice.jsx";
-import { closingModal } from "../../../common/PopupModal/modalSlice.jsx";
+import { closingModal } from "../../../common/PopupModal/modalSlice";
 import PrimaryButton from "../../../common/PrimaryButton/index.tsx";
 import InputDate from "../../../common/Inputs/inputDate.tsx";
 import InputSelect from "../../../common/Inputs/inputSelect.tsx";
