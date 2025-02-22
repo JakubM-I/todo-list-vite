@@ -11,8 +11,8 @@ const SortTypeSwitcher = (): React.ReactElement => {
     const [selectedSortType, setSelectedSortType] = useState<SortType>(currentSortType);
     const openElement = {
         title: "Powiadomienie",
-        body: "notification",
-        data: "Zmiana sortowania została zapisana"
+        elementType: "notification",
+        success: "Zmiana sortowania została zapisana"
     }
 
     const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {

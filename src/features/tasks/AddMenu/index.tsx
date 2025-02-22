@@ -6,7 +6,7 @@ const AddMenu: React.FC = () => {
     const dispatch = useAppDispatch();
     const openElement = {
         title: "Nowe zadanie",
-        body: "taskForm",
+        elementType: "taskForm",
         success: "Zadanie zostało zapisane"
     }
 

@@ -6,7 +6,7 @@ const ButtonMenu = (): React.ReactElement => {
     const dispatch = useAppDispatch();
     const openElement = {
         title: "Nowa kategoria",
-        body: "categoryForm",
+        elementType: "categoryForm",
         success: "Kategoria została zapisana"
     }
 

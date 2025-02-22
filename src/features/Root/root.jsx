@@ -12,19 +12,19 @@ import Notification from "../configuration/Notification";
 const RootElement = () => {
     useWindowResize()
     const openModal = useSelector(modalOpenSelector);
-    const { title, body, data, success } = useSelector(modalOpenElementSelector)
+    const { title, elementType, data, success } = useSelector(modalOpenElementSelector)
 
-    const toggleBodyElement = (body, data) => {
-        if (body === "taskForm") {
+    const toggleBodyElement = (elementType, data, success) => {
+        if (elementType === "taskForm") {
             return (<AddTaskForm />)
         }
 
-        if (body === "categoryForm") {
+        if (elementType === "categoryForm") {
             return (<CategoryForm editedCategory={data} />)
         }
 
-        if (body === "notification") {
-            return (<Notification body={data} />)
+        if (elementType === "notification") {
+            return (<Notification body={success} />)
         }
     }
 
@@ -39,7 +39,7 @@ const RootElement = () => {
             {openModal ? (
                 <PopupModal
                     title={title}
-                    body={toggleBodyElement(body, data)}
+                    body={toggleBodyElement(elementType, data, success)}
                     success={success}
                 />
             ) : ""}

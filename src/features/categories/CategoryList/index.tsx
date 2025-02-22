@@ -12,7 +12,7 @@ const CategoryList: React.FC = () => {
     const handleEdit: CategoryHandleEdit = (category) => {
         dispatch(openModal({
             title: "Edytuj kategorię",
-            body: "categoryForm",
+            elementType: "categoryForm",
             data: category,
         }))
     }
