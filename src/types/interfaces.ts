@@ -50,6 +50,13 @@ export interface PageSectionProps {
     menu?: React.ReactElement;
 }
 
+export interface OpenElementProps {
+    title: string;
+    elementType: string;
+    data?: Category;
+    success?: string;
+}
+
 export interface PopupModalProps {
     title: string;
     body: React.ReactElement;
