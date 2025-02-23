@@ -23,7 +23,7 @@ export interface Configuration {
     fetchError: true | false;
     lang: string;
     loading: true | false;
-    sortType: string;
+    sortType: "date" | "category";
 }
 
 export interface PrimaryButtonProps {
