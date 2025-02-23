@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { loadConfigurationFromLocalStorage } from "../../utils/localStorage";
 import { RootState } from "../../store";
 import { Configuration } from "../../types/interfaces";
+import { SortType } from "../../types/types";
 
 const savedConfig: Configuration = loadConfigurationFromLocalStorage()
 
@@ -24,7 +25,7 @@ const configurationSlice = createSlice({
     initialState,
 
     reducers: {
-        toggleSortType: (state: ConfigurationState, { payload }: PayloadAction<"date" | "category">) => {
+        toggleSortType: (state: ConfigurationState, { payload }: PayloadAction<SortType>) => {
             state.sortType = payload;
         },
 
