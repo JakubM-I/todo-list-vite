@@ -1,9 +1,9 @@
 import { call, delay, put, select, takeLatest } from "redux-saga/effects";
-import { configStateSelector, errorFetchExampleData, fetchExampleData, successFetchExampeData, toggleSortType } from "./configurationSlice.jsx";
+import { configStateSelector, errorFetchExampleData, fetchExampleData, successFetchExampeData, toggleSortType } from "./configurationSlice.ts";
 import { saveConfigurationToLocalStorage } from "../../utils/localStorage.tsx";
 import { fetchExampleDataFile } from "../../utils/fetchExampleTasks.tsx";
 import { loadExampleTasks } from "../tasks/taskSlice.jsx";
-import { loadExampleCategories } from "../categories/categorySlice.jsx";
+import { loadExampleCategories } from "../categories/categorySlice.ts";
 import { Configuration, ExampleData } from "../../types/interfaces.ts";
 
 function* saveConfigToLocalStorageWorker() {

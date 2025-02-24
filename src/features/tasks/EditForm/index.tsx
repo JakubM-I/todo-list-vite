@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { categorySelector } from "../../categories/categorySlice.jsx";
+import { categorySelector } from "../../categories/categorySlice.ts";
 import PrimaryButton from "../../../common/PrimaryButton/index.tsx";
 import InputDate from "../../../common/Inputs/inputDate.tsx";
 import InputSelect from "../../../common/Inputs/inputSelect.tsx";
